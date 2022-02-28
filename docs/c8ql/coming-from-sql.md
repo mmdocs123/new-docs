@@ -206,9 +206,9 @@ UPDATE users
   ) > 50;
 ```
 
-!!! warn
-    Not directly possible, must set column to default value (e.g. NULL) for rows that do not qualify.
-
+:::warning
+Not directly possible, must set column to default value (e.g. NULL) for rows that do not qualify.
+:::
 C8QL:
 
 ```js
@@ -259,9 +259,9 @@ UPDATE users
   WHERE isImportantUser = 1 AND active = 0;
 ```
 
-!!! warn
-    Not directly possible, must set column to default value (e.g. NULL) for rows that qualify.
-
+:::warning
+Not directly possible, must set column to default value (e.g. NULL) for rows that qualify.
+:::
 C8QL:
 
 ```js
@@ -525,9 +525,9 @@ SELECT gender, GROUP_CONCAT(id) AS userIds
     GROUP BY gender;
 ```
 
-!!! warn
-    Not really applicable – use either a concatenated string column or a special datatype (non-portable).
-
+:::warning
+Not really applicable – use either a concatenated string column or a special datatype (non-portable).
+:::
 C8QL:
 
 ```js
@@ -566,9 +566,9 @@ FOR user IN users
     RETURN MERGE(user, friend)
 ```
 
-!!! warn
-    In C8QL the preferred way is to `return` the document parts from the different collections in individual sub-attributes to avoid attribute name conflicts.
-
+:::warning
+In C8QL the preferred way is to `return` the document parts from the different collections in individual sub-attributes to avoid attribute name conflicts.
+:::
 Example:
 
 ```js

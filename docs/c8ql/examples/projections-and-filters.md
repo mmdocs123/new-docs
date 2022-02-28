@@ -45,8 +45,9 @@ FOR u IN users
 ]
 ```
 
-!!! note
-    There is a `LIMIT` clause but no `SORT` clause. In this case it is not guaranteed which of the user documents are returned. Effectively the document return order is unspecified if no `SORT` clause is used, and you should not rely on the order in such queries.
+:::note
+There is a `LIMIT` clause but no `SORT` clause. In this case it is not guaranteed which of the user documents are returned. Effectively the document return order is unspecified if no `SORT` clause is used, and you should not rely on the order in such queries.
+:::
 
 ## Projections
 

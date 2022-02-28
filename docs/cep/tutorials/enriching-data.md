@@ -34,20 +34,20 @@ a scenario where you receive sales records generated from multiple locations as 
         from TransactionStream as t join UserTable as u on t.userId == u.userId
         ```
 
-        !!! info
+        :::info
             Note the following about the `from` clause:
 
             * In this example, the input data is taken from both a stream and a table. You need to assign a unique reference for each of them to allow the query to differentiate between the common attributes. In this example, `TransactionStream` stream is referred to as `t`, and the `UserTable` table is referred to as `u`.
             * The `join ` keyword joins the stream and the table together while specifying the unique references.
             * The condition for the stream and the table to be joined is `t.userId == u.userId `, which means that for an event to be taken from the `TransactionStream` for the join, one or more events that have the same value for the `userId` must exist in the `UserTable` table and vice versa.
-                
+        :::        
     2. To specify how the value for each attribute in the output stream is derived, add a `select` clause as follows.
 
         ```
         select t.userId, str:concat( u.firstName, " ", u.lastName) as userName, transactionAmount, location
         ```
 
-        !!! info
+        :::info
             Note the following in the `select` statement:
 
             * The `userId` attribute name is common to both the stream and the table. Therefore, you need to specify from where this attribute needs gto be taken. Here, you can also specify `u.userId` instead of `t.userId`.
@@ -55,7 +55,7 @@ a scenario where you receive sales records generated from multiple locations as 
             by concatenating the values of two attributes in the `UserTable` table (i.e., `firstName` and `lastName` attributes)
             by applying the `str:concat()` function. 
             * Similarly, you can apply any of the range of streams functions available to further enrich the joined output.
-             
+        :::     
     3. To infer an output stream into which the enriched data must be directed, add the `insert into` clause as follows.
        `insert into EnrichedTrasanctionStream;`
 
@@ -146,23 +146,23 @@ To understand how this is done, consider a scenario where you receive informatio
             on w.branchID == d.branchID
         ```
 
-        !!! info
+        :::info
             Observe the following about the above `from` clause:
 
             * Both the input streams have attributes of the same name. To identify each name, you must specify a reference
              for each stream. In this example, the reference for the `CashWithdrawalStream` is `w`, and the reference for the `CashDepositsStream` stream is `d`.
             * You need to use `join` as the keyword to join two streams. The join condition is ` w.branchID == d.branchID` 
               where branch IDs are matched. An event in the `CashWithdrawalStream` stream is directed to the `CashFlowStream` if there are events with the same branch ID in the `CashDepositStream` and vice versa.
-              
+        :::      
     2. To specify how the value for each attribute is derived, add a `select` statement as follows.
 
         ```
         select w.branchID as branchID, w.amount as withdrawals, d.amount as deposits
         ```
         
-        !!! info
+        :::info
             The `branchID` attribute name is common to both input streams. Therefore, you can also specify `d.branchID as branchID` instead of `w.branchId as branchId`.
-            
+        :::    
     3. To filter only events where total cash withdrawals are greater than 95% of the cash deposits, add a `having` clause as follows.
 
         ```
@@ -216,12 +216,12 @@ To understand how this is done, consider an example where you have some credit c
 	CREATE STREAM CreditCardStream WITH (type='http-request', publisher.url='https://secure.ftipgw.com/ArgoFire/validate.asmx/GetCardType', method='POST', headers="'Content-Type:application/x-www-form-urlencoded'", sink.id="cardTypeSink", sink.map.type='keyvalue', sink.map.payload = (CardNumber='{{creditCardNo}}')) (creditCardNo string);
     ```
 
-    !!! info
+    :::info
         Note the following about the above sink definition:
         - It is assumed that the external application receives requests in HTTP. Therefore, the sink type is `http-request`.
         - The `publisher.url` parameter specifies the URL to which the outgoing events need to be published via HTTP.
         - For more information about the HTTP transport, see [Plugins - HTTP](../reference/extensions/io/http.md).
-        
+    :::    
 4. To capture the response of the external application once it returns the credit card type, create a stream as follows. For more information about consuming data, see the [Consuming Data guide](./consuming-data.md).
 
     ```

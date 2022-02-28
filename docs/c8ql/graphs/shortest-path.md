@@ -28,9 +28,9 @@ So obviously we will have the vertices **A**, **B**, **C** and **D** on the shor
 |    D   | C → D |
 
 
-!!! note
-    The first edge will always be `null` because there is no edge pointing to the `startVertex`.
-
+:::note
+The first edge will always be `null` because there is no edge pointing to the `startVertex`.
+:::
 
 ## Syntax
 

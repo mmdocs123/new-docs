@@ -143,9 +143,9 @@ Assuming a View with the following documents indexed and processed by the
 
 ### EXISTS()
 
-!!! info
-    `EXISTS()` will only match values when the specified attribute has been processed with the link property **storeValues** set to `"id"` in the View definition (the default is `"none"`).
-
+:::info
+`EXISTS()` will only match values when the specified attribute has been processed with the link property **storeValues** set to `"id"` in the View definition (the default is `"none"`).
+:::
 `EXISTS(path)`
 
 Match documents where the attribute at **path** is present.
@@ -201,9 +201,9 @@ Match documents where the attribute at **path** is greater than (or equal to) **
 
 *low* and *high* can be numbers or strings (technically also `null`, `true` and `false`), but the data type must be the same for both.
 
-!!! warn
-    The alphabetical order of characters is not taken into account by Search, i.e. range queries in SEARCH operations against Views will not follow the language rules as per the defined Analyzer locale.
-
+:::warning
+The alphabetical order of characters is not taken into account by Search, i.e. range queries in SEARCH operations against Views will not follow the language rules as per the defined Analyzer locale.
+:::
 - **path** (attribute path expression): the path of the attribute to test in the document
 - **low** (number\|string): minimum value of the desired range
 - **high** (number\|string): maximum value of the desired range
@@ -316,9 +316,9 @@ FOR doc IN viewName
 
 Match the value of the attribute that starts with **prefix**. If the attribute is processed by a tokenizing Analyzer (type `"text"` or `"delimiter"`) or if it is an array, then a single token/element starting with the prefix is sufficient to match the document.
 
-!!! warn
-    The alphabetical order of characters is not taken into account by Search, i.e. range queries in SEARCH operations against Views will not follow the language rules as per the defined Analyzer locale.
-
+:::warning
+The alphabetical order of characters is not taken into account by Search, i.e. range queries in SEARCH operations against Views will not follow the language rules as per the defined Analyzer locale.
+:::
 - **path** (attribute path expression): the path of the attribute to compare against in the document
 - **prefix** (string): a string to search at the start of the text
 - returns nothing: the function can only be called in a [SEARCH operation](../operations/search) and throws an error otherwise

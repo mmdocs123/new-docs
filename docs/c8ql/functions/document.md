@@ -60,9 +60,9 @@ HAS( { name: "Jane" }, "age" ) // false
 HAS( { name: null }, "name" ) // true
 ```
 
-!!! note
-    The function checks if the specified attribute exists. This is different from similar ways to test for the existance of an attribute, in case the attribute has a falsy value or is not present (implicitly *null* on object access):
-
+:::note
+The function checks if the specified attribute exists. This is different from similar ways to test for the existance of an attribute, in case the attribute has a falsy value or is not present (implicitly *null* on object access):
+:::
 ```js
 !!{ name: "" }.name        // false
 HAS( { name: "" }, "name") // true
@@ -73,9 +73,9 @@ HAS( { name: null }, "name" ) // true
 HAS( { }, "name" )            // false
 ```
 
-!!! note
-    `HAS()` can not utilize indexes. If it's not necessary to distinguish between explicit and implicit *null* values in your query, you may use an equality comparison to test for *null* and create a non-sparse index on the attribute you want to test against:
-
+:::note
+`HAS()` can not utilize indexes. If it's not necessary to distinguish between explicit and implicit *null* values in your query, you may use an equality comparison to test for *null* and create a non-sparse index on the attribute you want to test against:
+:::
 ```js
 FILTER !HAS(doc, "name")    // can not use indexes
 FILTER IS_NULL(doc, "name") // can not use indexes
@@ -151,9 +151,9 @@ An attribute value of `null` will match documents with an explicit attribute val
 
 An empty object `{}` will match all documents. Be careful not to ask for all documents accidentally. 
 
-!!! note
-    `MATCHES()` can not utilize indexes. You may use plain `FILTER` conditions instead to potentially benefit from existing indexes:
-
+:::note
+`MATCHES()` can not utilize indexes. You may use plain `FILTER` conditions instead to potentially benefit from existing indexes:
+:::
     ```js
     FOR doc IN coll
     FILTER (cond1 AND cond2 AND cond3) OR (cond4 AND cond5) ...
@@ -196,8 +196,9 @@ Merge the documents *document1* to *documentN* into a single document. If docume
 - **documents** (object, *repeatable*): an arbitrary number of documents as multiple arguments (at least 2)
 - returns **mergedDocument** (object): a combined document
 
-!!! note
-    Merging will only be done for top-level attributes. If you wish to merge sub-attributes, use [MERGE_RECURSIVE()](#merge_recursive) instead.
+:::note
+Merging will only be done for top-level attributes. If you wish to merge sub-attributes, use [MERGE_RECURSIVE()](#merge_recursive) instead.
+:::
 
 Two documents with distinct attribute names can easily be merged into one:
 
@@ -266,8 +267,9 @@ MERGE_RECURSIVE(
 // { "user-1": { "name": "Jane", "livesIn": { "city": "LA", "state": "CA" }, "age": 42 } }
 ```
 
-!!! note
-    `MERGE_RECURSIVE()` does not support the single array parameter variant that *MERGE* offers.
+:::note
+`MERGE_RECURSIVE()` does not support the single array parameter variant that *MERGE* offers.
+:::
 
 ## PARSE_IDENTIFIER()
 

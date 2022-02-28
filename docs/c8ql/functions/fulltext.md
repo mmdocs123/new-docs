@@ -8,8 +8,9 @@ C8QL offers the following functions to filter data based on [fulltext indexes](.
 
 Return all documents from collection *coll*, for which the attribute *attribute* matches the fulltext search phrase *query*, optionally capped to *limit* results.
 
-!!! note
-    `FULLTEXT()` function requires the collection *coll* to have a fulltext index on *attribute*. If no fulltext index is available, this function will fail with an error at runtime. It doesn't fail when explaining the query however.
+:::note
+`FULLTEXT()` function requires the collection *coll* to have a fulltext index on *attribute*. If no fulltext index is available, this function will fail with an error at runtime. It doesn't fail when explaining the query however.
+:::
 
 - **coll** (collection): a collection
 - **attribute** (string): the attribute name of the attribute to search in
@@ -17,9 +18,9 @@ Return all documents from collection *coll*, for which the attribute *attribute*
 - **limit** (number, *optional*): if set to a non-zero value, it will cap the result to at most this number of documents
 - returns **docArray** (array): an array of documents
 
-!!! note
-    `FULLTEXT()` is not meant to be used as an argument to `FILTER`, but rather to be used as the expression of a `FOR` statement:
-
+:::note
+`FULLTEXT()` is not meant to be used as an argument to `FILTER`, but rather to be used as the expression of a `FOR` statement:
+:::
 ```js
 FOR oneMail IN FULLTEXT(emails, "body", "banana,-apple")
     RETURN oneMail._id
@@ -47,5 +48,6 @@ If multiple search words (or prefixes) are given, then by default the results wi
 
 - `FULLTEXT(emails, "body", "banana,pear,-cranberry")`<br /> Will return all documents that contain both the words *banana* and *pear*, but do not contain the word *cranberry*.
 
-!!! note
-    No precedence of logical operators will be honored in a fulltext query. The query will simply be evaluated from left to right.
+:::note
+No precedence of logical operators will be honored in a fulltext query. The query will simply be evaluated from left to right.
+:::    

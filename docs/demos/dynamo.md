@@ -6,20 +6,22 @@
     * Login to your tenant account on https://gdn.paas.macrometa.io
     * Create an API key via REST API. Make a copy of the key.
 
-    !!! note
+    :::note
         Following api key is created under `demo@macrometa.io/_system` on https://gdn.paas.macrometa.io with `rw` permissions.
         ```
             demo.demok1.1a1aad0f4b000ca4d2d3bdb505298cbb9467b65526b0f79364e61e5f00000000
         ```
+    :::
 
 2. Download & Install AWS Console CLI
     * URL: https://aws.amazon.com/cli/
     * Mac OS: https://awscli.amazonaws.com/AWSCLIV2.pkg
 
-    !!! note
+    :::note
         $ aws --version
 
         aws-cli/2.0.34 Python/3.7.4 Darwin/19.5.0 botocore/2.0.0dev38
+    :::
 
 3. Configure cli using `aws configure` command.
 
@@ -31,9 +33,10 @@
         Default output format [None]: 
     ```
 
-    !!! note
+    :::note
         1. For API Keys, put `apikey` as prefix. See above example.
         2. For JWT Tokens, put `bearer` as prefix.
+    :::
 
 ## Operations
 
@@ -68,9 +71,10 @@
         --tags Key=Local,Value=True
 ```
 
-!!! note
-    Local tables are allowed only if flag `dynamo_local_tables=true` for the `fabric`. 
-    This flag can be set in `_guestDBs` collection for the corresponding geofabric.
+:::note
+Local tables are allowed only if flag `dynamo_local_tables=true` for the `fabric`. 
+This flag can be set in `_guestDBs` collection for the corresponding geofabric.
+:::
 
 ### List global tables
 
@@ -84,8 +88,9 @@
     aws dynamodb list-tables --endpoint-url https://api-gdn.macrometa.io/_api/dynamo
 ```
 
-!!! note
-    `list-tables` will return local tables when `dynamo_local_tables` flag is `True`.
+:::note
+`list-tables` will return local tables when `dynamo_local_tables` flag is `True`.
+:::
 
 ### Put items
 

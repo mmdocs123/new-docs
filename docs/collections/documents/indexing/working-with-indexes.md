@@ -50,7 +50,7 @@ FOR doc IN posts
   RETURN doc
 ```
 
-It is possible to add the [array expansion operator](../../../c8ql/array-operators#array-expansion.md) <i>[\*]</i>, but it is not mandatory. You may use it to indicate that an array index is used, it is purely cosmetic however:
+It is possible to add the [array expansion operator](../../../c8ql/array-operators.md#array-expansion) <i>[\*]</i>, but it is not mandatory. You may use it to indicate that an array index is used, it is purely cosmetic however:
 
 ```js
 FOR doc IN posts
@@ -149,8 +149,9 @@ posts.insert({tags: [null], name: "bob"})
 // Will be indexed for [null, "bob"] 
 ```
 
-!!! note
-    Filtering using array indexes only works from within C8QL queries and only if the query filters on the indexed attribute using the `IN` operator. The other comparison operators (`==`, `!=`, `>`, `>=`, `<`, `<=`, `ANY`, `ALL`, `NONE`) currently cannot use array indexes.
+:::note
+Filtering using array indexes only works from within C8QL queries and only if the query filters on the indexed attribute using the `IN` operator. The other comparison operators (`==`, `!=`, `>`, `>=`, `<`, `<=`, `ANY`, `ALL`, `NONE`) currently cannot use array indexes.
+:::
 
 ## Persistent Indexes
 
@@ -318,8 +319,9 @@ Valid example date string values are:
 
 Using an invalid date string value in a document's TTL index attribute will prevent the document from being inserted into the TTL index, so it will neither be expired nor removed automatically. No error is raised however.
 
-!!! note
-    Date string values can be programmatically validated using the AQL function `IS_DATESTRING`.
+:::note
+Date string values can be programmatically validated using the AQL function `IS_DATESTRING`.
+:::
 
 ### Preventing documents from being removed
 
@@ -343,8 +345,9 @@ In order to avoid "random" load spikes by the background thread suddenly kicking
 
 The total maximum number of documents to be removed per thread invocation is controlled by the startup option `--ttl.max-total-removes`. The maximum number of documents in a single collection at once can be controlled by the startup option `--ttl.max-collection-removes`.
 
-!!! note
-    There are limited number of background threads for performing the removal of expired documents of all collections in all databases. If the number of databases and collections with TTL indexes is high and there are many documents to remove from these, the background thread may at least temporarily lag behind with its removal operations. It should eventually catch up in case the number of to-be-removed documents per invocation is not higher than the background thread's configured threshold values.
+:::note
+There are limited number of background threads for performing the removal of expired documents of all collections in all databases. If the number of databases and collections with TTL indexes is high and there are many documents to remove from these, the background thread may at least temporarily lag behind with its removal operations. It should eventually catch up in case the number of to-be-removed documents per invocation is not higher than the background thread's configured threshold values.
+:::
 
 ### Accessing TTL Indexes
 
@@ -372,9 +375,9 @@ For example, given a fulltext index on the `translations` attribute and the foll
 { translations: [ "C8DB", "document", "database", "Fox" ] }
 ```
 
-!!! note
-    Deeper nested objects are ignored. For example, a fulltext index on *translations* would index *Fuchs*, but not *fox*, given the following document structure:
-
+:::note
+Deeper nested objects are ignored. For example, a fulltext index on *translations* would index *Fuchs*, but not *fox*, given the following document structure:
+:::
 ```js
 { translations: { en: { US: "fox" }, de: "Fuchs" }
 ```
@@ -393,8 +396,9 @@ Creates a fulltext index on all documents on attribute *field*.
 
 Fulltext indexes are implicitly sparse: all documents which do not have the specified *field* attribute or that have a non-qualifying value in their *field* attribute will be ignored for indexing.
 
-!!! note
-    Only a single attribute can be indexed. Specifying multiple attributes is unsupported.
+:::note
+Only a single attribute can be indexed. Specifying multiple attributes is unsupported.
+:::
 
 The minimum length of words that are indexed can be specified via the *minLength* parameter. Words shorter than minLength characters will not be indexed. *minLength* has a default value of 2. It is thus recommended to explicitly specify this value.
 
@@ -900,9 +904,9 @@ collection.ensureIndex({ type: "fulltext", fields: [ "text" ], minLength: 4, inB
 
 Indexes that are still in the build process will not be visible via the GDN APIs. Nevertheless it is not possible to create the same index twice via the *ensureIndex* API while an index is still begin created. AQL queries also will not use these indexes until the index reports back as fully created. Note that the initial *ensureIndex* call or HTTP request will still block until the index is completely ready. Existing single-threaded client programs can thus safely set the *inBackground* option to *true* and continue to work as before.
 
-!!! info
-    Should you be building an index in the background you cannot rename or drop the collection. These operations will block until the index creation is finished. This is equally the case with foreground indexing.
-
+:::info
+Should you be building an index in the background you cannot rename or drop the collection. These operations will block until the index creation is finished. This is equally the case with foreground indexing.
+:::
 **Performance:**
 
 Background index creation might be slower than the "foreground" index creation and require more RAM. Under a write heavy load (specifically many remove, update or replace operations), the background index creation needs to keep a list of removed documents in RAM. This might become unsustainable if this list grows to tens of millions of entries.

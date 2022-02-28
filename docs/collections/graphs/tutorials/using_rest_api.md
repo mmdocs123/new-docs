@@ -1,11 +1,15 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Using REST APIs
 
 Today’s applications are required to be highly responsive and always online. They need to be deployed in datacenters closer to their users and can access data instantly across the globe. 
 
 Macrometa global data network (GDN) is a fully managed realtime materialzed view engine that provides access to data instantly to Apps & APIs in a simple & single interface. 
 
-!!! note
-    If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../../essentials/overview.md)** of Macrometa GDN.
+:::note
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../../essentials/overview.md)** of Macrometa GDN.
+:::
 
 ## Pre-Requiste
 
@@ -52,9 +56,9 @@ An **edge collection** contains edge documents and shares its namespace with all
 
 To create `edge collection` use same endpoint `/_fabric/{fabric_name}/_api/collection` and pass `type:3` in payload.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     import requests
     import json
 
@@ -244,11 +248,10 @@ To create `edge collection` use same endpoint `/_fabric/{fabric_name}/_api/colle
     resp = session.delete(url,params=params)
     result = json.loads(resp.text)
     print("Graph and Collections Deleted: ", result)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -298,4 +301,5 @@ To create `edge collection` use same endpoint `/_fabric/{fabric_name}/_api/colle
       }
     }
     TBD
-    ```
+  </TabItem>
+</Tabs>  

@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Quick Start with Graphs
 
 ## Overview
@@ -58,8 +61,9 @@ Edges have a direction, with their relations `_from` and `_to` pointing from one
 * INBOUND: `_from` ← `_to`
 * ANY: `_from` ↔ `_to`.
 
-!!! note
-    If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+:::note
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+:::
 
 ## Pre-requisite
 
@@ -70,9 +74,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -90,11 +93,8 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -113,15 +113,16 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Connect to GDN
 
 The first step in using GDN is to establish a connection to a local region. When this code executes, it initializes the server connection to the region URL you sepcified.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     print("--- Connecting to C8")
     # Simple Way
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -130,11 +131,10 @@ The first step in using GDN is to establish a connection to a local region. When
 
     # To use advanced options
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
 
     // Simple Way
@@ -145,26 +145,26 @@ The first step in using GDN is to establish a connection to a local region. When
 
     // To use advanced options
     const client = new jsc8("https://gdn.paas.macrometa.io"); 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get GeoFabric Details
 
 To get details of fabric,
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password="xxxxxx",
                             geofabric='_system')
     print("Get geo fabric details...")
     print(client.get_fabric_details())
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -189,7 +189,8 @@ To get details of fabric,
     }
 
     getFabric();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Create Collection
 
@@ -197,19 +198,17 @@ We can now create collection in the fabric. To do this, first you connect to fab
 
 The below example shows the steps.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password="xxxxxx",
                             geofabric='_system')
     client.create_collection(name='employees')
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -238,7 +237,8 @@ The below example shows the steps.
     }
 
     createColl();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Create Edge Collection
 
@@ -248,9 +248,9 @@ An **edge collection** contains edge documents and shares its namespace with all
 * Edge documents are checked against the edge definitions on insert.
 
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     # Simple Approach
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password="xxxxxx",
@@ -261,12 +261,9 @@ An **edge collection** contains edge documents and shares its namespace with all
     else:
       print("Create: ", client.create_graph(graph_name='school'))
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -293,7 +290,8 @@ An **edge collection** contains edge documents and shares its namespace with all
 
     createEdgeColl();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 You can manage edges via graph API wrappers also, but you must use document IDs instead of keys where applicable.
 
@@ -302,9 +300,8 @@ You can manage edges via graph API wrappers also, but you must use document IDs 
 Let's insert documents to the employees collection as shown below.
 
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password="xxxxxx",
@@ -318,11 +315,10 @@ Let's insert documents to the employees collection as shown below.
     ]
 
     client.insert_document(collection_name='employees', document=docs)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -347,15 +343,16 @@ Let's insert documents to the employees collection as shown below.
     }
 
     insertDoc();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Create Graph
 
 A graph consists of vertices and edges. Vertices are stored as documents in vertex collections and edges stored as documents in edge collections. The collections used in a graph and their relations are specified with edge definitions.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     # Initialize the C8 Data Fabric client.
@@ -379,11 +376,9 @@ A graph consists of vertices and edges. Vertices are stored as documents in vert
     else:
         school = fabric.create_graph('school')
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -408,15 +403,16 @@ A graph consists of vertices and edges. Vertices are stored as documents in vert
 
     createGraph();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Graph Traversals
 
 A graph consists of `vertices` and `edges`. Vertices are stored as documents in vertex collections and edges stored as documents in edge collections. The collections used in a graph and their relations are specified with edge definitions.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import pprint
 
@@ -609,12 +605,10 @@ A graph consists of `vertices` and `edges`. Vertices are stored as documents in 
     #callsCol.truncate()
     #peopleCol.truncate()
     fabric.delete_graph(name=collection_graph, drop_collections=False)
-    ```
 
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require('jsc8');
 
     // Variables - DB
@@ -831,54 +825,54 @@ A graph consists of `vertices` and `edges`. Vertices are stored as documents in 
       await deleteData();
     })();
 
-
-    ```
+  </TabItem>
+</Tabs>  
 
 #### Outbound Traversal
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     # Step4: Read Data
     print("4a. GRAPH_TRAVERSAL: Find outbound calls TO: {}".format(person))
     cursor = fabric.c8ql.execute(graph_traversal1)
     docs = [document for document in cursor]
     pp.pprint(docs)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     console.log(`5a. GRAPH_TRAVERSAL: Find outbound calls TO: ${person}`);
     let result = await client.executeQuery(graph_traversal1);
     console.log(result);
-    ```
+
+  </TabItem>
+</Tabs>  
 
 #### Inbound Traversal
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     print("4b. GRAPH_TRAVERSAL: Find inbound calls FROM: {}".format(person))
     cursor = fabric.c8ql.execute(graph_traversal2)
     docs = [document for document in cursor]
     pp.pprint(docs)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     console.log(`5b. GRAPH_TRAVERSAL: Find inbound calls FROM: ${person}`);
     result = await client.executeQuery(graph_traversal2);
     console.log(result);
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Delete Graph
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     # Initialize the C8 Data Fabric client.
@@ -892,11 +886,10 @@ A graph consists of `vertices` and `edges`. Vertices are stored as documents in 
 
     # This returns an API wrapper for "school" graph and deletes the graph
     fabric.graph('school').delete()
-    ```
+    
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -914,4 +907,5 @@ A graph consists of `vertices` and `edges`. Vertices are stored as documents in 
     }
 
     DeleteGraph();
-    ```
+  </TabItem>
+</Tabs>  

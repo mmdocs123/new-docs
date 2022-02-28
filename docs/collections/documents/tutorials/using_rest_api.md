@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Using REST APIs
 
 Modern applications need to be highly responsive, always online, and able to access data instantly across the globe. At the same time, they need to be deployed on datacenters close to their users. Macrometa global data network (GDN) is a real-time materialized view engine that provides instant data to applications and APIs in a simple interface.
@@ -43,9 +46,9 @@ For example:
 
 ### Tutorial
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     import requests
     import json
 
@@ -175,11 +178,10 @@ For example:
     ]
     resp = session.delete(url, data = json.dumps(payload))
     print("\nDeleted Documents: ", resp.text)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -319,7 +321,8 @@ For example:
 
     run();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Query using C8QL
 
@@ -327,9 +330,9 @@ You can use C8QL to run CRUD Operations.
 
 ### Tutorial
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     #Using C8QL
 
     FEDERATION = "api.gdn.paas.macrometa.io"
@@ -382,7 +385,8 @@ You can use C8QL to run CRUD Operations.
     resp = session.post(url, json={
         "query": "FOR c IN testcollection REMOVE c IN testcollection"
     })
-    ```
+  </TabItem>
+</Tabs>
 
 ## Publish-Subscribe with Streams
 
@@ -398,9 +402,8 @@ Streams provide:
 
 ### Tutorial
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     import requests
     import json
@@ -499,11 +502,9 @@ Streams provide:
     resp = session.post(url, data = json.dumps(payload))
     print("Subsrcription deleted: ", resp.text)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -695,7 +696,8 @@ Streams provide:
 
     run();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Query as API (RestQL)
 
@@ -705,9 +707,8 @@ Macrometa GDN provides turnkey global distribution and transparent multi-master 
 
 ### Tutorial
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     # Using RESTQL
     import requests
@@ -870,11 +871,10 @@ Macrometa GDN provides turnkey global distribution and transparent multi-master 
     url = FED_URL + "/_api/restql/delete"
     resp = session.delete(url)
     print("Delete query deleted: ", resp.text)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -1059,7 +1059,8 @@ Macrometa GDN provides turnkey global distribution and transparent multi-master 
 
     run();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Working with Graphs
 
@@ -1106,9 +1107,9 @@ While simple graph queries with a fixed number of hops via the relation table ma
 
 To create `edge collection` use same endpoint `/_fabric/{fabric_name}/_api/collection` and pass `type:3` in payload.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     import requests
     import json
 
@@ -1301,11 +1302,10 @@ To create `edge collection` use same endpoint `/_fabric/{fabric_name}/_api/colle
     resp = session.delete(url,params=params)
     result = json.loads(resp.text)
     print("Graph and collections deleted: ", result)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -1355,7 +1355,8 @@ To create `edge collection` use same endpoint `/_fabric/{fabric_name}/_api/colle
       }
     }
     TBD
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Stream Processing
 
@@ -1369,9 +1370,9 @@ Macrometa Stream processing enables you to integrate streaming data into your te
 
 * Integrate: Make processed data globally available for consumers in the correct format with low latency.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     import requests
     import json
     from websocket import create_connection
@@ -1522,11 +1523,9 @@ Macrometa Stream processing enables you to integrate streaming data into your te
     result = json.loads(resp.text)
     print("\nStream application deleted: ", result)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "JavaScript"
-
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -1732,4 +1731,5 @@ Macrometa Stream processing enables you to integrate streaming data into your te
     };
 
     run();
-    ```
+  </TabItem>
+</Tabs>  

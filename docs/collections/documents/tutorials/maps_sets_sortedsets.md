@@ -71,8 +71,9 @@ You **remove** a `map`, usng following C8QL statement:
     REMOVE "Ned Stark" IN users
 ```
 
-!!! note
-    Please see [C8QL Tutorial](../../c8ql/c8ql-tutorial.md) and [C8QL Examples](../../c8ql/examples.md) for more examples on how you can use C8QL.
+:::note
+Please see [C8QL Tutorial](../../c8ql/c8ql-tutorial.md) and [C8QL Examples](../../c8ql/examples.md) for more examples on how you can use C8QL.
+:::
 
 ## Sets
 
@@ -86,8 +87,9 @@ For example, following C8QL statement creates a `set` of user names.
     INSERT { "_key": "Clark Kent"} INTO users
 ```
 
-!!! note
-    In above example, we used `_key` attribute for saving the user name. Using the `_key` attribute is normally beneficial because it is the collection’s primary key. It is always present and automatically unique, so exactly what we need for maintaining a set. Note that there are some restrictions for what can be stored inside the `_key` attribute, but as long as values are only ASCII letters or digits, there is nothing to worry about. Inserting into the collection will also automatically populate the indexes.
+:::note
+In above example, we used `_key` attribute for saving the user name. Using the `_key` attribute is normally beneficial because it is the collection’s primary key. It is always present and automatically unique, so exactly what we need for maintaining a set. Note that there are some restrictions for what can be stored inside the `_key` attribute, but as long as values are only ASCII letters or digits, there is nothing to worry about. Inserting into the collection will also automatically populate the indexes.
+:::
 
 You can **remove** a entry in the set using following C8QL statement:
 
@@ -132,8 +134,9 @@ INSERT { _key: "jane", score: 75 } IN highscores
 INSERT { _key: "robin", score: 60 } IN highscores
 ```
 
-!!! note
-    In above example, we used `_key` attribute for saving the user name. Using the `_key` attribute is normally beneficial because it is the collection’s primary key. It is always present and automatically unique, so exactly what we need for maintaining a set. Note that there are some restrictions for what can be stored inside the `_key` attribute, but as long as values are only ASCII letters or digits, there is nothing to worry about. Inserting into the collection will also automatically populate the indexes.
+:::note
+In above example, we used `_key` attribute for saving the user name. Using the `_key` attribute is normally beneficial because it is the collection’s primary key. It is always present and automatically unique, so exactly what we need for maintaining a set. Note that there are some restrictions for what can be stored inside the `_key` attribute, but as long as values are only ASCII letters or digits, there is nothing to worry about. Inserting into the collection will also automatically populate the indexes.
+:::
 
 As we have some initial documents, we can now query the `lowest` and `highest` scores. This will also be efficient as the queries will use the `sorted index` on score:
 
@@ -242,8 +245,9 @@ Removing all scores for a specific game is also efficient due to the the same in
     REMOVE h IN highscores
 ```
 
-!!! note
-    When storing all highscores in the same collection, we could also run cross-game queries if we wanted to. All that needs to be done for this is adjusting the `FILTER` conditions in the queries.
+:::note
+When storing all highscores in the same collection, we could also run cross-game queries if we wanted to. All that needs to be done for this is adjusting the `FILTER` conditions in the queries.
+:::
 
 Inserting or updating a user score can be achieved using an `UPSERT`. Here’s a query to increase the score of user "1571" in `game 2` by a value of `5`:
 
@@ -346,5 +350,6 @@ This index allows to efficiently get rid of the oldest entries per game:
     REMOVE h IN highscores
 ```
 
-!!! note
-    REMOVE was limited to the oldest 1000 entries. This was done to make the query return fast. The removal query can be repeated while there are still entries to remove.
+:::note
+REMOVE was limited to the oldest 1000 entries. This was done to make the query return fast. The removal query can be repeated while there are still entries to remove.
+:::    

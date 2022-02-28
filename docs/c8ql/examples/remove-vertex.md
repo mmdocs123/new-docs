@@ -32,8 +32,9 @@ LET edgeKeys = (FOR v, e IN 1..1 ANY 'persons/eve' GRAPH 'knows_graph'
 REMOVE 'eve' IN persons
 ```
 
-!!! note
-    The query has to be adjusted to match a graph with multiple vertex/edge collections.
+:::note
+The query has to be adjusted to match a graph with multiple vertex/edge collections.
+:::
 
 For example, the [city graph](/img/cities_graph.png) contains several vertex collections - `germanCity` and `frenchCity` and several edge collections -  `french / german / international Highway`.
 

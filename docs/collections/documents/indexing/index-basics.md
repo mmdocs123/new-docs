@@ -54,9 +54,9 @@ collection.inEdges("<to-value>");
 
 The edge index is a hash index that stores the union of all `_from` and `_to` attributes. It can be used for equality lookups, but not for range queries or for sorting. Edge indexes are automatically created for edge collections. It is not possible to create user-defined edge indexes. However, it is possible to freely use the `_from` and `_to` attributes in user-defined indexes.
 
-!!! note
-	You cannot remove or change an edge index.
-
+:::note
+You cannot remove or change an edge index.
+:::
 ## Persistent Index
 
 Persistent index entries are written to disk when documents are stored or updated, so the entries do not need to be rebuilt when the server is restarted or the indexed collection is loaded. Persistent indexes can reduce collection loading times. You can only use persistent indexes in addition to another primary index.
@@ -71,8 +71,9 @@ Persistent indexes are sorted and can be used for point lookups, range queries, 
 
 ## Hash Index
 
-!!! note
-	Hash indexes are deprecated and replaced by persistent indexes. You can still use these indexes in the API, but not the Web GUI.
+:::note
+Hash indexes are deprecated and replaced by persistent indexes. You can still use these indexes in the API, but not the Web GUI.
+:::
 
 A hash index can be used to quickly find documents with specific attribute values. The hash index is unsorted, so it supports equality lookups but no range queries or sorting.
 
@@ -106,8 +107,9 @@ Hash indexes support [indexing array values](#indexing-array-values) if the inde
 
 ## Skiplist Index
 
-!!! note
-	Skiplist indexes are deprecated and replaced by persistent indexes. You can still use these indexes in the API, but not the Web GUI.
+:::note
+Skiplist indexes are deprecated and replaced by persistent indexes. You can still use these indexes in the API, but not the Web GUI.
+:::
 
 A skiplist is a sorted index structure. It can be used to quickly find documents with specific attribute values, for range queries and for returning documents from the index in sorted order. Skiplists will be used from within C8QL and several query functions, e.g. `byExample`, `firstExample` etc.
 
@@ -145,8 +147,9 @@ The following sort clauses cannot make use of the index order and require an ext
 - `SORT value2` (and its equivalent `SORT value2 ASC`)
 - `SORT value2 DESC` (because first indexed attribute `value1` is not used in sort clause)
 
-!!! note
-    The last two sort clauses cannot use the index because they do not refer to a leftmost prefix of the index attributes.
+:::note
+The last two sort clauses cannot use the index because they do not refer to a leftmost prefix of the index attributes.
+:::
 
 Skiplists can optionally be declared unique, disallowing the same value from being saved in the indexed attribute.
 
@@ -181,8 +184,9 @@ This document will be indexed with a creation date time value of `1550165973`, w
 
 There is no guarantee when exactly the removal of expired documents will be carried out, so queries may still find and return documents that have already expired. These will eventually be removed when the background thread kicks in and has capacity to remove the expired documents. Only documents that are past their expiration time will actually be removed.
   
-!!! note 
-    You can specify the numeric date time values for the index attribute in milliseconds since January 1st 1970 (Unix timestamp). We round this value down to the nearest second. To calculate the current timestamp from JavaScript in this format, there is `Date.now() / 1000`. To calculate it from an arbitrary Date instance, there is `Date.getTime() / 1000`.
+:::note 
+You can specify the numeric date time values for the index attribute in milliseconds since January 1st 1970 (Unix timestamp). We round this value down to the nearest second. To calculate the current timestamp from JavaScript in this format, there is `Date.now() / 1000`. To calculate it from an arbitrary Date instance, there is `Date.getTime() / 1000`.
+:::
 
 Alternatively, the index attribute values can be specified as a date string in format `YYYY-MM-DDTHH:MM:SS`. All date strings will be interpreted as UTC dates.
     

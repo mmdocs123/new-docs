@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Realtime Updates
 
 This tutorial is about using Macrometa GDN as a realtime database with local latencies across the globe.
@@ -11,9 +14,9 @@ Let's assume your
 
 ## Driver download
 
-=== "Python Client"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python Client">
 
-    ``` py
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
     To install pyC8, simply run
@@ -30,11 +33,9 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript Client"
-
-    ``` js
     With Yarn or NPM
 
         yarn add jsc8
@@ -52,13 +53,14 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import threading
     import pprint
@@ -126,11 +128,10 @@ Let's assume your
       print("\n6. DELETE_DATA: region: {}, collection: {}".format(global_url, collection_name))
       collection.truncate()
       #fabric.delete_collection(collection_name)
-    ```
+    
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     'use strict'
 
     const jsc8 = require('jsc8');
@@ -199,4 +200,6 @@ Let's assume your
       await insertData();
       await deleteData();
     })();
-    ```
+
+  </TabItem>
+</Tabs>

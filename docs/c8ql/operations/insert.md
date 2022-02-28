@@ -13,8 +13,9 @@ The syntax for an insert operation is:
 INSERT document INTO collection [ OPTIONS options ]
 ```
 
-!!! note
-    The `IN` keyword is allowed in place of `INTO` and has the same meaning.
+:::note
+The `IN` keyword is allowed in place of `INTO` and has the same meaning.
+:::
 
 *collection* must contain the name of the collection into which the documents should be inserted. *document* is the document to be inserted, and it may or may not contain a *_key* attribute. If no *_key* attribute is provided, GDN will auto-generate a value for *_key* value. Inserting a document will also auto-generate a document revision number for the document.
 

@@ -10,20 +10,22 @@ Some of the following example queries are executed on a collection 'users' with 
 
 ## Things to consider
 
-!!! note
-    All documents created in any collections will automatically get the following server-generated attributes:
-
+:::note
+All documents created in any collections will automatically get the following server-generated attributes:
+:::
 - `_id`: A unique id, consisting of collection name and a server-side sequence value
 - `_key`: The server sequence value
 - `_rev`: The document's revision id
 
+
+
 Whenever you run queries on the documents in collections, don't be surprised if these additional attributes are returned as well.
 
-!!! note
-
-    * With real-world data, you might want to create additional indexes on the data (left out here for brevity). Adding indexes on attributes that are used in `FILTER` statements may considerably speed up queries.
-    * Also, instead of using attributes such as `id`, `from` and *to*, you might want to use the built-in `_id`, `_from` and `_to` attributes.
-    * Finally, `edge collections` provides a nice way of establishing references / links between documents. These features have been left out here for brevity as well.
+:::note
+* With real-world data, you might want to create additional indexes on the data (left out here for brevity). Adding indexes on attributes that are used in `FILTER` statements may considerably speed up queries.
+* Also, instead of using attributes such as `id`, `from` and *to*, you might want to use the built-in `_id`, `_from` and `_to` attributes.
+* Finally, `edge collections` provides a nice way of establishing references / links between documents. These features have been left out here for brevity as well.
+:::
 
 ## Example data
 
@@ -1574,8 +1576,9 @@ FOR u IN users
 ]
 ```
 
-!!! note
-    There is a `LIMIT` clause but no `SORT` clause. In this case it is not guaranteed which of the user documents are returned. Effectively the document return order is unspecified if no `SORT` clause is used, and you should not rely on the order in such queries.
+:::note
+There is a `LIMIT` clause but no `SORT` clause. In this case it is not guaranteed which of the user documents are returned. Effectively the document return order is unspecified if no `SORT` clause is used, and you should not rely on the order in such queries.
+:::
 
 ### Projections
 
@@ -1799,9 +1802,9 @@ This will return:
 ]
 ```
 
-!!! note
-    Attribute name expressions and regular, unquoted attribute names can be mixed.
-
+:::note
+Attribute name expressions and regular, unquoted attribute names can be mixed.
+:::
 ### Subquery solution
 
 A generalized solution is to let a subquery or another function produce the dynamic attribute names, and finally pass them through the `ZIP()` function to create an object from them.
@@ -1861,8 +1864,9 @@ FOR doc IN documents
   RETURN ZIP(attributes[*].name, attributes[*].value)
 ```
 
-!!! note
-    We have to use the expansion operator (`[*]`) on `attributes` because `attributes` itself is an array, and we want either the `name` attribute or the `value` attribute of each of its members.
+:::note
+We have to use the expansion operator (`[*]`) on `attributes` because `attributes` itself is an array, and we want either the `name` attribute or the `value` attribute of each of its members.
+:::
 
 To prove this is working, here is the above query's result:
 
@@ -1998,5 +2002,6 @@ The following query returns all parts with length 2, start vertex **A** and targ
 
 A traversal depth of `3..3` would return `A -> E -> F -> C` and `2..3` all three paths.
 
-!!! note
-    Two separate queries are required to compute the shortest path length and to do the pattern matching based on the shortest path length (minus 1), because min and max depth can't be expressions (they have to be known in advance, so either be number literals or bind parameters.
+:::note
+Two separate queries are required to compute the shortest path length and to do the pattern matching based on the shortest path length (minus 1), because min and max depth can't be expressions (they have to be known in advance, so either be number literals or bind parameters.
+:::    

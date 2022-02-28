@@ -41,7 +41,7 @@ DATE_HOUR( 2 * 60 * 60 * 1000 ) // 2
 DATE_HOUR("1970-01-01T02:00:00") // 2
 ```
 
-You are free to store age determinations of specimens, incomplete or fuzzy dates and the like in different, more appropriate ways of course. C8QL's date functions will most certainly not be of any help for such dates, but you can still use language constructs like [SORT](../operations/sort.html) (which also supports sorting of arrays) and [indexes](../../../indexing/overview.md) like skiplists.
+You are free to store age determinations of specimens, incomplete or fuzzy dates and the like in different, more appropriate ways of course. C8QL's date functions will most certainly not be of any help for such dates, but you can still use language constructs like [SORT](../operations/sort.html) (which also supports sorting of arrays) and [indexes](../../collections/documents/indexing/overview.md) like skiplists.
 
 ## Current date and time
 
@@ -53,8 +53,9 @@ Get the current unix time as numeric timestamp.
 
 - returns **timestamp** (number): the current unix time as a timestamp. The return value has millisecond precision. To convert the return value to seconds, divide it by 1000.
 
-!!! note
-    This function is evaluated on every invocation and may return different values when invoked multiple times in the same query. Assign it to a variable to use the exact same timestamp multiple times.
+:::note
+This function is evaluated on every invocation and may return different values when invoked multiple times in the same query. Assign it to a variable to use the exact same timestamp multiple times.
+:::
 
 ### Conversion
 
@@ -417,8 +418,9 @@ Format a date according to the given format string.
 
 Single `%` characters will be ignored. Use `%%` for a literal `%`. To resolve ambiguities like in `%mmonth` (unpadded month number + the string "month") between `%mm` + "onth" and `%m` + "month", use the escape sequence `%&`: `%m%&month`.
 
-!!! note 
-    *DATE_FORMAT()* is a rather costly operation and may not be suitable for large datasets (like over 1 million dates). If possible, avoid formatting dates on server-side and leave it up to the client to do so. This function should only be used for special date comparisons or to store the formatted dates in the database. For better performance, use the primitive `DATE_*()` functions together with `CONCAT()` if possible.
+:::note 
+*DATE_FORMAT()* is a rather costly operation and may not be suitable for large datasets (like over 1 million dates). If possible, avoid formatting dates on server-side and leave it up to the client to do so. This function should only be used for special date comparisons or to store the formatted dates in the database. For better performance, use the primitive `DATE_*()` functions together with `CONCAT()` if possible.
+:::
 
 Examples:
 

@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Spot Collections
 
 There are some use cases that call for strong consistency across all regions. For example, a financial application might need to show users' account balances. When users make a deposit, they want to see the result of this deposit reflected immediately when they view their balance (otherwise they may fear their money has been lost!). There should never appear to be more or less money in aggregate in the bank than there really is. 
@@ -13,9 +16,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -33,11 +35,8 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -56,13 +55,14 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import pprint
 
@@ -131,11 +131,9 @@ Let's assume your
       collection.truncate()
       #fabric.delete_collection(collection_name)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     'use strict'
 
     const jsc8 = require('jsc8');
@@ -227,4 +225,5 @@ Let's assume your
       await readDataFromAllRegions();
       await deleteData();
     })();
-    ```
+  </TabItem>
+</Tabs>  

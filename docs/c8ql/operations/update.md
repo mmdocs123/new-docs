@@ -162,8 +162,9 @@ FOR u IN users
 
 Attributes in *name* that are present in the to-be-updated document but not in the query will now be preserved. Attributes that are present in both will be overwritten with the values specified in the query.
 
-!!! note
-    The default value for *mergeObjects* is *true*, so there is no need to specify it explicitly.
+:::note
+The default value for *mergeObjects* is *true*, so there is no need to specify it explicitly.
+:::
 
 To make sure data are durable when an update query returns, there is the *waitForSync* query option:
 

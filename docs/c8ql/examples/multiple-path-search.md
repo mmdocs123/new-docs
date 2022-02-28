@@ -32,5 +32,6 @@ The following query returns all parts with length 2, start vertex **A** and targ
 
 A traversal depth of `3..3` would return `A -> E -> F -> C` and `2..3` all three paths.
 
-!!! note
-    Two separate queries are required to compute the shortest path length and to do the pattern matching based on the shortest path length (minus 1), because min and max depth can't be expressions (they have to be known in advance, so either be number literals or bind parameters.
+:::note
+Two separate queries are required to compute the shortest path length and to do the pattern matching based on the shortest path length (minus 1), because min and max depth can't be expressions (they have to be known in advance, so either be number literals or bind parameters.
+:::

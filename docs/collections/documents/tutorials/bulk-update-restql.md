@@ -1,9 +1,13 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Bulk Update Document with RestQL
 
 This tutorial is about using RestQL to bulk update `document` Collection data. 
 
-!!! note
-    If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../essentials/overview.md)** of Macrometa GDN.
+:::note
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../essentials/overview.md)** of Macrometa GDN.
+:::
 
 ## Pre-requisite
 
@@ -14,9 +18,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -34,11 +37,8 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -57,13 +57,14 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Rest API"
+<Tabs groupId="operating-systems">
+  <TabItem value="RA" label="Rest API">
 
-    ``` js
     class APIRequest {
         _headers = {
             Accept: "application/json",
@@ -213,11 +214,9 @@ Let's assume your
     };
 
     run();
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-=== "Python"
-
-    ``` py
     from c8 import C8Client
 
     fed_url = "gdn.paas.macrometa.io"
@@ -304,11 +303,9 @@ Let's assume your
         print(response)
 
         print("\n ------- DONE  ------")
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require('jsc8');
 
     // Create a authenticated instance with Token / Apikey
@@ -392,4 +389,5 @@ Let's assume your
     }
 
     restqldemo().then(console.log("Starting Execution"));
-    ```
+  </TabItem>
+</Tabs>  

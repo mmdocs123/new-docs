@@ -12,8 +12,9 @@ Depending on where you are (i.e., city, state, country), your request will be ro
 
 In contrast to current web architectures which are centralized in nature (i.e., backend lambdas, functions and database run in one single region), this example app exploits global distribution and exeuction of functions (CF workers) and stateful globally distributed data (Macrometa GDN). The end to end latency should be no more than `75ms` per request for serving database requests via the function to your browser.
 
-!!! note
-    To measure data serving time (i.e., end-to-end latency), you can use the developer tools in chrome browser. It will show the time taken from a `Click in Gui` --> `Edge function (on CloudFlare)` --> `KV store on Macrometa's Global Data Network (GDN) service` --> `Edge function (on CloudFlare)` --> `Gui`.
+:::note
+To measure data serving time (i.e., end-to-end latency), you can use the developer tools in chrome browser. It will show the time taken from a `Click in Gui` --> `Edge function (on CloudFlare)` --> `KV store on Macrometa's Global Data Network (GDN) service` --> `Edge function (on CloudFlare)` --> `Gui`.
+:::
 
 Macrometa's global data service (GDN) offers `Key Value`, `Dynamo Mode`, `DocumentDB`, `Graphs`, `Search`, `Streams` and `Stream Processing` as API services that can be incorporated into CloudFlare workers to enable sophisticated, data intensive apps that require low latency, high levels of scalability and most importantly *consistent, stateful data*.
 
@@ -23,8 +24,9 @@ Macrometa's global data service (GDN) offers `Key Value`, `Dynamo Mode`, `Docume
 
 * Macrometa offers an adaptive consistency model ranging from `strong consistency to causal consistency`.  Macrometa offers a multi-model interface i.e., it supports `KV`, `DynamoDB compatible API`, `Docs`, `Graphs`, `Search`, `Streams` and `Stream Processing`.  This examples uses the KV APi.
 
-!!! note
-    Macrometa does not run on CloudFLare PoPs - it runs in datacenters and PoPs with close adjacency to CloudFlare PoPs - there is some additional network latency between a where a worker executes and the calls it makes to the Macrometa (a few single digit milliseconds) but overall Workers and Macrometa are 3x faster than Worker and Worker K/V.
+:::note
+Macrometa does not run on CloudFLare PoPs - it runs in datacenters and PoPs with close adjacency to CloudFlare PoPs - there is some additional network latency between a where a worker executes and the calls it makes to the Macrometa (a few single digit milliseconds) but overall Workers and Macrometa are 3x faster than Worker and Worker K/V.
+:::
 
 ## Steps
 
@@ -49,9 +51,10 @@ Macrometa's global data service (GDN) offers `Key Value`, `Dynamo Mode`, `Docume
     wrangler preview --watch
     ```
 
-    !!! note
+    :::note
         Macrometa Javascript Driver (jsC8) is already added to this demo. You can view `package.json` to list all other dependencies. If you want to install jsC8 manually then run `npm install --save jsc8`.
-
+    :::
+    
 5. [Configure]((https://developers.cloudflare.com/workers/tooling/wrangler/commands/#config)) your global Cloudflare user. This is an interactive command that will prompt you for your API token.
 
     ```bash

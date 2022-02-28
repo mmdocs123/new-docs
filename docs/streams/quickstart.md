@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Quick Start with Streams
 
 ## Overview
@@ -32,9 +35,9 @@ Messages are the basic "unit" of Streams. They're what producers publish to stre
 | Publish Time         | The timestamp of when the message was published (automatically applied by the producer) |
 | Event Time           | An optional timestamp that applications can attach to the message representing when something happened, e.g. when the message was processed. The event time of a message is 0 if none is explicitly set. |
 
-!!! note
-    If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
-
+:::note
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+:::
 ## Pre-requisite
 
 Let's assume your
@@ -44,9 +47,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -64,11 +66,9 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     With Yarn or NPM
 
         yarn add jsc8
@@ -86,15 +86,16 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Connect to GDN
 
 The first step in using GDN is to establish a connection to a local region. When this code executes, it initializes the server connection to the region URL you sepcified.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     print("--- Connecting to C8")
@@ -105,11 +106,10 @@ The first step in using GDN is to establish a connection to a local region. When
 
     # To use advanced options
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
     // Simple Way
     const client = new jsc8({url: "https://gdn.paas.macrometa.io", token: "XXXX", fabricName: '_system'});
@@ -119,26 +119,27 @@ The first step in using GDN is to establish a connection to a local region. When
 
     // To use advanced options
     const client = new jsc8("https://gdn.paas.macrometa.io");
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Get GeoFabric Details
 
 To get details of fabric,
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password='xxxxx',
                             geofabric='_system')
     print("Get geo fabric details...")
     print(client.get_fabric_details())
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -163,15 +164,17 @@ To get details of fabric,
     }
 
     getFabric();
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Create Global & Local Streams
 
 The streams in GDN can be either a local stream or could be a geo-replicated stream.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     print("--- Connecting to C8")
@@ -186,12 +189,9 @@ The streams in GDN can be either a local stream or could be a geo-replicated str
 
     print("Get Streams: ", client.get_streams())
 
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ```
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -228,15 +228,16 @@ The streams in GDN can be either a local stream or could be a geo-replicated str
 
     streams();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Publish Messages
 
 Example to publish documents to a stream. The stream can be either a local stream or could be a geo-replicated stream.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import time
     import base64
@@ -260,11 +261,9 @@ Example to publish documents to a stream. The stream can be either a local strea
           }
           producer.send(json.dumps(data))
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8")
 
     // Crete a authenticated instance with Token / Apikey
@@ -314,15 +313,16 @@ Example to publish documents to a stream. The stream can be either a local strea
 
     streams()
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Subscribe to Stream
 
 Example to subscribe documents from a stream. The stream can be either a local stream or could be a geo-replicated stream.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import time
     import base64
@@ -346,11 +346,9 @@ Example to subscribe documents from a stream. The stream can be either a local s
         print("Received message '{}' id='{}'".format(msg1, m1["messageId"])) #Print the received msg over stream
         subscriber.send(json.dumps({'messageId': m1['messageId']}))#Acknowledge the received msg.
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require('jsc8');
 
     // Crete a authenticated instance with Token / Apikey
@@ -386,16 +384,18 @@ Example to subscribe documents from a stream. The stream can be either a local s
 
     })();
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Auto Reconnect streams
 
 Write a wrapper class to keep the connection alive.
 Following is an example for the wrapper class
 
-=== "Javascript"
+<Tabs groupId="operating-systems">
+  <TabItem value="js" label="Javascript">
 
-    ``` js
+
     /* -------------------------------------------------------------------------- */
     /*                            Stream Wrapper Class                            */
     /* -------------------------------------------------------------------------- */
@@ -573,13 +573,14 @@ Following is an example for the wrapper class
 
     module.exports = StreamWebsocket;
 
-    ```
+  </TabItem>
+</Tabs>  
 
 Using the above wrapper we will create a producer and consumer, which has auto reconnect mechanism. Following is a sample code for how to handle keep connection alive
 
-=== "Javascript"
+<Tabs groupId="operating-systems">
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
     const atob = require("atob");
     const StreamWebsocket = require("./streamWebsocketWrapper");
@@ -652,362 +653,367 @@ Using the above wrapper we will create a producer and consumer, which has auto r
         console.log(e);
       }
     })();
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Pub-Sub with streams in browser
 
 Example to publish messages on a stream and subscribe to that stream to receive messages, with a simple UI
 
-=== "HTML with embedded Javascript"
+<Tabs groupId="operating-systems">
+  <TabItem value="HTML" label="HTML with embedded Javascript">
 
-``` html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pub-Sub demo</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"
-    />
-    <style rel="stylesheet">
-      #console {
-        font-family: "Roboto Mono", monospace !important;
-      }
-    </style>
-  </head>
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Pub-Sub demo</title>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"
+      />
+      <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"
+      />
+      <style rel="stylesheet">
+        #console {
+          font-family: "Roboto Mono", monospace !important;
+        }
+      </style>
+    </head>
 
-  <body class="container" style="max-width: none;">
-    <div class="row">
-      <div class="column column-40" style="padding: 20px; height: 100vh;">
-        <h1>Pub Sub Demo</h1>
+    <body class="container" style="max-width: none;">
+      <div class="row">
+        <div class="column column-40" style="padding: 20px; height: 100vh;">
+          <h1>Pub Sub Demo</h1>
 
-        <textarea
-          rows="10"
-          style="resize: vertical; height: 200px;"
-          placeholder="Enter your message here..."
-          id="messageBox"
-          disabled
-        ></textarea>
-        <div style="display: flex;">
-          <div style="flex-grow: 1;">
-            <button onclick="init()" class="button-outline" id="startButton">
-              Start
-            </button>
+          <textarea
+            rows="10"
+            style="resize: vertical; height: 200px;"
+            placeholder="Enter your message here..."
+            id="messageBox"
+            disabled
+          ></textarea>
+          <div style="display: flex;">
+            <div style="flex-grow: 1;">
+              <button onclick="init()" class="button-outline" id="startButton">
+                Start
+              </button>
 
-            <button
-              onclick="closeConnection()"
-              class="button-clear"
-              disabled
-              id="closeButton"
-            >
-              Close
+              <button
+                onclick="closeConnection()"
+                class="button-clear"
+                disabled
+                id="closeButton"
+              >
+                Close
+              </button>
+            </div>
+
+            <button onclick="publish()" id="publishButton" disabled>
+              Publish
             </button>
           </div>
-
-          <button onclick="publish()" id="publishButton" disabled>
-            Publish
-          </button>
         </div>
+        <div
+          id="console"
+          class="column column-60"
+          style="padding: 20px; height: 100vh; background: black; overflow: auto;"
+        ></div>
       </div>
-      <div
-        id="console"
-        class="column column-60"
-        style="padding: 20px; height: 100vh; background: black; overflow: auto;"
-      ></div>
-    </div>
-  </body>
-  <script type="text/javascript">
-    /* ------------------- API MIDDLEWARE TO MANAGE API CALLS ------------------- */
+    </body>
+    <script type="text/javascript">
+      /* ------------------- API MIDDLEWARE TO MANAGE API CALLS ------------------- */
 
-    class APIRequest {
-      _headers = {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      };
+      class APIRequest {
+        _headers = {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        };
 
-      constructor(url) {
-        this._url = url;
-      }
+        constructor(url) {
+          this._url = url;
+        }
 
-      login(email, password) {
-        const endpoint = "/_open/auth";
+        login(email, password) {
+          const endpoint = "/_open/auth";
 
-        const self = this;
+          const self = this;
 
-        return new Promise(function (resolve, reject) {
-          self
-            .req(endpoint, {
-              body: { email, password },
-              method: "POST",
-            })
-            .then(({ jwt, ...data }) => {
-              self._headers.authorization = `bearer ${jwt}`;
-              resolve(data);
-            })
-            .catch(reject);
-        });
-      }
+          return new Promise(function (resolve, reject) {
+            self
+              .req(endpoint, {
+                body: { email, password },
+                method: "POST",
+              })
+              .then(({ jwt, ...data }) => {
+                self._headers.authorization = `bearer ${jwt}`;
+                resolve(data);
+              })
+              .catch(reject);
+          });
+        }
 
-      _handleResponse(response, resolve, reject) {
-        if (response.ok) {
-          resolve(response.json());
-        } else {
-          reject(response);
+        _handleResponse(response, resolve, reject) {
+          if (response.ok) {
+            resolve(response.json());
+          } else {
+            reject(response);
+          }
+        }
+
+        req(endpoint, { body, ...options } = {}) {
+          const self = this;
+          return new Promise(function (resolve, reject) {
+            fetch(self._url + endpoint, {
+              headers: self._headers,
+              body: body ? JSON.stringify(body) : undefined,
+              ...options,
+            }).then((response) =>
+              self._handleResponse(response, resolve, reject)
+            );
+          });
         }
       }
 
-      req(endpoint, { body, ...options } = {}) {
-        const self = this;
-        return new Promise(function (resolve, reject) {
-          fetch(self._url + endpoint, {
-            headers: self._headers,
-            body: body ? JSON.stringify(body) : undefined,
-            ...options,
-          }).then((response) =>
-            self._handleResponse(response, resolve, reject)
+      /* ---------------------------- PUB-SUB TUTORIAL ---------------------------- */
+
+      const EMAIL = "nemo@nautilus.com";
+      const PASSWORD = "xxxxxx";
+
+      const FEDERATION_NAME = "api-gdn.paas.macrometa.io";
+      const FEDERATION_URL = `https://${FEDERATION_NAME}`;
+
+      const STREAM_NAME = "api_tutorial_streams";
+      const CONSUMER_NAME = "api_tutorial_streams_consumer";
+      const IS_GLOBAL = true;
+
+      /* ------------------------------ UI References ----------------------------- */
+
+      const consoleElement = document.getElementById("console");
+      const input = document.getElementById("messageBox");
+      const startButton = document.getElementById("startButton");
+      const closeButton = document.getElementById("closeButton");
+      const publishButton = document.getElementById("publishButton");
+
+      /* ---------------------------- Global Variables ---------------------------- */
+
+      var consumer;
+      var producer;
+
+      /* ---------------------------- Helpers Functions --------------------------- */
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+
+      function getTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        // add a zero in front of numbers<10
+        m = checkTime(m);
+        s = checkTime(s);
+        return h + ":" + m + ":" + s;
+      }
+
+      function print(msg) {
+        var node = document.createElement("small");
+
+        node.style =
+          "display:block; font-weight:400;color:white;word-break:break-all;position:relative;padding-left:100px";
+        var span = document.createElement("span");
+        span.style = "position:absolute;left:0";
+
+        var time = document.createTextNode(`> ${getTime()} : `);
+
+        span.appendChild(time);
+
+        var textnode = document.createTextNode(`${msg}`);
+        node.appendChild(span);
+        node.appendChild(textnode);
+        consoleElement.appendChild(node);
+        consoleElement.scrollTop = consoleElement.scrollHeight;
+      }
+
+      function toggleUIButtons(
+        skip = { start: false, publish: false, close: false }
+      ) {
+        if (!skip.start) startButton.disabled = !startButton.disabled;
+        if (!skip.publish) publishButton.disabled = !publishButton.disabled;
+        if (!skip.close) closeButton.disabled = !closeButton.disabled;
+        if (!skip.publish) input.disabled = !input.disabled;
+      }
+
+      /* -------------------------------------------------------------------------- */
+
+      const connection = new APIRequest(FEDERATION_URL);
+
+      const init = async function () {
+        try {
+          toggleUIButtons({ publish: true, close: true });
+
+          /* -------------------- Login (nemo@nautilus.com/xxxxxx) -------------------- */
+
+          const { tenant } = await connection.login(EMAIL, PASSWORD);
+
+          print("Login Successfully using");
+          /* ------------------------------ Create Stream ----------------------------- */
+
+          const stream = await connection.req(
+            `/_fabric/_system/streams/${STREAM_NAME}?global=${IS_GLOBAL}`,
+            {
+              body: { name: STREAM_NAME },
+              method: "POST",
+            }
           );
-        });
+
+          print("STREAM CREATED SUCCESSFULLY");
+
+          /* ----------------- Publish and Subscribe message to stream ---------------- */
+
+          const region = IS_GLOBAL ? "c8global" : "c8local";
+          const streamName = `${region}s.${STREAM_NAME}`;
+
+          // FOR gdn use the below snippet
+          // const url = IS_GLOBAL
+          // ? FEDERATION_NAME;
+          // : `api-${streamApp.streamApps[0].regions[0]}.prod.macrometa.io`
+
+          // #URL_REVIEW : If you have changed your FEDERATION_NAME please review the below code and make required changes to the URL
+          const url = IS_GLOBAL
+            ? FEDERATION_NAME;
+            : `api-${streamApp.streamApps[0].regions[0]}.macrometa.io`
+
+          const consumerUrl = `wss://${url}/_ws/ws/v2/consumer/persistent/${tenant}/${region}._system/${streamName}/${CONSUMER_NAME}`;
+
+          const producerUrl = `wss://${url}/_ws/ws/v2/producer/persistent/${tenant}/${region}._system/${streamName}`;
+
+          /* -------------------------- Initalizing Consumer -------------------------- */
+
+          const initConsumer = () => {
+            return new Promise((resolve) => {
+              consumer = new WebSocket(consumerUrl);
+
+              consumer.onopen = function () {
+                print("Consumer is open now for " + streamName);
+                resolve();
+              };
+
+              consumer.onerror = function () {
+                print(
+                  "Failed to establish Consumer connection for " + streamName
+                );
+              };
+
+              consumer.onclose = function () {
+                print("Closed Consumer connection for " + streamName);
+              };
+
+              consumer.onmessage = function (message) {
+                var receivedMsg = message.data && JSON.parse(message.data);
+                print(
+                  "------------------ Consumer Message Received -----------------"
+                );
+                print(atob(receivedMsg.payload));
+                print(
+                  "--------------------------------------------------------------"
+                );
+
+                const ackMsg = { messageId: receivedMsg.messageId };
+                consumer.send(JSON.stringify(ackMsg));
+              };
+            });
+          };
+
+          /* -------------------------- Initalizing Producer -------------------------- */
+
+          const initProducer = () => {
+            producer = new WebSocket(producerUrl);
+
+            producer.onopen = function () {
+              print("Producer is open now for " + streamName);
+            };
+
+            producer.onclose = function (e) {
+              print("Closed Producer connection for " + streamName);
+            };
+
+            producer.onerror = function (e) {
+              print("Failed to establish Producer connection for " + streamName);
+            };
+          };
+
+          initConsumer().then(() => {
+            initProducer();
+            toggleUIButtons({ start: true });
+            print(
+              "--------------------------------------------------------------"
+            );
+            print(
+              "----------YOU CAN NOW START PUBLISHING YOUR MESSAGES----------"
+            );
+            print(
+              "--------------------------------------------------------------"
+            );
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      };
+
+      function publish() {
+        try {
+          const value = input.value.trim().replace(/(\r\n|\n|\r)/gm, "");
+          let msgToSend = value;
+
+          if (value[0] === "{" && value.slice(-1) === "}") {
+            msgToSend = JSON.stringify(JSON.parse(input.value));
+          }
+
+          producer.send(JSON.stringify({ payload: btoa(msgToSend) }));
+          print(`Sending message....  : ${msgToSend}`);
+          print(`Producer message sent`);
+        } catch (e) {
+          print(e);
+        }
       }
-    }
 
-    /* ---------------------------- PUB-SUB TUTORIAL ---------------------------- */
+      async function closeConnection() {
+        toggleUIButtons();
 
-    const EMAIL = "nemo@nautilus.com";
-    const PASSWORD = "xxxxxx";
+        consumer.close();
+        print("CONSUMER CLOSING...");
+        producer.close();
+        print("PRODUCER CLOSING...");
 
-    const FEDERATION_NAME = "api-gdn.paas.macrometa.io";
-    const FEDERATION_URL = `https://${FEDERATION_NAME}`;
+        await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    const STREAM_NAME = "api_tutorial_streams";
-    const CONSUMER_NAME = "api_tutorial_streams_consumer";
-    const IS_GLOBAL = true;
+        /* ------------------------ Unsubscribe from stream. ------------------------ */
 
-    /* ------------------------------ UI References ----------------------------- */
-
-    const consoleElement = document.getElementById("console");
-    const input = document.getElementById("messageBox");
-    const startButton = document.getElementById("startButton");
-    const closeButton = document.getElementById("closeButton");
-    const publishButton = document.getElementById("publishButton");
-
-    /* ---------------------------- Global Variables ---------------------------- */
-
-    var consumer;
-    var producer;
-
-    /* ---------------------------- Helpers Functions --------------------------- */
-
-    function checkTime(i) {
-      if (i < 10) {
-        i = "0" + i;
-      }
-      return i;
-    }
-
-    function getTime() {
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-      // add a zero in front of numbers<10
-      m = checkTime(m);
-      s = checkTime(s);
-      return h + ":" + m + ":" + s;
-    }
-
-    function print(msg) {
-      var node = document.createElement("small");
-
-      node.style =
-        "display:block; font-weight:400;color:white;word-break:break-all;position:relative;padding-left:100px";
-      var span = document.createElement("span");
-      span.style = "position:absolute;left:0";
-
-      var time = document.createTextNode(`> ${getTime()} : `);
-
-      span.appendChild(time);
-
-      var textnode = document.createTextNode(`${msg}`);
-      node.appendChild(span);
-      node.appendChild(textnode);
-      consoleElement.appendChild(node);
-      consoleElement.scrollTop = consoleElement.scrollHeight;
-    }
-
-    function toggleUIButtons(
-      skip = { start: false, publish: false, close: false }
-    ) {
-      if (!skip.start) startButton.disabled = !startButton.disabled;
-      if (!skip.publish) publishButton.disabled = !publishButton.disabled;
-      if (!skip.close) closeButton.disabled = !closeButton.disabled;
-      if (!skip.publish) input.disabled = !input.disabled;
-    }
-
-    /* -------------------------------------------------------------------------- */
-
-    const connection = new APIRequest(FEDERATION_URL);
-
-    const init = async function () {
-      try {
-        toggleUIButtons({ publish: true, close: true });
-
-        /* -------------------- Login (nemo@nautilus.com/xxxxxx) -------------------- */
-
-        const { tenant } = await connection.login(EMAIL, PASSWORD);
-
-        print("Login Successfully using");
-        /* ------------------------------ Create Stream ----------------------------- */
-
-        const stream = await connection.req(
-          `/_fabric/_system/streams/${STREAM_NAME}?global=${IS_GLOBAL}`,
+        await connection.req(
+          `/_fabric/_system/_api/streams/unsubscribe/${CONSUMER_NAME}`,
           {
-            body: { name: STREAM_NAME },
             method: "POST",
           }
         );
 
-        print("STREAM CREATED SUCCESSFULLY");
-
-        /* ----------------- Publish and Subscribe message to stream ---------------- */
-
-        const region = IS_GLOBAL ? "c8global" : "c8local";
-        const streamName = `${region}s.${STREAM_NAME}`;
-
-        // FOR gdn use the below snippet
-        // const url = IS_GLOBAL
-        // ? FEDERATION_NAME;
-        // : `api-${streamApp.streamApps[0].regions[0]}.prod.macrometa.io`
-
-        // #URL_REVIEW : If you have changed your FEDERATION_NAME please review the below code and make required changes to the URL
-        const url = IS_GLOBAL
-          ? FEDERATION_NAME;
-          : `api-${streamApp.streamApps[0].regions[0]}.macrometa.io`
-
-        const consumerUrl = `wss://${url}/_ws/ws/v2/consumer/persistent/${tenant}/${region}._system/${streamName}/${CONSUMER_NAME}`;
-
-        const producerUrl = `wss://${url}/_ws/ws/v2/producer/persistent/${tenant}/${region}._system/${streamName}`;
-
-        /* -------------------------- Initalizing Consumer -------------------------- */
-
-        const initConsumer = () => {
-          return new Promise((resolve) => {
-            consumer = new WebSocket(consumerUrl);
-
-            consumer.onopen = function () {
-              print("Consumer is open now for " + streamName);
-              resolve();
-            };
-
-            consumer.onerror = function () {
-              print(
-                "Failed to establish Consumer connection for " + streamName
-              );
-            };
-
-            consumer.onclose = function () {
-              print("Closed Consumer connection for " + streamName);
-            };
-
-            consumer.onmessage = function (message) {
-              var receivedMsg = message.data && JSON.parse(message.data);
-              print(
-                "------------------ Consumer Message Received -----------------"
-              );
-              print(atob(receivedMsg.payload));
-              print(
-                "--------------------------------------------------------------"
-              );
-
-              const ackMsg = { messageId: receivedMsg.messageId };
-              consumer.send(JSON.stringify(ackMsg));
-            };
-          });
-        };
-
-        /* -------------------------- Initalizing Producer -------------------------- */
-
-        const initProducer = () => {
-          producer = new WebSocket(producerUrl);
-
-          producer.onopen = function () {
-            print("Producer is open now for " + streamName);
-          };
-
-          producer.onclose = function (e) {
-            print("Closed Producer connection for " + streamName);
-          };
-
-          producer.onerror = function (e) {
-            print("Failed to establish Producer connection for " + streamName);
-          };
-        };
-
-        initConsumer().then(() => {
-          initProducer();
-          toggleUIButtons({ start: true });
-          print(
-            "--------------------------------------------------------------"
-          );
-          print(
-            "----------YOU CAN NOW START PUBLISHING YOUR MESSAGES----------"
-          );
-          print(
-            "--------------------------------------------------------------"
-          );
-        });
-      } catch (e) {
-        console.error(e);
+        print(`${CONSUMER_NAME} UNSUBSCRIBED SUCCESSFULLY`);
       }
-    };
-
-    function publish() {
-      try {
-        const value = input.value.trim().replace(/(\r\n|\n|\r)/gm, "");
-        let msgToSend = value;
-
-        if (value[0] === "{" && value.slice(-1) === "}") {
-          msgToSend = JSON.stringify(JSON.parse(input.value));
-        }
-
-        producer.send(JSON.stringify({ payload: btoa(msgToSend) }));
-        print(`Sending message....  : ${msgToSend}`);
-        print(`Producer message sent`);
-      } catch (e) {
-        print(e);
-      }
-    }
-
-    async function closeConnection() {
-      toggleUIButtons();
-
-      consumer.close();
-      print("CONSUMER CLOSING...");
-      producer.close();
-      print("PRODUCER CLOSING...");
-
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-
-      /* ------------------------ Unsubscribe from stream. ------------------------ */
-
-      await connection.req(
-        `/_fabric/_system/_api/streams/unsubscribe/${CONSUMER_NAME}`,
-        {
-          method: "POST",
-        }
-      );
-
-      print(`${CONSUMER_NAME} UNSUBSCRIBED SUCCESSFULLY`);
-    }
-  </script>
-</html>
-```
+    </script>
+  </html>
+  ```
+  </TabItem>
+</Tabs>  

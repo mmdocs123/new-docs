@@ -9,8 +9,9 @@ Macrometa GDN allows you to integrate streaming data and take action based on st
 | **Act** | Take actions based on the results and findings done via processing the data. The action can be executing some random code, calling an external service, or triggering a complex integration. |
 | **Integrate** | Make processed data available for consumers to consume globally in right format with very low latencies. |
 
-!!! note
-    Stream Workers is currently an Enterprise only feature. We will be rolling it out to all users in Q1 of 2022. Contact support@macrometa.com if you have any questions.
+:::note
+Stream Workers is currently an Enterprise only feature. We will be rolling it out to all users in Q1 of 2022. Contact support@macrometa.com if you have any questions.
+:::
 
 ## Architecture
 

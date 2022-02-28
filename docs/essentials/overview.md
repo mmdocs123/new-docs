@@ -10,9 +10,9 @@ Macrometa GDN is a `geo-distributed real time coordination-free materialized vie
 
 Typically when you choose a database or stream or stream processing system today, you’re not choosing one piece of technology, you’re actually choosing three: `storage technology`, `data model`, and `API/query` language.
 
-!!! example
-    For example, if you choose Postgres, you are choosing the Postgres storage engine, a relational data model, and the SQL query language. If you choose MongoDB you are choosing the MongoDB distributed storage engine, a document data model, and the MongoDB API. In systems like these, features are interwoven between all of the layers. For example, both of those systems provide indexes, and the notion of an index exists in all three layers.
-
+:::tip
+For example, if you choose Postgres, you are choosing the Postgres storage engine, a relational data model, and the SQL query language. If you choose MongoDB you are choosing the MongoDB distributed storage engine, a document data model, and the MongoDB API. In systems like these, features are interwoven between all of the layers. For example, both of those systems provide indexes, and the notion of an index exists in all three layers.
+:::
 
 Document databases, Graph databases, Key-Value, Pub-Sub Streams, Queues etc. all make sense in the right context, and often different parts of an application call for different choices. This creates a tough decision: Use a whole new database or new streaming system to support a new data model, or try to shoehorn data into your existing database or messaging system.
 
@@ -149,16 +149,16 @@ In GDN, the `_rev` strings are in fact time stamps. They use the local clock of 
 
 Its value should be treated as opaque, no guarantees regarding its format and properties are given except that it will be different after a document update.Within one shard it is guaranteed that two different document revisions have a different `_rev` string, even if they are written in the same millisecond, and that these stamps are ascending.
 
-!!! note 
-    Different servers in cluster might have a clock skew, and therefore between different shards or even between different collections the time stamps are not guaranteed to be comparable. The Hybrid Logical Clock feature does one thing to address this issue: Whenever a message is sent from a node in cluster to another node, it is ensured that any timestamp taken on second node after the message has arrived is greater than any timestamp taken on first node before the message was sent. 
-
+:::note 
+Different servers in cluster might have a clock skew, and therefore between different shards or even between different collections the time stamps are not guaranteed to be comparable. The Hybrid Logical Clock feature does one thing to address this issue: Whenever a message is sent from a node in cluster to another node, it is ensured that any timestamp taken on second node after the message has arrived is greater than any timestamp taken on first node before the message was sent. 
+:::
 The above ensures that if there is some **causality** between events on different servers, time stamps increase from cause to effect. A direct consequence of this is that sometimes a server has to take timestamps that seem to come from the future of its own clock. It will however still produce ever increasing time stamps. If the clock skew is small, then your time stamps will relatively accurately describe the time when the document revision was actually written.
 
 GDN uses 64bit unsigned integer values to maintain document revisions internally. At this stage we intentionally do not document the exact format of the revision values. When returning document revisions to clients, C8 will put them into a string to ensure the revision is not clipped by clients that do not support big integers. 
 
-!!! note
-    The `_rev` attribute can be used as a pre-condition for queries, to avoid lost update situations. That is, if a client fetches a document from the server, modifies it locally (but with the _rev attribute untouched) and sends it back to the server to update the document, but meanwhile the document was changed by another operation, then the revisions do not match anymore and the operation is cancelled by the server. Without this mechanism, the client would accidentally overwrite changes made to the document without knowing about it.
-
+:::note
+The `_rev` attribute can be used as a pre-condition for queries, to avoid lost update situations. That is, if a client fetches a document from the server, modifies it locally (but with the _rev attribute untouched) and sends it back to the server to update the document, but meanwhile the document was changed by another operation, then the revisions do not match anymore and the operation is cancelled by the server. Without this mechanism, the client would accidentally overwrite changes made to the document without knowing about it.
+:::
 In order to find a particular revision of a document, you need the document handle or key, and the document revision.
 
 **Multiple Documents in Single call:**
@@ -233,10 +233,10 @@ Consumers are grouped together for consuming messages. Each group of consumers i
 
 GDN is fundamentally a real-time materialized view engine. Streams & stream processing are intregral part of GDN. Stream processing feature provides users geo-replicated stream data processing capabilities to integrate streaming data and takes action based on streaming data.
 
-!!! note
-    Stream Workers is currently an Enterprise only feature. We will be rolling it out to all users in Q1 of 2022.
-    Please contact support@macrometa.com if you have any questions.
-
+:::note
+Stream Workers is currently an Enterprise only feature. We will be rolling it out to all users in Q1 of 2022.
+Please contact support@macrometa.com if you have any questions.
+:::
 ![GDN Essentials](/img/gdn-cep-overview.png)
 
 The stream processing can be used for
@@ -266,9 +266,9 @@ GDN organizes its `collection data` within a datacenter in shards. Sharding allo
 
 The number of shards is fixed at `16`. There is no option for user to configure the number of shards. You can specify the `shard key` as part of the collection creation.
 
-!!! note
-    If you change the shard keys from their default ["_key"], then finding a document in the collection by its primary key involves a request to every single shard. Furthermore, in this case one can no longer prescribe the primary key value of a new document but must use the automatically generated one. This latter restriction comes from the fact that ensuring uniqueness of the primary key would be very inefficient if the user could specify the primary key.
-
+:::note
+If you change the shard keys from their default ["_key"], then finding a document in the collection by its primary key involves a request to every single shard. Furthermore, in this case one can no longer prescribe the primary key value of a new document but must use the automatically generated one. This latter restriction comes from the fact that ensuring uniqueness of the primary key would be very inefficient if the user could specify the primary key.
+:::
 On which node in a cluster a particular shard is kept is decided by the system. There is no option to users to configure an affinity based on certain shard keys.
 
 Unique indexes (hash, skiplist, persistent) on sharded collections are only allowed if the fields used to determine the shard key are also included in the list of attribute paths for the index:

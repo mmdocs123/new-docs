@@ -37,7 +37,7 @@ C8QL is not vulnerable to parameter injection in itself, but queries might be co
 
 Assembling query strings with simple **string concatenation** looks trivial, but is potentially **unsafe**. 
 
-You should use [bind parameters](fundamentals/bind-parameters.md) instead whenever possible, use query building functionality if provided by a driver (see [Drivers](../../../drivers.md) for example) or at least sanitize user input with great care.
+You should use [bind parameters](fundamentals.md#bind-parameters) instead whenever possible, use query building functionality if provided by a driver (see [Drivers](../essentials/Drivers.md) for example) or at least sanitize user input with great care.
 
 ### Parameter injection examples
 
@@ -172,8 +172,9 @@ query += " RETURN doc";
 db._query(query, params).toArray();
 ```
 
-!!! note
-    In this example we're back to string concatenation, but without the problem of the query being vulnerable to arbitrary modifications.
+:::note
+In this example we're back to string concatenation, but without the problem of the query being vulnerable to arbitrary modifications.
+:::
 
 #### Input value validation and sanitation
 

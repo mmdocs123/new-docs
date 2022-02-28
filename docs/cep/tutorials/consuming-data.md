@@ -18,9 +18,9 @@ A source configuration consists of the following:
 
 - `attributes`: This annotation specifies a custom mapping based on which events to be selected into the stream processing flow are identified. This is useful when the attributes of the incoming messages you want the stream processor to consume are different to the corresponding attribute name in the stream definition.
 
-    !!! example
+    :::tip
         Say the stream processor is reading employee records. The employee name might be defined as `emp No` in the source from which you are extracting the records. However, the corresponding attribute name in the stream definition is `employeeNo` because that is how you want to refer to the attribute in the stream processor. In this instance, you need a custom mapping to indicate that `emp No` is the same as `employeeNo`.
-
+    :::
 ## Stream Application for Consuming Data
 
 Following are the steps to create a stream application:
@@ -188,9 +188,9 @@ Stream processor consumes a message in the custom format when it makes changes t
         ```
 		CREATE SOURCE Stream_Name WITH (type='SOURCE_TYPE', PARAMETER1_NAME='PARAMETER1_VALUE', map.type='MAP_TYPE', @attributes( attributeN='mapping_N', attribute1='mapping_1')) (attribute1_name attribute1_type, attribute2_name attribute2_type, ...);
         ```
-        !!! example 
+        :::tip 
             In the Stream application used as an example in the previous section, assume that when receiving events, the `transNo` attribute is received as `transaction` and the `salesValue` attribute is received as `sales`.  The mapping type is JSON. therefore, you can  add the mappings as JSONPath expressions.
-
+        :::
         | **Stream Attribute Name** | **JSON Event Attribute Name** | **JSONPath Expression** |
         |---------------------------|-------------------------------|-------------------------|
         | `transNo`                 | `transaction`                 | `$.transaction`         |

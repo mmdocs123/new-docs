@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Pub-Sub with Streams
 
 This is about how to create geo-replicated streams and do queues & pub-sub messaging with local latencies across the globe.
@@ -11,9 +14,9 @@ Let's assume your
 
 ## Driver download
 
-=== "Python Client"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python Client">
 
-    ``` python
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
     To install pyC8, simply run
@@ -30,11 +33,9 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript Client">
 
-=== "Javascript Client"
-
-    ``` js
     With Yarn or NPM
 
         yarn add jsc8
@@ -52,14 +53,15 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 
 ## Code Sample
 
-=== "Python Client"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import random
     import threading
@@ -140,11 +142,10 @@ Let's assume your
         print("Wait for subscriber to consume all messages...")
         subscriber_thread.join()  # Wait for subscriber to consume all messages.
         print("\n ------- DONE  ------")
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require('jsc8');
 
     const global_url = "https://gdn.paas.macrometa.io";
@@ -196,4 +197,6 @@ Let's assume your
       await publish();
 
     })();
-    ```
+    
+  </TabItem>
+</Tabs>  

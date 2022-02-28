@@ -40,9 +40,9 @@ The `SEARCH` statement, in contrast to `FILTER`, is treated as a part of the `FO
 - `!=`
 - `IN` (array or range), also `NOT IN`
 
-!!! warn
-    The alphabetical order of characters is not taken into account by Search, i.e. range queries in SEARCH operations against Views will not follow the language rules as per the defined Analyzer locale.
-
+:::warning
+The alphabetical order of characters is not taken into account by Search, i.e. range queries in SEARCH operations against Views will not follow the language rules as per the defined Analyzer locale.
+:::
 ```js
 FOR doc IN viewName
   SEARCH ANALYZER(doc.text == "quick" OR doc.text == "brown", "text_en")

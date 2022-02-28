@@ -39,8 +39,9 @@ FOR u IN users
 
 The second form does the same as the first form, but additionally introduces a variable (specified by *groupsVariable*) that contains all elements that fell into the group. This works as follows: The *groupsVariable* variable is an array containing as many elements as there are in the group. Each member of that array is a JSON object in which the value of every variable that is defined in the C8QL query is bound to the corresponding attribute. 
 
-!!! note
-    This considers all variables that are defined before the `COLLECT` statement, but not those on the top level (outside of any `FOR`), unless the `COLLECT` statement is itself on the top level, in which case all variables are taken. 
+:::note
+This considers all variables that are defined before the `COLLECT` statement, but not those on the top level (outside of any `FOR`), unless the `COLLECT` statement is itself on the top level, in which case all variables are taken. 
+:::
 
 Furthermore note that it is possible that the optimizer moves `LET` statements out of `FOR` statements to improve performance. 
 
@@ -153,9 +154,9 @@ FOR u IN users
   }
 ```
 
-!!! note
-    **WITH COUNT** clause can only be used together with an `INTO` clause.
-
+:::note
+**WITH COUNT** clause can only be used together with an `INTO` clause.
+:::
 
 Aggregation
 -----------

@@ -142,8 +142,9 @@ INSERT {
 ...
 ```
 
-!!! note
-    C8QL does not permit multiple `INSERT` operations that target the same collection in a single query. It is allowed as body of a `FOR` loop however, inserting multiple documents like we did with above query.
+:::note
+C8QL does not permit multiple `INSERT` operations that target the same collection in a single query. It is allowed as body of a `FOR` loop however, inserting multiple documents like we did with above query.
+:::
 
 ### Read documents
 
@@ -198,8 +199,9 @@ RETURN DOCUMENT("Characters/2861650")
 ]
 ```
 
-!!! note
-  Document keys will be different for you. Change the queries accordingly. Here, `"2861650"` is the key for the `Ned Stark` document, and `"2861653"` for `Catelyn Stark`.
+:::note
+Document keys will be different for you. Change the queries accordingly. Here, `"2861650"` is the key for the `Ned Stark` document, and `"2861653"` for `Catelyn Stark`.
+:::  
 
 The `DOCUMENT()` function also allows to fetch multiple documents at once:
 
@@ -319,8 +321,9 @@ FOR c IN Characters
     REMOVE c IN Characters
 ```
 
-!!! note
-    Re-run the [insert queries](#create-documents) at the top with all character documents before you continue with the next chapter, to have data to work with again.
+:::note
+Re-run the [insert queries](#create-documents) at the top with all character documents before you continue with the next chapter, to have data to work with again.
+:::
 
 ## Matching documents
 
@@ -780,7 +783,7 @@ FOR c IN Characters
 ]
 ```
 
-This is a bit too much information, so let's only return English labels using the [array expansion](../ArrayOperators.md#array-expansion) notation:
+This is a bit too much information, so let's only return English labels using the [array expansion](array-operators.md#array-expansion) notation:
 
 ```js
 FOR c IN Characters

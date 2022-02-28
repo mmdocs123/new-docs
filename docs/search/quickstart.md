@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Quick Start with Search
 
 Macrometa GDN includes a fast and powerful geo-replicated full-text search engine natively integrated into its various data models-  `Key Value`, `Documents` and `Graphs`.
@@ -24,9 +27,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -44,11 +46,8 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -67,15 +66,16 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Connect to GDN
 
 The first step in using GDN is to establish a connection to a local region. When this code executes, it initializes the server connection to the URL you sepcified. You can create an API key from the GUI or REST API.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     # Simple Way
@@ -91,11 +91,10 @@ The first step in using GDN is to establish a connection to a local region. When
     # OR Using API Key
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
     apikey="<your-api-key>")
-    ```
+    
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Simple Way
@@ -105,15 +104,17 @@ The first step in using GDN is to establish a connection to a local region. When
 
     // To use advanced options
     const client = new jsc8("https://gdn.paas.macrometa.io"); 
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Create Collection
 
 Create a Collection for saving the Key Value Pairs
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     key = "<your-api-key>"
@@ -129,11 +130,9 @@ Create a Collection for saving the Key Value Pairs
     else:
         client.create_collection_kv(name=collection_name)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     // Add this snippet in previously created main function
     let coll = await client.getKVCollections();
     console.log("Existing Collections: ", coll.result);
@@ -144,15 +143,16 @@ Create a Collection for saving the Key Value Pairs
     catch(e){
         console.log("Collection creation did not succeed due to " + e);
     }
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Insert Key Value Pairs
 
 Insert key value pairs into the collection.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
 
@@ -188,11 +188,10 @@ Insert key value pairs into the collection.
 
     client.insert_key_value_pair(collection_name, data)
     print("KV Pairs Inserted")
-    ```
+  
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     // Insert Key Value pairs
     var data = [
       {
@@ -223,7 +222,9 @@ Insert key value pairs into the collection.
     catch(e){
         console.log("Key Value Pairs not inserted due to " + e);
     }
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## TBD
 

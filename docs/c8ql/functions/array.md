@@ -320,8 +320,9 @@ To append multiple elements, see [APPEND()](#append).
 - **unique** (bool): if set to *true*, then *value* is not added if already present in the array. The default is *false*.
 - returns **newArray** (array): *anyArray* with *value* added at the end (right side)
 
-!!! note
-    The *unique* flag only controls if *value* is added if it's already present in *anyArray*. Duplicate elements that already exist in *anyArray* will not be removed. To make an array unique, use the [UNIQUE()](#unique) function.
+:::note
+The *unique* flag only controls if *value* is added if it's already present in *anyArray*. Duplicate elements that already exist in *anyArray* will not be removed. To make an array unique, use the [UNIQUE()](#unique) function.
+:::
 
 **Examples**
 
@@ -521,9 +522,9 @@ RETURN UNION(
 )
 ```
 
-!!! note
-    No duplicates will be removed. In order to remove duplicates, please use either [UNION_DISTINCT()](#union_distinct) or apply [UNIQUE()](#unique) on the result of *UNION()*:
-
+:::note
+No duplicates will be removed. In order to remove duplicates, please use either [UNION_DISTINCT()](#union_distinct) or apply [UNIQUE()](#unique) on the result of *UNION()*:
+:::
 ```js
 RETURN UNIQUE(
     UNION(
@@ -580,8 +581,9 @@ To append a value (right side), see [PUSH()](#push).
 - **unique** (bool): if set to *true*, then *value* is not added if already present in the array. The default is *false*.
 - returns **newArray** (array): *anyArray* with *value* added at the start (left side)
 
-!!! note
-    The *unique* flag only controls if *value* is added if it's already present in *anyArray*. Duplicate elements that already exist in *anyArray* will not be removed. To make an array unique, use the [UNIQUE()](#unique) function.
+:::note
+The *unique* flag only controls if *value* is added if it's already present in *anyArray*. Duplicate elements that already exist in *anyArray* will not be removed. To make an array unique, use the [UNIQUE()](#unique) function.
+:::
 
 **Examples**
 

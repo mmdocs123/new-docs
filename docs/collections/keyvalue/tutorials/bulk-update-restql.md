@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Bulk Update Key-Value Collection with RestQL
 
 The following example bulk updates key-value collection data via RestQL.
@@ -11,9 +14,8 @@ Assume these credentials:
 
 Download the appropriate drivers for Python or JavaScript.
 
-=== "python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -31,11 +33,8 @@ Download the appropriate drivers for Python or JavaScript.
 
     Any one of these three commands will install Python and enable you to develop applications.
 
-    ```
-
-=== "javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn:
 
@@ -56,13 +55,14 @@ Download the appropriate drivers for Python or JavaScript.
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Rest API"
+<Tabs groupId="operating-systems">
+  <TabItem value="RA" label="Rest API">
 
-    ``` js
     class APIRequest {
         _headers = {
             Accept: "application/json",
@@ -212,11 +212,9 @@ Download the appropriate drivers for Python or JavaScript.
     };
 
     run();
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-=== "Python"
-
-    ``` py
     from c8 import C8Client
 
     fed_url = "gdn.paas.macrometa.io"
@@ -303,11 +301,10 @@ Download the appropriate drivers for Python or JavaScript.
         print(response)
 
         print("\n ------- DONE  ------")
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require('jsc8');
 
     // Create an authenticated instance with a JSON Web Token or API key
@@ -391,4 +388,5 @@ Download the appropriate drivers for Python or JavaScript.
     }
 
     restqldemo().then(console.log("Starting Execution"));
-    ```
+  </TabItem>
+</Tabs>  

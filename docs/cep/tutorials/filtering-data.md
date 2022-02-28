@@ -21,9 +21,9 @@ To understand the different ways you can filter the specific data you need to tr
     CREATE STREAM `InputTempStream` (deviceID long, roomNo string, temp double);
     ```
 
-    !!! info
+    :::info
         For more information about defining input streams to receive events, see the [Consuming Data](./consuming-data.md).
-
+    :::
 1. Define an output stream `Room2233AnalysisStream` to emit the result
 
     ```
@@ -52,9 +52,9 @@ To understand the different ways you can filter the specific data you need to tr
         from InputTempStream [roomNo=='2233']
         ```
 
-        !!! tip
+        :::tip
             As a best practice, name your queries using the `@info` annotation. In this example, you can name the query `Filtering` as follows.
-
+        :::
         ```
         @info(name = 'Filtering2233')
         insert into Room2233AnalysisStream
@@ -231,9 +231,10 @@ To do this, follow the procedure below:
     from FilteredResultsStream
     ```
 
-    !!! note
+    :::note
         Here, we are using the inferred output stream of the previous query as the input stream for this query. As a 
         result, the changes made via this query are applied to the filtered data.
+    :::
     
 3. Add the `select` clause. To assign `unknown` as the value for the `roomNo` attribute when it has a null value, you 
    need to use the `ifThenElse` function as shown below.

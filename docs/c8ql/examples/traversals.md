@@ -4,7 +4,7 @@
 
 Our first example will locate the start vertex for a graph traversal via [a geo index](../../indexing/index-basics#geo-index).
 
-We use the city graph and its geo indices: ![cities_graph\(1\)](/img/cities_graph.png){height="" width=""}
+We use the city graph and its geo indices: ![cities_graph\(1\)](/img/cities_graph.png)
 
 ```js
 var examples = require("@c8_db/graph-examples/example-graph.js");

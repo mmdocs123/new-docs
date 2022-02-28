@@ -1,6 +1,10 @@
 ---
 sidebar_position: 2
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Authentication
 
 There are multiple ways users can access their Macrometa GDN account:
@@ -15,21 +19,21 @@ Users can authenticate with Macrometa GDN via `email and password`, an `API Key`
 
 **Code Samples:**
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-```py
-from c8 import C8Client
-client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443, 
-                    email='nemo@nautilus.com', password='xxxxxx')
-```
+    from c8 import C8Client
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443, 
+                        email='nemo@nautilus.com', password='xxxxxx')
+</TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "JavaScript" 
+    const jsc8 = require("jsc8");
+    const client = new jsc8({url: "https://gdn.paas.macrometa.io", token: "", fabricName: '_system'});
+    await client.login("nemo@nautilus.com", "xxxxxx");
 
-```js
-const jsc8 = require("jsc8");
-const client = new jsc8({url: "https://gdn.paas.macrometa.io", token: "", fabricName: '_system'});
-await client.login("nemo@nautilus.com", "xxxxxx");
-```
+  </TabItem>
+</Tabs>  
 
 ## Token based Authentication
 
@@ -37,19 +41,20 @@ Users can also authenticate with Macrometa GDN via `Json web tokens`. The `JWT T
 
 **Code Samples:**
 
-=== "Python" 
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-``` py
-from c8 import C8Client
-client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443, token=<your tokeb>)
-```
+    from c8 import C8Client
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443, token=<your tokeb>)
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-``` js
-const jsc8 = require("jsc8");
-const client = new jsc8({url: "https://gdn.paas.macrometa.io", token: "xxxxxx", fabricName: '_system'});
-```
+    const jsc8 = require("jsc8");
+    const client = new jsc8({url: "https://gdn.paas.macrometa.io", token: "xxxxxx", fabricName: '_system'});
+
+  </TabItem>
+</Tabs>  
 
 ## API Keys
 
@@ -63,19 +68,22 @@ API keys never expire.
 
 **Code Samples:**
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-``` py
-from c8 import C8Client
-client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443, apikey="xxxxxxx")
-```
+    from c8 import C8Client
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443, apikey="xxxxxxx")
 
-=== "Javascript"
+</TabItem>
+  <TabItem value="js" label="Javascript">
 
-``` js
-const jsc8 = require("jsc8");
-const client = new jsc8({url: "https://gdn.paas.macrometa.io", apiKey: "xxxxx", fabricName: '_system'});
-```
+    const jsc8 = require("jsc8");
+    const client = new jsc8({url: "https://gdn.paas.macrometa.io", apiKey: "xxxxx", fabricName: '_system'});
 
-!!! note
-    In Macrometa GDN, granular permissions can be assigned to both `user accounts` and for `api keys`.
+  </TabItem>
+</Tabs>  
+
+
+:::note
+In Macrometa GDN, granular permissions can be assigned to both `user accounts` and for `api keys`.
+:::

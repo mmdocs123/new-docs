@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Quick Start with Stream Processing
 
 Macrometa GDN allows you to integrate streaming data and take appropriate actions. Most stream processing use cases involve collecting, analyzing, and integrating or acting on data generated during business activities by various sources.
@@ -33,31 +36,8 @@ For the following examples, assume these credentials:
 
 Download the appropriate drivers for your preferred language.
 
-=== "Python"
-
-    ``` py
-
-    pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
-
-    To install pyC8, simply run
-
-        $ pip3 install pyC8
-
-    or, if you prefer to use conda:
-
-        conda install -c conda-forge pyC8
-
-    or pipenv:
-
-        pipenv install --pre pyC8
-
-    Once the installation process is finished, you can begin developing applications in Python.
-
-    ```
-
-=== "Javascript"
-
-    ``` js
+<Tabs groupId="operating-systems">
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -76,26 +56,45 @@ Download the appropriate drivers for your preferred language.
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
+
+    pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
+
+    To install pyC8, simply run
+
+        $ pip3 install pyC8
+
+    or, if you prefer to use conda:
+
+        conda install -c conda-forge pyC8
+
+    or pipenv:
+
+        pipenv install --pre pyC8
+
+    Once the installation process is finished, you can begin developing applications in Python.
+
+  </TabItem>
+</Tabs>
 
 ## Connect to GDN
 
 Establish a connection to a local region. When this code runs, it initializes the server connection to the region URL you specified.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     print("--- Connecting to C8")
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password='xxxxx',
                             geofabric='_system')
-    ```
 
-=== "Javascript"
+ </TabItem>
+ <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
 
     // Simple Way
@@ -105,15 +104,17 @@ Establish a connection to a local region. When this code runs, it initializes th
 
     // To use advanced options
     const client = new jsc8("https://gdn.paas.macrometa.io"); 
-    ```
+  
+ </TabItem>
+</Tabs> 
 
 ## Validate Stream Application
 
 Validate the stream application for syntax errors before saving.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     stream_app_definition = """
     @App:name('Sample-Cargo-App')
     @App:qlVersion("2")
@@ -155,11 +156,10 @@ Validate the stream application for syntax errors before saving.
 
     print("--- Validating Stream Application Definition")
     print(client.validate_stream_app(data=script_app))
-    ```
 
-=== "Javascript"
+ </TabItem>
+ <TabItem value="js" label="Javascript">
 
-    ``` js
     // Add this snippet in previously created main function
     const appDefinition = `
         @App:name('Sample-Cargo-App')
@@ -201,51 +201,53 @@ Validate the stream application for syntax errors before saving.
 
     console.log("--- Validating Stream Application Definition");
     result = await client.validateStreamApp(appDefinition);
-    ```
+
+ </TabItem>
+ </Tabs>
 
 ## Save Stream Application
 
 By default, the stream application saves in the local region. Optionally, you can use `dclist` (domain component list) to deploy the stream application in other specified regions or all regions.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     print("--- Creating Stream Application")
     print(client.create_stream_app(data=script_app))
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     // The stream app will be created by default in the local region. Optionally, you can send dclist to deploy stream
     // app in all / selected regions
     console.log("--- Creating Stream Application");
     result = await client.createStreamApp([], appDefinition);
-    ```
+    
+  </TabItem>
+</Tabs>  
 
 ## Enable or Disable Stream Application
 
 
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     print("Activate", client.activate_stream_app('Sample-Cargo-App', True))
 
     print("Deactivate", client.activate_stream_app('Sample-Cargo-App', False))
 
-    ```
+  </TabItem>
 
-=== "Javascript"
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     console.log("--- Activating `Sample-Cargo-App`");
     const result = await client.activateStreamApp("Sample-Cargo-App", true);
 
     console.log("--- Deactivating `Sample-Cargo-App`");
     const result = await client.activateStreamApp("Sample-Cargo-App", false);
-    ```
+  </TabItem>
+ </Tabs> 
 
 To operate on created applications, you need to create an instance of the stream application.
 
@@ -254,124 +256,118 @@ To operate on created applications, you need to create an instance of the stream
 
 In this example, we update a stream application to store the input data into itself and another collection called `SampleCargoAppDestTable`. 
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-``` py
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443)
 
-client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443)
+    # For the "mytenant" tenant, connect to "test" fabric as tenant admin.
+    # This returns an API wrapper for the "test" fabric on tenant 'mytenant'
+    # Note that the 'mytenant' tenant should already exist.
+    tenant = client.tenant(email='nemo@nautilus.com', password='xxxxx')
+    fabric = tenant.useFabric('_system')
 
-# For the "mytenant" tenant, connect to "test" fabric as tenant admin.
-# This returns an API wrapper for the "test" fabric on tenant 'mytenant'
-# Note that the 'mytenant' tenant should already exist.
-tenant = client.tenant(email='nemo@nautilus.com', password='xxxxx')
-fabric = tenant.useFabric('_system')
+    # To operate on created apps, you need to create an instance of the app
+    app = fabric.stream_app("Sample-Cargo-App")
 
-# To operate on created apps, you need to create an instance of the app
-app = fabric.stream_app("Sample-Cargo-App")
+    # Update the app using
+    data = "@App:name('Sample-Cargo-App') @App:qlVersion("2")
 
-# Update the app using
-data = "@App:name('Sample-Cargo-App') @App:qlVersion("2")
+        -- Stream
+    CREATE SOURCE STREAM srcCargoStream (weight int);
 
-	-- Stream
-CREATE SOURCE STREAM srcCargoStream (weight int);
+        -- Table
+    CREATE TABLE destCargoTable (weight int, totalWeight long);
 
-	-- Table
-CREATE TABLE destCargoTable (weight int, totalWeight long);
+        -- Data Processing
+    @info(name='Query')
+    INSERT INTO destCargoTable
+    SELECT weight, sum(weight) as totalWeight
+    FROM srcCargoStream;"
+    regions = []
+    result = fabric.update(data,regions)
+    print(result)
+  </TabItem>
 
-	-- Data Processing
-@info(name='Query')
-INSERT INTO destCargoTable
-SELECT weight, sum(weight) as totalWeight
-FROM srcCargoStream;"
-regions = []
-result = fabric.update(data,regions)
-print(result)
-```
-
-=== "Javascript"
-
-    ``` js
+<TabItem value="js" label="Javascript">
+  
 	CREATE STORE SampleCargoAppDestTable WITH (type = 'database', stream = "SampleCargoAppDestTable") (weight int);
-    ```
 
-Also add an query to store all the input data into `SampleCargoAppDestTable`.
 
-```js
- -- Data Processing
- @info(name='Dump')
- INSERT INTO SampleCargoAppDestTable
- SELECT weight
- FROM SampleCargoAppInputTable;
-```
+    Also add an query to store all the input data into `SampleCargoAppDestTable`.
+
+    -- Data Processing
+    @info(name='Dump')
+    INSERT INTO SampleCargoAppDestTable
+    SELECT weight
+    FROM SampleCargoAppInputTable;
+  </TabItem>
+</Tabs>
 
 Now, the code to update an Stream Application will look like
 
-=== "Javascript"
-
-    ``` js
+```js
     const updatedAppDefinition = `
-        @App:name('Sample-Cargo-App')
-        @App:qlVersion("2")
-        @App:description('Basic stream application to demonstrate reading data from input stream and store it in the collection. The stream and collections will be created automatically if they do not already exist.')
+    @App:name('Sample-Cargo-App')
+    @App:qlVersion("2")
+    @App:description('Basic stream application to demonstrate reading data from input stream and store it in the collection. The stream and collections will be created automatically if they do not already exist.')
 
-        /**
-        Testing the Stream Application:
-            1. Open Stream SampleCargoAppDestStream in Console. The output can be monitored here.
+    /**
+    Testing the Stream Application:
+    1. Open Stream SampleCargoAppDestStream in Console. The output can be monitored here.
 
-            2. Upload following data into SampleCargoAppInputTable C8DB Collection
-                {"weight": 1}
-                {"weight": 2}
-                {"weight": 3}
-                {"weight": 4}
-                {"weight": 5}
+    2. Upload following data into SampleCargoAppInputTable C8DB Collection
+        {"weight": 1}
+        {"weight": 2}
+        {"weight": 3}
+        {"weight": 4}
+        {"weight": 5}
 
-            3. Following messages would be shown on the SampleCargoAppDestStream Stream Console
-                [1]
-                [2]
-                [3]
-                [4]
-                [5]
+    3. Following messages would be shown on the SampleCargoAppDestStream Stream Console
+        [1]
+        [2]
+        [3]
+        [4]
+        [5]
 
-            4. Following messages would be stored into SampleCargoAppDestTable
-                {"weight":1}
-                {"weight":2}
-                {"weight":3}
-                {"weight":4}
-                {"weight":5}
-        */
+    4. Following messages would be stored into SampleCargoAppDestTable
+        {"weight":1}
+        {"weight":2}
+        {"weight":3}
+        {"weight":4}
+        {"weight":5}
+    */
 
-        -- Defines Table SampleCargoAppInputTable to process events having sensorId and temperature(F).
-		CREATE SOURCE SampleCargoAppInputTable WITH (type = 'database', collection = "SampleCargoAppInputTable", collection.type="doc", replication.type="global", map.type='json') (weight int);
+    -- Defines Table SampleCargoAppInputTable to process events having sensorId and temperature(F).
+    CREATE SOURCE SampleCargoAppInputTable WITH (type = 'database', collection = "SampleCargoAppInputTable", collection.type="doc", replication.type="global", map.type='json') (weight int);
 
-        -- Define Stream SampleCargoAppDestStream
-		CREATE SINK SampleCargoAppDestStream WITH (type = 'stream', stream = "SampleCargoAppDestStream", replication.type="local") (weight int);
+    -- Define Stream SampleCargoAppDestStream
+    CREATE SINK SampleCargoAppDestStream WITH (type = 'stream', stream = "SampleCargoAppDestStream", replication.type="local") (weight int);
 
-		CREATE STORE SampleCargoAppDestTable WITH (type = 'database', stream = "SampleCargoAppDestTable") (weight int);
+    CREATE STORE SampleCargoAppDestTable WITH (type = 'database', stream = "SampleCargoAppDestTable") (weight int);
 
-        -- Data Processing
-        @info(name='Query')
-        INSERT INTO SampleCargoAppDestStream
-        SELECT weight
-        FROM SampleCargoAppInputTable;
+    -- Data Processing
+    @info(name='Query')
+    INSERT INTO SampleCargoAppDestStream
+    SELECT weight
+    FROM SampleCargoAppInputTable;
 
-        -- Data Processing
-        @info(name='Dump')
-        INSERT INTO SampleCargoAppDestTable
-        SELECT weight
-        FROM SampleCargoAppInputTable;`
+    -- Data Processing
+    @info(name='Dump')
+    INSERT INTO SampleCargoAppDestTable
+    SELECT weight
+    FROM SampleCargoAppInputTable;`
 
     console.log("--- Updating Stream Application `Sample-Cargo-App`");
     result = await app.updateApplication([], updatedAppDefinition);
-    ```
-
+```
 ## Run an Adhoc Query
 
 Available in the advanced operations of python driver.
 Refer example at the end of the page.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443)
 
@@ -388,62 +384,60 @@ Refer example at the end of the page.
     q = "select * from SampleCargoAppDestTable limit 3"
     result = app.query(q)
     print(result)
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     console.log("--- Running adhoc query on the store `SampleCargoAppDestTable` used in Stream Application. It should get all records which you inserted into `SampleCargoAppInputTable`");
     await app.activateStreamApplication(true);
     const q = "select * from SampleCargoAppDestTable limit 3";
     result = await app.query(q);
     console.log(result);
-    ```
+  </TabItem>  
+</Tabs>
 
 ## Delete Stream Application
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     print("--- Deleting Stream Application `Sample-Cargo-App`")
     result = client.delete_stream_app('Sample-Cargo-App')
-    ```
+  </TabItem>
 
-=== "Javascript"
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     console.log("--- Deleting Stream Application `Sample-Cargo-App`");
     result = await client.deleteStreamApp()'Sample-Cargo-App';
-    ```
+
+  </TabItem>
+</Tabs>  
 
 ## Get Sample Stream Applications
 
 You can try out several Stream Apps which are preloaded and ready to run.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     print("--- You can try out several stream applications which are pre-loaded and ready to run.")
     print("Samples", client.get_stream_app_samples())
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ```
-
-=== "Javascript"
-
-    ``` js
     console.log("--- You can try out several Stream Apps which are pre-loaded and ready to run.");
     result = await client.getStreamAppSamples();
     console.log('Sample Stream Applications');
     console.log(result);
-    ```
+ 
+  </TabItem>
+</Tabs>  
 
 ## Complete Example
 
 The following example uses the code snippets provided in this tutorial.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     import time
     import traceback
@@ -654,11 +648,9 @@ The following example uses the code snippets provided in this tutorial.
 
     except Exception as e:
         traceback.print_exc()
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
     console.log("--- Connecting to C8");
 
@@ -805,4 +797,5 @@ The following example uses the code snippets provided in this tutorial.
     }
 
     main();
-    ```
+  </TabItem>
+</Tabs>

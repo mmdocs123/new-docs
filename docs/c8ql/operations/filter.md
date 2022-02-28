@@ -34,8 +34,9 @@ In the above example, all array elements of *users*  that have an attribute *act
 Order of operations
 -------------------
 
-!!! note
-    The positions of `FILTER` statements can influence the result of a query. There are 16 active users in the [test data](../examples.md#example-data) for instance:
+:::note
+The positions of `FILTER` statements can influence the result of a query. There are 16 active users in the [test data](../examples.md#example-data) for instance:
+:::
 
 ```js
 FOR u IN users

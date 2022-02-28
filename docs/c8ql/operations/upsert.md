@@ -33,8 +33,9 @@ INSERT { name: 'superuser', logins: 1, dateCreated: DATE_NOW() }
 UPDATE { logins: OLD.logins + 1 } IN users
 ```
 
-!!! note
-    In the `UPDATE` case it is possible to refer to the previous version of the document using the *OLD* pseudo-value.
+:::note
+In the `UPDATE` case it is possible to refer to the previous version of the document using the *OLD* pseudo-value.
+:::
 
 Setting query options
 ---------------------
@@ -45,9 +46,9 @@ When updating or replacing an attribute with a null value, GDN will not remove t
 
 There is also the option *mergeObjects* that controls whether object contents will be merged if an object attribute is present in both the `UPDATE` query and in the to-be-updated document.
 
-!!! note
-    The default value for *mergeObjects* is *true*, so there is no need to specify it explicitly.
-
+:::note
+The default value for *mergeObjects* is *true*, so there is no need to specify it explicitly.
+:::
 To make sure data are durable when an update query returns, there is the *waitForSync* query option.
 
 In order to not accidentially update documents that have been written and updated since you last fetched them you can use the option *ignoreRevs* to either let GDN compare the `_rev` value and only succeed if they still match, or let GDN ignore them (default):

@@ -10,11 +10,11 @@ Graphs allow you to structure your models in line with your domain and group the
 
 *Are graphs and graph databases useful in data modeling, and if so, for what and under which circumstances?*
 
-!!! info
-    Mathematically, a graph (directed, unlabelled, without multiple edges) is nothing but a relation. It consists of a set `V` of vertices and a subset `E` (the edges) of the Cartesian product `V x V`. There is an edge from `v to w`, if and only if the pair `(v,w)` is contained in `E`. 
-    
-    Similarly, a **bipartite graph** is just a subset of a Cartesian product `A x B` for two disjoint sets `A` and `B`. It is only when we go to labelled graphs (in which every edge carries a label) or multiple edges that we get a richer structure. Note that an undirected graph can just be seen as a symmetric directed one.
+:::info
+Mathematically, a graph (directed, unlabelled, without multiple edges) is nothing but a relation. It consists of a set `V` of vertices and a subset `E` (the edges) of the Cartesian product `V x V`. There is an edge from `v to w`, if and only if the pair `(v,w)` is contained in `E`. 
 
+Similarly, a **bipartite graph** is just a subset of a Cartesian product `A x B` for two disjoint sets `A` and `B`. It is only when we go to labelled graphs (in which every edge carries a label) or multiple edges that we get a richer structure. Note that an undirected graph can just be seen as a symmetric directed one.
+:::
 ## Coming from Relational World
 
 In a relational database, we would probably store the vertices of a graph in one table and the edges in a second one. Each edge would have a foreign key for its starting vertex and one for its ending vertex. 
@@ -85,9 +85,9 @@ The underlying collections of the graphs are still accessible using the standard
 * If you insert an `edge`, it is checked if the edge matches the edge definitions.
 * Your edge collections will only contain valid edges and you will never have loose ends.
 
-!!! warning
-    These guarantees are lost if you access the collections in any other way than the graph module, so if you delete documents from your vertex collections directly, the edges pointing to them will be remain in place.
-
+:::warning
+These guarantees are lost if you access the collections in any other way than the graph module, so if you delete documents from your vertex collections directly, the edges pointing to them will be remain in place.
+:::
 Existing inconsistencies in your data will not be corrected when you create a graph. Therefore, make sure you start with sound data as otherwise there could be dangling edges after all. The GDN graph module guarantees to not introduce new inconsistencies only.
 
 ## FILTERs on edge document attributes OR Multiple edge collections?
@@ -157,8 +157,9 @@ We will have the following directed relations:
   - *Eve* knows *Alice*
   - *Eve* knows *Bob*
 
-!!! note
-    With the default "Search Depth" of 2 of the graph viewer you may not see all edges of this graph.
+:::note
+With the default "Search Depth" of 2 of the graph viewer you may not see all edges of this graph.
+:::
 
 ### The Social Graph
 
@@ -186,8 +187,9 @@ The example has all its vertices in the *circles* collection, and an *edges* edg
 
 Circles have unique numeric labels. Edges have two boolean attributes (*theFalse* always being false, *theTruth* always being true) and a label sorting *B* - *D* to the left side, *G* - *K* to the right side. Left and right side split into Paths - at *B* and *G* which are each direct neighbours of the root-node *A*. Starting from *A* the graph has a depth of 3 on all its paths.
 
-!!! note
-    With the default "Search Depth" of 2 of the graph viewer you may not see all nodes of this graph.
+:::note
+With the default "Search Depth" of 2 of the graph viewer you may not see all nodes of this graph.
+:::
 
 ### The k Shortest Paths Graph
 

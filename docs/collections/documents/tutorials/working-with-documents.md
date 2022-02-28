@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Working with Documents
 
 ## Pre-requisite
@@ -9,9 +12,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -29,11 +31,8 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -52,13 +51,14 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import pprint
     import time
@@ -146,11 +146,10 @@ Let's assume your
       print("\n7. DELETE_DATA: region: {}, collection: {}".format(global_url, collection_name))
       collection.truncate()
       #fabric.delete_collection(collection_name)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     'use strict'
 
     const jsc8 = require('jsc8');
@@ -260,4 +259,5 @@ Let's assume your
       await readDataFromAllRegions();
       await deleteData();
     })();
-    ```
+  </TabItem>
+</Tabs>  

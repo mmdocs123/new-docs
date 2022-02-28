@@ -1,7 +1,11 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Quick Start with Document Store
 
-!!! note
-    If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+:::note
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+:::
 
 Documents in GDN are JSON objects. These objects can be nested (to any depth) and may contain lists. Each document has a unique [primary key](#document-key) which identifies it within its collection. Furthermore, each document is uniquely identified by its [document handle](#document-handle) across all collections. Different revisions of the same document (identified by its handle) can be distinguished by their [document revision](#document-revision). Any transaction only ever sees a single revision of a document.
 
@@ -44,9 +48,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -63,12 +66,8 @@ Let's assume your
         pipenv install --pre pyC8
 
     Once the installation process is finished, you can begin developing applications in Python.
-
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -87,15 +86,15 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Connect to GDN
 
 The first step in using GDN is to establish a connection to a region. When this code executes, it initializes the server connection to the **closest* region to your location.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
 
@@ -107,12 +106,9 @@ The first step in using GDN is to establish a connection to a region. When this 
 
     # To use advanced options
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443)
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Simple Way
@@ -123,16 +119,16 @@ The first step in using GDN is to establish a connection to a region. When this 
 
     // To use advanced options
     const client = new jsc8("https://gdn.paas.macrometa.io"); 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get GeoFabric Details
 
 To get details of fabric,
 
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -140,12 +136,9 @@ To get details of fabric,
                             geofabric='_system')
     print("Get geo fabric details...")
     print(client.get_fabric_details())
+  </TabItem>
+  <TabItem value="js" label="Javascript">  
 
-    ```
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -170,7 +163,8 @@ To get details of fabric,
     }
 
     getFabric();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Create Collection
 
@@ -178,20 +172,18 @@ We can now create collection in the fabric. To do this, first you connect to fab
 
 The below example shows the steps.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     # Simple Approach
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
                             email='nemo@nautilus.com', password='xxxxx',
                             geofabric='_system')
     client.create_collection(name='employees')
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -219,15 +211,15 @@ The below example shows the steps.
 
     createCollection().then(console.log);
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Create Index
 
 Let's add a `hash_index` called emails to our collection employees. Please refer to reference guide for details on other available index types.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     # Simple Approach
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -235,11 +227,9 @@ Let's add a `hash_index` called emails to our collection employees. Please refer
                             geofabric='_system')
     print("Add Hash Index", client.add_hash_index('employees', fields=['continent', 'country'], unique=True)
     )                      
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -266,15 +256,15 @@ Let's add a `hash_index` called emails to our collection employees. Please refer
     }
 
     createIndex().then(console.log);
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Insert Documents
 
 Let's insert documents to the employees collection as shown below.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     # Simple Approach
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -289,14 +279,9 @@ Let's insert documents to the employees collection as shown below.
     ]
 
     client.insert_document(collection_name='employees', document=docs)
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-
-    ```
-
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -334,7 +319,8 @@ Let's insert documents to the employees collection as shown below.
     }
 
     populate();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Query documents using C8QL
 
@@ -343,9 +329,8 @@ C8QL is C8's query language. You can execute C8QL query on our newly created col
 The query `FOR employee IN employees RETURN employee` is equivalent to SQL's SELECT query.
 
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     # Simple Approach
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -353,13 +338,9 @@ The query `FOR employee IN employees RETURN employee` is equivalent to SQL's SEL
                             geofabric='_system')
 
     client.execute_query('FOR employee IN employees RETURN employee')
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ```
-
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -381,15 +362,15 @@ The query `FOR employee IN employees RETURN employee` is equivalent to SQL's SEL
     }
 
     c8Queries();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get realtime updates
 
 Example for real-time updates from a collection in fabric:
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     # Simple Approach
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -401,12 +382,9 @@ Example for real-time updates from a collection in fabric:
         print(event)
     #--------------------------------------------------------------
     client.on_change("employees", callback=callback_fn)     
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-
-=== "Javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
 
     // Crete a authenticated instance with Token / Apikey
@@ -434,16 +412,17 @@ Example for real-time updates from a collection in fabric:
     }
 
     realTimeListener();
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Query as API
 
 Query as API (aka RESTQL) enables developers to quickly convert saved C8QL queries into geo-distributed REST APIs. This eliminates the need for separate backend servers & containers for CRUD operations.
 
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     fed_url = "gdn.paas.macrometa.io"
@@ -510,11 +489,8 @@ Query as API (aka RESTQL) enables developers to quickly convert saved C8QL queri
 
         print("\n ------- DONE  ------")
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     const jsc8 = require('jsc8');
 
@@ -599,4 +575,5 @@ Query as API (aka RESTQL) enables developers to quickly convert saved C8QL queri
     }
 
     restqldemo().then(console.log("Starting Execution"));
-    ```
+  </TabItem>
+</Tabs>  

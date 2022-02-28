@@ -2,9 +2,9 @@
 
 Macrometa GDN can be used as the data store for apps written for AWS DynamoDB. Switch to using GDN by just changing the `connection URL`, `accessKey` and `secretKey`. You can continue using aws dynamodb sdk and cli you are familiar with.
 
-!!! note
-    Macrometa GDN provides aws dynamo db ***global tables*** as the `default` option. 
-
+:::note
+Macrometa GDN provides aws dynamo db ***global tables*** as the `default` option. 
+:::
 This enables you to deliver low-latency data access to your users no matter where they are located. GDN performs all of the necessary tasks to create identical tables in all the regions around the globe and propagate ongoing data changes to all of them.
 
 Similarly GDN provides better data consistency guarantees i.e., `strong consistency` within a region and `strong eventual consistency` across regions utilizing CRDTs and partially ordered logs.
@@ -21,12 +21,12 @@ In this tutorial, you use the AWS SDK for JavaScript to write simple application
     * Login to your tenant account on https://gdn.paas.macrometa.io
     * Create an API key via REST API. Make a copy of the key.
 
-    !!! Example
+    :::tip
         Following api key is created under `demo@macrometa.io/_system` on https://gdn.paas.macrometa.io with `rw` permissions.
         ```
             demo.demok1.1a1aad0f4b000ca4d2d3bdb505298cbb9467b65526b0f79364e61e5f00000000
         ```
-
+    :::
 2. Set up the AWS SDK for JavaScript. To do this, add or modify the following script tag to your HTML pages:
 
 ```js
@@ -118,11 +118,12 @@ Create following file - `MoviesCreateTable.html`.
     </html>
 ```
 
-    !!! note
+    :::note
         * You set the endpoint to indicate that you are connecting to macrometa gdn.
         * For `accessKeyId` and `secretKey`, you can specify either Macrometa `api key` or `jwt token` of your account.
         * In the `createMovie`s function, you specify the table name, primary key attributes, and its data types.
         * The ProvisionedThroughput parameter is ignored.
+    :::
 
 Open the `MoviesCreateTable.html` file in your browser and choose `Create Table`.
 
@@ -358,8 +359,9 @@ Copy the following program and paste it into a file named `MoviesItemOps01.html`
     </html> 
 ```
 
-!!! note
-    The primary key is required. This code adds an item that has a primary key `(year, title)` and `info` attributes. The `info` attribute stores sample JSON that provides more information about the movie.
+:::note
+The primary key is required. This code adds an item that has a primary key `(year, title)` and `info` attributes. The `info` attribute stores sample JSON that provides more information about the movie.
+:::
 
 Open the `MoviesItemOps01.html` file in your browser and choose `Create Item`.
 
@@ -540,9 +542,10 @@ Copy the following program and paste it into a file named `MoviesItemOps03.html`
     </html> 
 ```
 
-!!! note
-    * This program uses UpdateExpression to describe all updates you want to perform on the specified item.
-    * The ReturnValues parameter instructs Amazon DynamoDB to return only the updated attributes ("UPDATED_NEW").
+:::note
+* This program uses UpdateExpression to describe all updates you want to perform on the specified item.
+* The ReturnValues parameter instructs Amazon DynamoDB to return only the updated attributes ("UPDATED_NEW").
+:::
 
 Open the `MoviesItemOps03.html` file in your browser and choose `Update Item`.
 
@@ -937,16 +940,17 @@ Copy the following program and paste it into a file named `MoviesQuery01.html`.
     </html> 
 ```
 
-!!! note
-    * `ExpressionAttributeNames` provides name substitution. This is used because year is a reserved word in Amazon DynamoDB. You can't use it directly in any expression, including `KeyConditionExpression`. For this reason, you use the expression attribute name `#yr`.
+:::note
+* `ExpressionAttributeNames` provides name substitution. This is used because year is a reserved word in Amazon DynamoDB. You can't use it directly in any expression, including `KeyConditionExpression`. For this reason, you use the expression attribute name `#yr`.
 
-    * `ExpressionAttributeValues` provides value substitution. This is used because you can't use literals in any expression, including `KeyConditionExpression`. For this reason, you use the expression attribute value `:yyyy`.
+* `ExpressionAttributeValues` provides value substitution. This is used because you can't use literals in any expression, including `KeyConditionExpression`. For this reason, you use the expression attribute value `:yyyy`.
+:::
 
 Open the `MoviesQuery01.html` file in your browser and choose `Query`.
 
-!!! note
-    The preceding program shows how to query a table by its primary key attributes. In DynamoDB, you can optionally create one or more secondary indexes on a table, and query those indexes in the same way that you query a table. Secondary indexes give your applications additional flexibility by allowing queries on non-key attributes. 
-
+:::note
+The preceding program shows how to query a table by its primary key attributes. In DynamoDB, you can optionally create one or more secondary indexes on a table, and query those indexes in the same way that you query a table. Secondary indexes give your applications additional flexibility by allowing queries on non-key attributes. 
+:::
 
 ### Query - All Movies Released in a Year with Certain Titles
 

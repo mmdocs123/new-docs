@@ -53,9 +53,9 @@ This will return:
 ]
 ```
 
-!!! note
-    Attribute name expressions and regular, unquoted attribute names can be mixed.
-
+:::note
+Attribute name expressions and regular, unquoted attribute names can be mixed.
+:::
 ## Subquery solution
 
 A generalized solution is to let a subquery or another function produce the dynamic attribute names, and finally pass them through the `ZIP()` function to create an object from them.
@@ -115,8 +115,9 @@ FOR doc IN documents
   RETURN ZIP(attributes[*].name, attributes[*].value)
 ```
 
-!!! note
-    We have to use the expansion operator (`[*]`) on `attributes` because `attributes` itself is an array, and we want either the `name` attribute or the `value` attribute of each of its members.
+:::note
+We have to use the expansion operator (`[*]`) on `attributes` because `attributes` itself is an array, and we want either the `name` attribute or the `value` attribute of each of its members.
+:::
 
 To prove this is working, here is the above query's result:
 

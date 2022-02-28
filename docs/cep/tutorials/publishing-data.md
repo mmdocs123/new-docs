@@ -145,9 +145,9 @@ the completed stream application is as follows.
 
 Stream processor publishes data in the custom format when it makes changes to the attribute names in the output stream before publishing. To understand how this is done, follow the procedure below:
 
-!!! info
-    In this section, you can update the same stream application that you saved in the [Publishing data in default format](#publishing-a-message-in-default-format) section.
-    
+:::info
+In this section, you can update the same stream application that you saved in the [Publishing data in default format](#publishing-a-message-in-default-format) section.
+:::    
 1. Open your stream application with a sink configuration.
 
 2. Within the `map.type` annotation of the sink configuration, add a `map.payload` annotation. There are two ways to configure this:

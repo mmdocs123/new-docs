@@ -1,12 +1,15 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Using REST APIs
 
 Today’s applications are required to be highly responsive and always online. They need to be deployed in datacenters closer to their users and can access data instantly across the globe. 
 
 Macrometa global data network (GDN) is a fully managed realtime materialzed view engine that provides access to data instantly to Apps & APIs in a simple & single interface. 
 
-!!! note
-    If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../essentials/overview.md)** of Macrometa GDN.
-
+:::note
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../essentials/overview.md)** of Macrometa GDN.
+:::
 ## Pre-Requiste
 
 A tenant account (and credentials) with Macrometa GDN.
@@ -31,9 +34,9 @@ It provides,
 
 `Streams` are built on the _publish-subscribe_ pattern, aka pub-sub. In this pattern, producers publish messages to streams. Consumers can then subscribe to those streams, process incoming messages, and send an acknowledgement when processing is complete.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     import requests
     import json
     from websocket import create_connection
@@ -130,11 +133,9 @@ It provides,
     resp = session.post(url, data = json.dumps(payload))
     print("Subsrcription Deleted: ", resp.text)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     class APIRequest {
       _headers = {
         Accept: "application/json",
@@ -326,4 +327,5 @@ It provides,
 
     run();
 
-    ```
+  </TabItem>
+</Tabs>  

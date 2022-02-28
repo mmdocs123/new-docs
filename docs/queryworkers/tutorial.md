@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Query Workers
 
 This tutorial is about using C8QL queries as API (aka Query Workers) in Macrometa GDN with low latencies across the globe.
@@ -9,9 +12,9 @@ For this example, we use the following credentials:
 
 ## Driver download
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
     To install pyC8, simply run
@@ -28,11 +31,8 @@ For this example, we use the following credentials:
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+   </TabItem>
+   <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -51,13 +51,14 @@ For this example, we use the following credentials:
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
     import pprint
 
@@ -164,11 +165,9 @@ For this example, we use the following credentials:
     client.delete_restql("countRecords")
     client.delete_restql("deleteRecord")
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     'use strict'
 
     const jsc8 = require('jsc8');
@@ -306,4 +305,6 @@ For this example, we use the following credentials:
     await executeRestQL();
     await deleteRestQL();
     })();
-    ```
+    
+  </TabItem>
+</Tabs>  

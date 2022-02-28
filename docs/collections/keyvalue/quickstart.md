@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Quick Start with Key Value Store
 
 Macrometa GDN is a geodistributed real-time coordination-free materialized views engine that supports multiple data models. You can use GDN as a geo-replicated real-time key-value datastore or database. 
@@ -19,60 +22,55 @@ For the following examples, assume these credentials:
 
 Download the appropriate drivers for Python or JavaScript.
 
-=== "python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
-    To install pyC8, run
+    To install pyC8, simply run
 
         $ pip3 install pyC8
 
-    Alternatively, you can use conda:
+    or, if you prefer to use conda:
 
         conda install -c conda-forge pyC8
 
-    Alternatively, you can use pipenv:
+    or pipenv:
 
         pipenv install --pre pyC8
 
-    Any one of these three commands will install Python and enable you to develop applications.
+    Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "javascript"
-
-    ``` js
-
-    With Yarn:
+    With Yarn or NPM
 
         yarn add jsc8
-    
-	With NPM:
-
+        (or)
         npm install jsc8
 
     If you want to use the driver outside of the current directory, you can also install it globally using the `--global` flag:
 
         npm install --global jsc8
 
-    From source:
+    From source,
 
         git clone https://github.com/macrometacorp/jsc8.git
         cd jsC8
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>
 
 ## Connect to GDN
 
 Establish connection to a local region. When this code runs, it initializes the server connection to the region URL you specify. You can create an API key from the GUI or REST API.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     # Simple Way
@@ -88,11 +86,10 @@ Establish connection to a local region. When this code runs, it initializes the 
     # Or Using API Key
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
     apikey="<your-api-key>")
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     const jsc8 = require("jsc8");
 
     // Simple Way
@@ -102,15 +99,16 @@ Establish connection to a local region. When this code runs, it initializes the 
 
     // To use advanced options
     const client = new jsc8("https://gdn.paas.macrometa.io"); 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Create Collection
 
 Create a Collection for saving the key-value pairs.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     key = "<your-api-key>"
@@ -126,11 +124,9 @@ Create a Collection for saving the key-value pairs.
     else:
         client.create_collection_kv(name=collection_name)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     // Add this snippet in previously created main function
     let coll = await client.getKVCollections();
     console.log("Existing Collections: ", coll.result);
@@ -141,15 +137,15 @@ Create a Collection for saving the key-value pairs.
     catch(e){
         console.log("Collection creation did not succeed due to " + e);
     }
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Insert Key Value Pairs
 
 Insert key-value pairs into the collection.
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
 
@@ -185,11 +181,10 @@ Insert key-value pairs into the collection.
 
     client.insert_key_value_pair(collection_name, data)
     print("KV Pairs Inserted")
-    ```
 
-=== "Javascript"
+   </TabItem>
+   <TabItem value="js" label="Javascript">
 
-    ``` js
     // Insert Key Value pairs
     var data = [
       {
@@ -220,15 +215,16 @@ Insert key-value pairs into the collection.
     catch(e){
         console.log("Key Value Pairs not inserted due to " + e);
     }
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get Value
 
 Get value for a given key.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     key = "<your-api-key>"
@@ -240,22 +236,22 @@ Get value for a given key.
     # Get value for a key
     print("Value for the provided key: ",client.get_value_for_key(collection_name, "Monika"))
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     const result = await client.getValueForKey(collectionName, 'Monika');
     console.log("Value for provided key: ", result);
-    ```
+
+  </TabItem>
+</Tabs>  
 
 ## Get Key-Value Count
 
 Get key-value count from a given collection.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     from c8 import C8Client
 
     key = "<your-api-key>"
@@ -268,24 +264,21 @@ Get key-value count from a given collection.
     # Get KV count of a collection
     print("Number of kv pairs in your collection: ",client.get_kv_count(collection_name))
 
-    ```
-
-=== "Javascript"
-
-    ```js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     // Get KV count of a collection
     const count = await client.getKVCount(collectionName);
     console.log("Number of kv pairs in your collection: ", count.count);
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Update Value
 
 Update value for a given key.
 
-=== "Python"
-
-    ```py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
 
@@ -305,11 +298,9 @@ Update value for a given key.
     client.insert_key_value_pair(collection_name, data)
     print("Updated the specified KV pair")
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     //Update value for a key
     data = {
         "_key": "John",
@@ -324,15 +315,16 @@ Update value for a given key.
       console.log("Key Value Pair not updated due to " + e)
 
     }
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Delete Key-Value
 
 Delete key-value pairs from a collection.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     key = "<your-api-key>"
@@ -348,11 +340,9 @@ Delete key-value pairs from a collection.
     # Delete entry for multiple keys
     print("Deleted Entries for the list of keys: ",client.delete_entry_for_keys(collection_name, ["Monika", "Alex", "Alice"]))
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     try{
         // Delete entry for a key
         await client.deleteEntryForKey(collectionName, 'John');
@@ -364,15 +354,16 @@ Delete key-value pairs from a collection.
         console.log("Failed to delete entries due to " + e)
 
     }
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Delete Collection
 
 Delete key-value collection
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ``` py
     from c8 import C8Client
 
     key = "<your-api-key>"
@@ -385,11 +376,9 @@ Delete key-value collection
     # Delete Collection
     print("Collection Deleted: ",client.delete_collection_kv(collection_name))
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-=== "Javascript"
-
-    ``` js
     // Delete Collection
     try{
         await client.deleteKVCollection(collectionName)
@@ -399,15 +388,15 @@ Delete key-value collection
         console.log("Failed to delete collection due to " + e)
     }
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Complete Example
 
 The following complete examples are a composite of the previous code snippets:
 
-=== "Python"
-
-    ```py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
 
@@ -483,11 +472,9 @@ The following complete examples are a composite of the previous code snippets:
 
     # Delete Collection
     print("Collection Deleted: ",client.delete_collection_kv(collection_name))
-    ```
 
-=== "Javascript"
-
-    ```js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     const jsc8 = require("jsc8");
 
@@ -597,4 +584,5 @@ The following complete examples are a composite of the previous code snippets:
     }
 
     main();
-    ```
+  </TabItem>
+</Tabs>

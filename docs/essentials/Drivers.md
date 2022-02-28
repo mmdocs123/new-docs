@@ -119,15 +119,17 @@ The first step in using GDN is to establish a connection to a local region. When
 
 <Tabs groupId="operating-systems">
   <TabItem value="js" label="Javascript">
-    I am Windows.
+
+    try{
+        await client.createApiKey(keyid);
+    }
+    catch(e){
+        console.log('API Creation Failed: ', e);
+    }
+
   </TabItem>
   <TabItem value="py" label="Python">
-    I am macOS.
-  </TabItem>
-</Tabs>
-=== "python"
 
-    ``` py
     from c8 import C8Client
 
     # Create a connection to gdn
@@ -138,23 +140,9 @@ The first step in using GDN is to establish a connection to a local region. When
     # Create an api key
     print("Create API Key: ", client.create_api_key('id1'))
 
-    ```
+  </TabItem>
+  <TabItem value="RA" label="Rest API">
 
-=== "javascript"
-
-    ``` js
-    try{
-        await client.createApiKey(keyid);
-    }
-    catch(e){
-        console.log('API Creation Failed: ', e);
-    }
-
-    ```
-
-=== "Rest API"
-
-    ``` py
     # Create an API Key
     FEDERATION = "api-gdn.macrometa.io"
     FED_URL = "https://{}".format(FEDERATION)
@@ -170,38 +158,15 @@ The first step in using GDN is to establish a connection to a local region. When
         print("ERROR: " , resp)
     else:
         print("API Key Created: ", resp)
-        
-    ```
 
+  </TabItem>    
+</Tabs>
+    
 ## Get Accessible Resources
+
 <Tabs groupId="operating-systems">
   <TabItem value="js" label="Javascript">
-    I am Windows.
-  </TabItem>
-  <TabItem value="py" label="Python">
-    I am macOS.
-  </TabItem>
-</Tabs>
-=== "python"
 
-    ``` py
-    from c8 import C8Client
-
-    # Create a connection to gdn
-    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
-                            email='nemo@nautilus.com', password='xxxxx',
-                            geofabric='_system')
-
-    # Fetch List of accessible databases and streams
-    print("Accessible Databases: ", client.list_accessible_databases('id1'))
-
-    print("Accessible Streams of a db: ", client.list_accessible_streams('id1', '_system'))
-
-    ```
-
-=== "javascript"
-
-    ``` js
     //Fetch accessible databases
     try{
         var databases = await client.listAccessibleDatabases(keyid)
@@ -223,11 +188,25 @@ The first step in using GDN is to establish a connection to a local region. When
 
     }
 
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-=== "Rest API"
+    from c8 import C8Client
 
-    ``` py
+    # Create a connection to gdn
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+                            email='nemo@nautilus.com', password='xxxxx',
+                            geofabric='_system')
+
+    # Fetch List of accessible databases and streams
+    print("Accessible Databases: ", client.list_accessible_databases('id1'))
+
+    print("Accessible Streams of a db: ", client.list_accessible_streams('id1', '_system'))
+    
+  </TabItem>
+  <TabItem value="RA" label="Rest API">
+
+
     # Fetch List of accessible databases and streams
     FEDERATION = "api-gdn.macrometa.io"
     FED_URL = "https://{}".format(FEDERATION)
@@ -256,55 +235,20 @@ The first step in using GDN is to establish a connection to a local region. When
     else:
         print("Accessible Databases: ", resp)
 
-    ```
+  </TabItem>
+</Tabs>
 
 ## Set Permissions
 
-!!! note
-    * Use `rw` to set the access level to `Administrate`.
-    * Use `ro` to set the access level to `Read Only`.
-    * Use `none` to set the access level to `No access`.
+:::note
+* Use `rw` to set the access level to `Administrate`.
+* Use `ro` to set the access level to `Read Only`.
+* Use `none` to set the access level to `No access`.
+:::
 
 <Tabs groupId="operating-systems">
   <TabItem value="js" label="Javascript">
-    I am Windows.
-  </TabItem>
-  <TabItem value="py" label="Python">
-    I am macOS.
-  </TabItem>
-</Tabs>
-=== "python"
 
-    ``` py
-    from c8 import C8Client
-
-
-    # Create a connection to gdn
-    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
-                            email='nemo@nautilus.com', password='xxxxx',
-                            geofabric='_system')
-
-    # Set Accesslevels for an API Key
-
-    # Create a new collection if it does not exist
-    if client.has_collection('testCollection'):
-        print("Collection exists")
-    else:
-        client.create_collection_kv(name='testCollection')
-    # Create a new stream
-    # print(client.create_stream('testStream'))
-
-    print("Set Database Access Level: ", client.set_database_access_level('id1', '_system', 'rw'))
-
-    print("Set Collection Access Level: ", client.set_collection_access_level('id1', 'testCollection', '_system', 'rw'))
-
-    print("Set Stream Access Level: ", client.set_stream_access_level('id1','c8globals.testStream', '_system'))
-
-    ```
-
-=== "javascript"
-
-    ``` js
     // Set Access Level for an API Key
     // Create Colleciton
     var coll = await client.getCollections();
@@ -342,13 +286,37 @@ The first step in using GDN is to establish a connection to a local region. When
     }
     catch(e){
         console.log("Failed to set Database Access Level: ",e)
-
     }
-    ```
 
-=== "Rest API"
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-    ``` py
+    from c8 import C8Client
+
+    # Create a connection to gdn
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+                            email='nemo@nautilus.com', password='xxxxx',
+                            geofabric='_system')
+
+    # Set Accesslevels for an API Key
+
+    # Create a new collection if it does not exist
+    if client.has_collection('testCollection'):
+        print("Collection exists")
+    else:
+        client.create_collection_kv(name='testCollection')
+    # Create a new stream
+    # print(client.create_stream('testStream'))
+
+    print("Set Database Access Level: ", client.set_database_access_level('id1', '_system', 'rw'))
+
+    print("Set Collection Access Level: ", client.set_collection_access_level('id1', 'testCollection', '_system', 'rw'))
+
+    print("Set Stream Access Level: ", client.set_stream_access_level('id1','c8globals.testStream', '_system'))
+
+  </TabItem>
+  <TabItem value="RA" label="Rest API">
+
     FEDERATION = "api-gdn.macrometa.io"
     FED_URL = "https://{}".format(FEDERATION)
     keyid = "id1"
@@ -387,41 +355,16 @@ The first step in using GDN is to establish a connection to a local region. When
         print("ERROR: " , resp)
     else:
         print("Set Stream Access Level: ", resp)
-
-    ```
-
-## Get Access Levels
-<Tabs groupId="operating-systems">
-  <TabItem value="js" label="Javascript">
-    I am Windows.
-  </TabItem>
-  <TabItem value="py" label="Python">
-    I am macOS.
+        
   </TabItem>
 </Tabs>
-=== "python"
-
-    ``` py
-    from c8 import C8Client
 
 
-    # Create a connection to gdn
-    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
-                            email='nemo@nautilus.com', password='xxxxx',
-                            geofabric='_system')
+## Get Access Levels
 
-    # Get AccessLevel
-    print("Get DB Access Level", client.get_database_access_level('id1','_system'))
+<Tabs groupId="operating-systems">
+  <TabItem value="js" label="Javascript">
 
-    print("Get Coll Access Level: ", client.get_collection_access_level('id1','testCollection', '_system'))
-
-    print("Get Stream Access Level: ", client.get_stream_access_level('id1','c8globals.testStream', '_system'))
-
-    ```
-
-=== "javascript"
-
-    ``` js
     try{
         await client.getCollectionAccessLevel(keyid, '_system', collectionName)
     }
@@ -442,11 +385,26 @@ The first step in using GDN is to establish a connection to a local region. When
         console.log("Failed to Get Access Level for the Database: ",e)
     }
 
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-=== "Rest API"
+    from c8 import C8Client
 
-    ``` py
+    # Create a connection to gdn
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+                            email='nemo@nautilus.com', password='xxxxx',
+                            geofabric='_system')
+
+    # Get AccessLevel
+    print("Get DB Access Level", client.get_database_access_level('id1','_system'))
+
+    print("Get Coll Access Level: ", client.get_collection_access_level('id1','testCollection', '_system'))
+
+    print("Get Stream Access Level: ", client.get_stream_access_level('id1','c8globals.testStream', '_system'))
+
+  </TabItem>
+  <TabItem value="RA" label="Rest API">
+
     FEDERATION = "api-gdn.macrometa.io"
     FED_URL = "https://{}".format(FEDERATION)
     keyid = "id1"
@@ -477,39 +435,13 @@ The first step in using GDN is to establish a connection to a local region. When
     else:
         print("Get Collection Access Level: ", resp)
 
-    ```
+  </TabItem>            
+</Tabs>
 
 ## Clear Access Level
 <Tabs groupId="operating-systems">
   <TabItem value="js" label="Javascript">
-    I am Windows.
-  </TabItem>
-  <TabItem value="py" label="Python">
-    I am macOS.
-  </TabItem>
-</Tabs>
-=== "python"
 
-    ``` py
-    from c8 import C8Client
-
-    # Create a connection to gdn
-    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
-                            email='nemo@nautilus.com', password='xxxxx',
-                            geofabric='_system')
-
-    # Clear Access Level
-    print("Clear DB Access Level: ", client.clear_database_access_level('id1','_system'))
-
-    print("Clear Coll Access Level: ", client.clear_collection_access_level('id1','testCollection', '_system'))
-
-    print("Clear Stream Access Level: ", client.clear_stream_access_level('id1','c8globals.testStream', '_system'))
-
-    ```
-
-=== "javascript"
-
-    ``` js
     // Clear Access Level
     try{
         await client.clearDatabaseAccessLevel(keyid, '_system')
@@ -531,11 +463,26 @@ The first step in using GDN is to establish a connection to a local region. When
         console.log("Clearing Access Level for Collection Failed: ",e)
     }
 
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-=== "Rest API"
+    from c8 import C8Client
 
-    ``` py
+    # Create a connection to gdn
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+                            email='nemo@nautilus.com', password='xxxxx',
+                            geofabric='_system')
+
+    # Clear Access Level
+    print("Clear DB Access Level: ", client.clear_database_access_level('id1','_system'))
+
+    print("Clear Coll Access Level: ", client.clear_collection_access_level('id1','testCollection', '_system'))
+
+    print("Clear Stream Access Level: ", client.clear_stream_access_level('id1','c8globals.testStream', '_system'))
+
+  </TabItem>
+  <TabItem value="RA" label="Rest API">
+
     FEDERATION = "api-gdn.macrometa.io"
     FED_URL = "https://{}".format(FEDERATION)
     keyid = "id1"
@@ -566,22 +513,25 @@ The first step in using GDN is to establish a connection to a local region. When
     else:
         print("Clear Stream Access Level: ", resp)
 
-    ```
+  </TabItem>        
+</Tabs>
 
 ## Remove an API Key
 <Tabs groupId="operating-systems">
   <TabItem value="js" label="Javascript">
-    I am Windows.
+
+    // Remove an api key
+    try{
+        await client.removeApiKey(keyid);
+    }
+    catch(e){
+        console.log('API Deletion Failed: ', e);   
+    }
+
   </TabItem>
   <TabItem value="py" label="Python">
-    I am macOS.
-  </TabItem>
-</Tabs>
-=== "python"
-
-    ``` py
+    
     from c8 import C8Client
-
 
     # Create a connection to gdn
     client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
@@ -593,24 +543,9 @@ The first step in using GDN is to establish a connection to a local region. When
 
     print(remove)
 
-    ```
+  </TabItem>
+  <TabItem value="RA" label="Rest API">
 
-=== "javascript"
-
-    ``` js
-    // Remove an api key
-    try{
-        await client.removeApiKey(keyid);
-    }
-    catch(e){
-        console.log('API Deletion Failed: ', e);
-    }
-
-    ```
-
-=== "Rest API"
-
-    ``` py
     FEDERATION = "api-gdn.macrometa.io"
     FED_URL = "https://{}".format(FEDERATION)
     keyid = "id1"
@@ -623,79 +558,14 @@ The first step in using GDN is to establish a connection to a local region. When
     else:
         print("API Key Deleted: ", resp)
 
-    ```
+  </TabItem>        
+</Tabs>
 
 ## Complete Example
 <Tabs groupId="operating-systems">
   <TabItem value="js" label="Javascript">
-    I am Windows.
-  </TabItem>
-  <TabItem value="py" label="Python">
-    I am macOS.
-  </TabItem>
-</Tabs>
-=== "python"
 
-    ``` py
-    from c8 import C8Client
-
-
-    # Create a connection to gdn
-    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
-                            email='nemo@nautilus.com', password='xxxxx',
-                            geofabric='_system')
-
-    #remove = client.remove_api_key('id1')
-
-    # Create an api key
-    print("Create API Key: ", client.create_api_key('id1'))
-
-    # Fetch List of accessible databases and streams
-    print("Accessible Databases: ", client.list_accessible_databases('id1'))
-
-    print("Accessible Streams of a db: ", client.list_accessible_streams('id1', '_system'))
-
-    # Set Accesslevels for an API Key
-
-    # Create a new collection if it does not exist
-    if client.has_collection('testCollection'):
-        print("Collection exists")
-    else:
-        client.create_collection_kv(name='testCollection')
-    # Create a new stream
-    # print(client.create_stream('testStream'))
-
-    print("Set DB Access Level: ", client.set_database_access_level('id1', '_system', 'rw'))
-
-    print("Set Coll Access Level: ", client.set_collection_access_level('id1', 'testCollection', '_system', 'rw'))
-
-    print("Set Stream Access Level: ", client.set_stream_access_level('id1','c8globals.testStream', '_system'))
-
-    # Get AccessLevel
-    print("Get DB Access Level", client.get_database_access_level('id1','_system'))
-
-    print("Get Coll Access Level: ", client.get_collection_access_level('id1','testCollection', '_system'))
-
-    print("Get Stream Access Level: ", client.get_stream_access_level('id1','c8globals.testStream', '_system'))
-
-    # Clear Access Level
-    print("Clear DB Access Level: ", client.clear_database_access_level('id1','_system'))
-
-    print("Clear Coll Access Level: ", client.clear_collection_access_level('id1','testCollection', '_system'))
-
-    print("Clear Stream Access Level: ", client.clear_stream_access_level('id1','c8globals.testStream', '_system'))
-
-    # Remove api key
-    remove = client.remove_api_key('id1')
-
-    print(remove)
-    ```
-
-=== "javascript"
-
-    ``` js
     const jsc8 = require("jsc8");
-
     const client = new jsc8("https://gdn.paas.macrometa.io");
 
     async function main(){
@@ -822,11 +692,63 @@ The first step in using GDN is to establish a connection to a local region. When
 
     main();
 
-    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-=== "Rest API (python)"
+    from c8 import C8Client
+    # Create a connection to gdn
+    client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+                            email='nemo@nautilus.com', password='xxxxx',
+                            geofabric='_system')
 
-    ``` py
+    #remove = client.remove_api_key('id1')
+
+    # Create an api key
+    print("Create API Key: ", client.create_api_key('id1'))
+
+    # Fetch List of accessible databases and streams
+    print("Accessible Databases: ", client.list_accessible_databases('id1'))
+
+    print("Accessible Streams of a db: ", client.list_accessible_streams('id1', '_system'))
+
+    # Set Accesslevels for an API Key
+
+    # Create a new collection if it does not exist
+    if client.has_collection('testCollection'):
+        print("Collection exists")
+    else:
+        client.create_collection_kv(name='testCollection')
+    # Create a new stream
+    # print(client.create_stream('testStream'))
+
+    print("Set DB Access Level: ", client.set_database_access_level('id1', '_system', 'rw'))
+
+    print("Set Coll Access Level: ", client.set_collection_access_level('id1', 'testCollection', '_system', 'rw'))
+
+    print("Set Stream Access Level: ", client.set_stream_access_level('id1','c8globals.testStream', '_system'))
+
+    # Get AccessLevel
+    print("Get DB Access Level", client.get_database_access_level('id1','_system'))
+
+    print("Get Coll Access Level: ", client.get_collection_access_level('id1','testCollection', '_system'))
+
+    print("Get Stream Access Level: ", client.get_stream_access_level('id1','c8globals.testStream', '_system'))
+
+    # Clear Access Level
+    print("Clear DB Access Level: ", client.clear_database_access_level('id1','_system'))
+
+    print("Clear Coll Access Level: ", client.clear_collection_access_level('id1','testCollection', '_system'))
+
+    print("Clear Stream Access Level: ", client.clear_stream_access_level('id1','c8globals.testStream', '_system'))
+
+    # Remove api key
+    remove = client.remove_api_key('id1')
+
+    print(remove)
+
+  </TabItem>
+  <TabItem value="RA p" label="Rest API (python)">
+
     import requests
     import json
 
@@ -1002,11 +924,9 @@ The first step in using GDN is to establish a connection to a local region. When
     else:
         print("API Key Deleted: ", resp)
 
-    ```
+  </TabItem> 
+  <TabItem value="RA js" label="Rest API (javascript)">
 
-=== "Rest API (Javascript)"
-
-    ``` js
     class APIRequest {
     _headers = {
     Accept: "application/json",
@@ -1230,4 +1150,5 @@ The first step in using GDN is to establish a connection to a local region. When
 
     run();
 
-    ```
+  </TabItem>    
+</Tabs>

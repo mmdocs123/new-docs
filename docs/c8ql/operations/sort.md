@@ -36,8 +36,10 @@ SORT doc.lastName, doc.firstName DESC
 will first sort documents by lastName in ascending order and then by firstName in descending order.
 
 
-!!! note
-    When iterating over collection-based arrays, the order of documents is always undefined unless an explicit sort order is defined using `SORT`.
+:::note
+When iterating over collection-based arrays, the order of documents is always undefined unless an explicit sort order is defined using `SORT`.
+:::
 
-!!! note
-    Constant `SORT` expressions can be used to indicate that no particular sort order is desired. Constant `SORT` expressions will be optimized away by the C8QL optimizer during optimization, but specifying them explicitly may enable further optimizations if the optimizer does not need to take into account any particular sort order. This is especially the case after a `COLLECT` statement, which is supposed to produce a sorted result. Specifying an extra *SORT null* after the `COLLECT` statement allows to C8QL optimizer to remove the post-sorting of the collect results altogether.
+:::note
+Constant `SORT` expressions can be used to indicate that no particular sort order is desired. Constant `SORT` expressions will be optimized away by the C8QL optimizer during optimization, but specifying them explicitly may enable further optimizations if the optimizer does not need to take into account any particular sort order. This is especially the case after a `COLLECT` statement, which is supposed to produce a sorted result. Specifying an extra *SORT null* after the `COLLECT` statement allows to C8QL optimizer to remove the post-sorting of the collect results altogether.
+:::

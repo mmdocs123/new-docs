@@ -21,9 +21,10 @@ StreamApp provides an isolated execution environment for your processing logic t
 
 The following diagram depicts some of the key Stream QL elements of Stream Application and how **event flows** through the elements.
 
-!!! tip "Have different business use cases in separate Stream Applications."
-    This is recommended as it allows users to selectively deploy the applications based their on business needs. It is also recommended to move the repeated steam processing logic that exist in multiple Stream Applications such as message retrieval and preprocessing, to a common Stream Application, whereby reducing code duplication and improving maintainability. In this case, to pass the events from one Stream App to another, configure them using a common stream or collection using `stream` Sink and `stream` Source.
-
+:::tip 
+"Have different business use cases in separate Stream Applications."
+This is recommended as it allows users to selectively deploy the applications based their on business needs. It is also recommended to move the repeated steam processing logic that exist in multiple Stream Applications such as message retrieval and preprocessing, to a common Stream Application, whereby reducing code duplication and improving maintainability. In this case, to pass the events from one Stream App to another, configure them using a common stream or collection using `stream` Sink and `stream` Source.
+:::
 ![Event Flow](/img/event-flow.png?raw=true "Event Flow")
 
 Below table provides brief description of a few key elements in the Stream QL Language.
@@ -181,9 +182,9 @@ The following is the list of source mapping types supported by Stream:
 | Key Value | Converts key-value HashMaps to Stream events.|
 | CSV | Converts CSV like delimiter separated events to Stream events.|
 
-!!! tip
-    When the `map.type` annotation is not provided `map.type='passThrough'` is used as default, that passes the consumed stream events directly to the streams without any data conversion.
-
+:::tip
+When the `map.type` annotation is not provided `map.type='passThrough'` is used as default, that passes the consumed stream events directly to the streams without any data conversion.
+:::
 **Example 1**
 
 Receive `JSON` messages via `stream`, and direct them to `InputStream` stream for processing. The stream expects the `JSON` messages to be on the default data format that's supported by the `JSON` mapper as follows.
@@ -252,18 +253,20 @@ The sink syntax is as follows:
 CREATE SINK <stream name> WITH (sink.type='<sink type>', <static.key>='<value>', <dynamic.key>='{{<value>}}', map.type='<map type>', <static.key>='<value>', <dynamic.key>='{{<value>}}', map.payload'<payload mapping>')) (<attribute1> <type>, <attributeN> <type>);
 ```
 
-!!! Note "Dynamic Properties"
-    The sink and sink mapper properties that are categorized as `dynamic` have the ability to absorb attribute values
-    dynamically from the Stream events of their associated streams. This can be configured by enclosing the relevant
-    attribute names in double curly braces as`{{...}}`, and using it within the property values.
+:::note 
+"Dynamic Properties"
+The sink and sink mapper properties that are categorized as `dynamic` have the ability to absorb attribute values
+dynamically from the Stream events of their associated streams. This can be configured by enclosing the relevant
+attribute names in double curly braces as`{{...}}`, and using it within the property values.
 
-    Some valid dynamic properties values are:
+Some valid dynamic properties values are:
 
-    * `'{{attribute1}}'`
-    * `'This is {{attribute1}}'`
-    * `{{attribute1}} > {{attributeN}}`  
+* `'{{attribute1}}'`
+* `'This is {{attribute1}}'`
+* `{{attribute1}} > {{attributeN}}`  
 
-    Here the attribute names in the double curly braces will be replaced with the values from the events before they are published.
+Here the attribute names in the double curly braces will be replaced with the values from the events before they are published.
+:::
 
 This syntax includes the following annotations.
 
@@ -353,9 +356,9 @@ The following is a list of sink mapping types supported by Stream:
 | Key Value | Converts key-value HashMaps to Stream events.|
 | CSV | Converts CSV like delimiter separated events to Stream events.|
 
-!!! tip
-    When the `map.type` annotation is not provided `map.type='passThrough'` is used as default, that passes the outgoing Stream events directly to the sinks without any data conversion.
-
+:::tip
+When the `map.type` annotation is not provided `map.type='passThrough'` is used as default, that passes the outgoing Stream events directly to the sinks without any data conversion.
+:::
 **Example 1**
 
 Publishes `OutputStream` events by converting them to `JSON` messages with the default format, and by sending to an `HTTP` endpoint `http://localhost:8005/endpoint1`, using `POST` method, `Accept` header, and basic authentication having `admin` is both username and password.
@@ -592,9 +595,9 @@ insert into AnotherRoomTempStream
 from RoomTempStream;
 ```
 
-!!! tip "Inferred Stream"
-    Here, the `RoomTempStream` and `AnotherRoomTempStream` streams are an inferred streams, which means their stream definitions are inferred from the queries and they can be used same as any other defined stream without any restrictions.  
-
+:::tip "Inferred Stream"
+Here, the `RoomTempStream` and `AnotherRoomTempStream` streams are an inferred streams, which means their stream definitions are inferred from the queries and they can be used same as any other defined stream without any restrictions.  
+:::
 ### Value
 
 Values are typed data, that can be manipulated, transferred and stored. Values can be referred by the attributes defined in definitions such as streams, and tables.
@@ -603,11 +606,11 @@ Stream supports values of type `STRING`, `INT` (Integer), `LONG`, `DOUBLE`, `FLO
 
 The syntax of each type and their example use as a constant value is as follows,
 
-<table style="width:100%">
+<table style={{ width:100 + "%" }}>
     <tr>
-        <th style="width:10%">Attribute Type</th>
-        <th style="width:50%">Format</th>
-        <th style="width:40%">Example</th>
+        <th style={{ width:10 + "%" }}>Attribute Type</th>
+        <th style={{ width:50 + "%" }}>Format</th>
+        <th style={{ width:40 + "%" }}>Example</th>
     </tr>
     <tr>
         <td>int</td>
@@ -648,7 +651,7 @@ Text with 'single' quotes,
 
 Time is a special type of `LONG` value that denotes time using digits and their unit in the format `(<digit>+ <unit>)+`. At execution, the `time` gets converted into **milliseconds** and returns a `LONG` value.
 
-<table style="width:100%">
+<table style={{ width:100 + "%" }}>
     <tr>
         <th>
             Unit  
@@ -750,8 +753,9 @@ The syntax of function is as follows,
 
 Here `<function name>` uniquely identifies the function. The `<parameter>` defined input parameters the function can accept. The input parameters can be attributes, constant values, results of other functions, results of mathematical or logical expressions, or time values. The number and type of parameters a function accepts depend on the function itself.
 
-!!! note
-    Functions, mathematical expressions, and logical expressions can be used in a nested manner.
+:::note
+Functions, mathematical expressions, and logical expressions can be used in a nested manner.
+:::
 
 **Example 1**
 
@@ -855,8 +859,9 @@ select <attribute name>, <attribute name>, ...
 from <input stream>#window.<window name>(<parameter>, <parameter>, ... );
 ```
 
-!!! note
-    Filter conditions can be applied both before and/or after the window.
+:::note
+Filter conditions can be applied both before and/or after the window.
+:::
 
 **Inbuilt windows**
 
@@ -997,8 +1002,9 @@ update or insert into <table> (for <event type>)?
     on <condition>
 ```
 
-!!! note
-    Controlling query output based on the event types neither alters query execution nor its accuracy.  
+:::note
+Controlling query output based on the event types neither alters query execution nor its accuracy.  
+:::
 
 The event types can be defined using the following keywords to manipulate query output.
 
@@ -1018,8 +1024,9 @@ select *
 from TempStream#window.time(1 min)
 ```
 
-!!! Note
-    This is just to illustrate how expired events work, it is recommended to use [delay](../api/latest/#delay-window) window for usecases where we need to delay events by a given time period.
+:::note
+This is just to illustrate how expired events work, it is recommended to use [delay](../api/latest/#delay-window) window for usecases where we need to delay events by a given time period.
+:::
 
 ### Aggregate Function
 
@@ -1236,8 +1243,9 @@ Streams are stateless. Therefore, in order to join two streams, they need to be 
 During the joining process each incoming event of each stream is matched against all the events in the other
 stream's window based on the given condition, and the output events are generated for all the matching event pairs.
 
-!!! Note
-    Join can also be performed with [stored data](#join-table), [aggregation](#join-aggregation) or externally [named windows](#join-window).
+:::note
+Join can also be performed with [stored data](#join-table), [aggregation](#join-aggregation) or externally [named windows](#join-window).
+:::
 
 **Syntax**
 
@@ -1260,8 +1268,9 @@ join execution, you can add the `unidirectional` keyword next to a stream in the
 syntax in order to enable that stream to trigger the join operation. Here, events arriving at other stream only update the
  window of that stream, and this stream does not trigger the join operation.
 
-!!! Note
-    The `unidirectional` keyword cannot be applied to both the input streams because the default behaviour already allows both streams to trigger the join operation.
+:::note
+The `unidirectional` keyword cannot be applied to both the input streams because the default behaviour already allows both streams to trigger the join operation.
+:::
 
 **Example**
 
@@ -1941,10 +1950,10 @@ The following operators can be performed on tables.
 
 This allows events to be inserted into tables. This is similar to inserting events into streams.
 
-!!! warning
-    If the table is defined with primary keys, and if you insert duplicate data, primary key constrain violations can occur.
-    In such cases use the `update or insert into` operation.
-
+:::warning
+If the table is defined with primary keys, and if you insert duplicate data, primary key constrain violations can occur.
+In such cases use the `update or insert into` operation.
+:::
 **Syntax**
 
 ```
@@ -1971,8 +1980,9 @@ from TempStream;
 
 This allows a stream to retrieve information from a table in a streaming manner.
 
-!!! Note
-    Joins can also be performed with [two streams](#join-stream), [aggregation](#join-aggregation) or against externally [named windows](#join-window).
+:::note
+Joins can also be performed with [two streams](#join-stream), [aggregation](#join-aggregation) or against externally [named windows](#join-window).
+:::
 
 **Syntax**
 
@@ -1983,9 +1993,10 @@ from <input stream> join <table>
     on <condition>
 ```
 
-!!! Note
-    A table can only be joint with a stream. Two tables cannot be joint because there must be at least one active
-    entity to trigger the join operation.
+:::note
+A table can only be joint with a stream. Two tables cannot be joint because there must be at least one active
+entity to trigger the join operation.
+:::
 
 **Example**
 
@@ -2038,9 +2049,10 @@ The `condition` element specifies the basis on which events are selected to be d
 
 To execute delete for specific event types, use the `current events`, `expired events` or the `all events` keyword with `for` as shown in the syntax. For more information, see [Event Type](#event-type)
 
-!!! note
-    Table attributes must be always referred to with the table name as follows:
-    `<table name>.<attibute name>`
+:::note
+Table attributes must be always referred to with the table name as follows:
+`<table name>.<attibute name>`
+:::
 
 **Example**
 
@@ -2076,9 +2088,10 @@ You can use the `set` keyword to update selected attributes from the table. Here
 
 To execute an update for specific event types use the `current events`, `expired events` or the `all events` keyword with `for` as shown in the syntax. For more information, see [Event Type](#event-type).
 
-!!! note
-    Table attributes must be always referred to with the table name as shown below:
-     `<table name>.<attibute name>`.
+:::note
+Table attributes must be always referred to with the table name as shown below:
+`<table name>.<attibute name>`.
+:::
 
 **Example**
 
@@ -2113,13 +2126,15 @@ The `condition` element specifies the basis on which events are selected for upd
 
 The `set` clause is only used when an update is performed during the insert/update operation. When `set` clause is used, the attribute to the left is always a table attribute, and the attribute to the right can be a stream/table attribute, mathematical operation or other. The attribute to the left (i.e., the attribute in the event table) is updated with the value of the attribute to the right if the given condition is met. When the `set` clause is not provided, all the attributes in the table are updated.
 
-!!! note
-    When the attribute to the right is a table attribute, the operations supported differ based on the database type.
+:::note
+When the attribute to the right is a table attribute, the operations supported differ based on the database type.
+:::
 
 To execute update upon specific event types use the `current events`, `expired events` or the `all events` keyword with `for` as shown in the syntax. To understand more see [Event Type](#event-type).
 
-!!! note
-    Table attributes should be always referred to with the table name as `<table name>.<attibute name>`.
+:::note
+Table attributes should be always referred to with the table name as `<table name>.<attibute name>`.
+:::
 
 **Example**
 
@@ -2214,11 +2229,13 @@ The above syntax includes the following:
 |`month`               |`All`                  |`13`  month
 |`year`                |`All`                  |`none`
 
-!!! Note
-    Aggregation is carried out at calendar start times for each granularity with the GMT timezone
+:::note
+Aggregation is carried out at calendar start times for each granularity with the GMT timezone
+:::
 
-!!! Note
-    The same aggregation can be defined in multiple Stream apps for joining, however, *only one stream app should carry out the processing* (i.e. the aggregation input stream should only feed events to one aggregation definition).
+:::note
+the aggregation input stream should only feed events to one aggregation definition).
+:::
 
 **Example**
 
@@ -2263,16 +2280,17 @@ System Property| Description| Possible Values | Optional | Default Value
 shardId| The id of the shard one of the distributed aggregation is running in. This should be unique to a single shard | Any string | No | <Empty_String>
 partitionById| This allows user to enable/disable distributed aggregation for all aggregations running in one stream processing manager. | true/false | Yesio | false
 
-!!! Note
-    ShardIds should not be changed after the first configuration in order to keep data consistency.
+:::note
+ShardIds should not be changed after the first configuration in order to keep data consistency.
+:::
 
 ### Join (Aggregation)
 
 This allows a stream to retrieve calculated aggregate values from the aggregation.
 
-!!! Note
-    A join can also be performed with [two streams](#join-stream), with a [table](#join-table) and a stream, or with a stream against externally [named windows](#join-window).
-
+:::note
+A join can also be performed with [two streams](#join-stream), with a [table](#join-table) and a stream, or with a stream against externally [named windows](#join-window).
+:::
 
 **Syntax**
 
@@ -2448,8 +2466,9 @@ from TempStream;
 
 To allow a stream to retrieve information from a window based on a condition.
 
-!!! Note
-    A join can also be performed with [two streams](#join-stream), [aggregation](#join-aggregation) or with tables [tables](#join-table).
+:::note
+A join can also be performed with [two streams](#join-stream), [aggregation](#join-aggregation) or with tables [tables](#join-table).
+:::
 
 **Syntax**
 
@@ -2770,9 +2789,10 @@ on <conditional expresssion>
 
 The `condition` element specifies the basis on which records are selected to be deleted.
 
-!!! note
-    Table attributes must always be referred to with the table name as shown below: 
-     `<table name>.<attibute name>`.
+:::note
+Table attributes must always be referred to with the table name as shown below: 
+`<table name>.<attibute name>`.
+:::
 
 **Example**
 
@@ -2807,9 +2827,10 @@ The `condition` element specifies the basis on which records are selected to be 
 You can use the `set` keyword to update selected attributes from the table. Here, for each assignment, the attribute specified in the left must be the table attribute, and the one specified in the right can be a stream/table attribute a mathematical operation, or other. When the `set` clause is not provided, all the attributes in the table are updated.
 
 
-!!! note
-    Table attributes must always be referred to with the table name as shown below: 
-     `<table name>.<attibute name>`.
+:::note
+Table attributes must always be referred to with the table name as shown below: 
+`<table name>.<attibute name>`.
+:::
 
 **Example**
 
@@ -2845,9 +2866,10 @@ The `condition` element specifies the basis on which records are selected for up
 
 The `set` clause is only used when an update is performed during the insert/update operation. When `set` clause is used, the attribute to the left is always a table attribute, and the attribute to the right can be a stream/table attribute, mathematical operation or other. The attribute to the left (i.e., the attribute in the event table) is updated with the value of the attribute to the right if the given condition is met. When the `set` clause is not provided, all the attributes in the table are updated.
 
-!!! note
-    Table attributes must always be referred to with the table name as shown below: 
-     `<table name>.<attibute name>`.
+:::note
+Table attributes must always be referred to with the table name as shown below: 
+`<table name>.<attibute name>`.
+:::
 
 **Example**
 

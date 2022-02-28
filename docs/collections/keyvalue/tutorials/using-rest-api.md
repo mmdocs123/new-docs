@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Getting Started
 
 For the following examples, assume these credentials:
@@ -14,9 +17,9 @@ Your best friend when working with REST APIs is the REST API browser available i
 
 ## Connect to GDN
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     import requests
     import json
 
@@ -53,15 +56,17 @@ Your best friend when working with REST APIs is the REST API browser available i
     session = requests.session()
     session.headers.update({"content-type": 'application/json'})
     session.headers.update({"authorization": AUTH_TOKEN})
-    ```
+
+  </TabItem>
+</Tabs>  
 
 ## Create Collection
 
 Create a KV collection.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Create a collection
 
     url = FED_URL + "/_api/kv/" + COLLECTION_NAME
@@ -74,15 +79,15 @@ Create a KV collection.
         print("\nCollection Created: ", resp.text)
 
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Insert KV Pairs
 
 Insert Key Value pairs into collection.
 
-=== "Python"
-
-    ```py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     # Insert KV pairs into a collection
     data = [
@@ -113,15 +118,16 @@ Insert Key Value pairs into collection.
     resp = session.put(url, data = json.dumps(data))
     print("\nMultiple Documents Inserted: ", resp.text)
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get Value 
 
 Get value for a given key.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Get value for a key
 
     KEY = "Monika"
@@ -129,30 +135,33 @@ Get value for a given key.
     resp = session.get(url)
     print("\nDocument with specified Key is: ",resp.text)
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get Count
 
 Get size of the kv collection.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Get collection count
 
     url = FED_URL + "/_api/kv/" + COLLECTION_NAME + "/count"
     resp = session.get(url)
     print("\nNumber of kv pairs in your collection: ",resp.text)
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Update Value
 
 Update value for a given key in the collection.
 
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Update value for a key
     data =  {
         "_key": "Monika",
@@ -162,15 +171,17 @@ Update value for a given key in the collection.
     url = FED_URL + "/_api/kv/" + COLLECTION_NAME +"/value"
     resp = session.put(url, data = json.dumps(data))
     print("\nDocument Updated: ", resp.text)
-    ```
+  
+  </TabItem>
+</Tabs>  
 
 ## Delete Value
 
 Delete value for a given key.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Delete value for a Key
     url = FED_URL + "/_api/kv/" + COLLECTION_NAME +"/value/" + KEY
     resp = session.delete(url)
@@ -182,42 +193,45 @@ Delete value for a given key.
     resp = session.delete(url, data = json.dumps(data))
     print("\nDocument with specified Key Deleted: ", resp.text)
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Get Collections
 
 Get collections.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Get collections
     url = FED_URL + "/_api/kv"
     resp = session.get(url)
     print("\nCollections : ",resp.text)
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Delete Collections
 
 Delete collection.
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     # Delete collection
 
     url = FED_URL + "/_api/kv/" + COLLECTION_NAME 
     resp = session.delete(url)
     print("\nCollection Deleted: ", resp.text)
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Complete example
 
-=== "Python"
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
-    ```py
     import requests
     import json
 
@@ -353,11 +367,9 @@ Delete collection.
     resp = session.delete(url)
     print("\nCollection Deleted: ", resp.text)
 
-    ```
+  </TabItem>
+  <TabItem value="js" label="Javascript"> 
 
-=== "Javascript"
-
-    ```js 
     class APIRequest {
       _headers = {
       Accept: "application/json",
@@ -525,4 +537,5 @@ Delete collection.
       };
       
       run();
-    ```
+  </TabItem>
+</Tabs>  

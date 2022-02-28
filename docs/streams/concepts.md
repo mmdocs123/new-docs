@@ -19,9 +19,9 @@ persistent://tenant/geofabric/stream-name
 |`geofabric`          | The administrative unit of the stream, which acts as a grouping and geo-fencing mechanism for related streams. Stream configuration is performed at the geofabric level. Each tenant can have multiple geofabrics. |
 |`stream`              | The final part of the name. Stream names are freeform. |
 
-!!! note
-    Every collection within a geofabric is also a stream with same name.
-
+:::note
+Every collection within a geofabric is also a stream with same name.
+:::
 A geofabric is a geo-fenced grouping within a tenant. A tenant can create multiple geofabrics. For instance, a tenant with different applications can create a separate geofabric for each application. A geofabric allows the application to create and manage a hierarchy of streams. The stream `my-tenant/app1` is a geofabric for the application `app1` for `my-tenant`. You can create any number of `streams` under the geofabric.
 
 ## Messages
@@ -81,9 +81,9 @@ When a consumer has successfully processed a message, it needs to send an acknow
 
 Messages can be acknowledged either one by one or cumulatively. With cumulative acknowledgement, the consumer only needs to acknowledge the last message it received. All messages in the stream up to (and including) the provided message will not be re-delivered to that consumer.
 
-!!! note
-    Cumulative acknowledgement cannot be used with `shared subscription mode`, because shared mode involves multiple consumers having access to the same subscription.
-
+:::note
+Cumulative acknowledgement cannot be used with `shared subscription mode`, because shared mode involves multiple consumers having access to the same subscription.
+:::
 ### Listeners
 
 Client libraries can provide their own listener implementations for consumers. In this interface, the `received` method is called whenever a new message is received.
@@ -137,9 +137,9 @@ When a consumer subscribes to a GDN stream, by default it subscribes to one spec
 * On the basis of a [**reg**ular **ex**pression](https://en.wikipedia.org/wiki/Regular_expression) (regex), for example `persistent://tenant1/fabric1/finance-.*`
 * By explicitly defining a list of streams
 
-!!! note
-    When subscribing to multiple streams by regex, all streams must be in the same `geofabric`.
-
+:::note
+When subscribing to multiple streams by regex, all streams must be in the same `geofabric`.
+:::
 When subscribing to multiple streams, the GDN stream client will automatically make a call to the GDN API to discover the streams that match the regex pattern/list and then subscribe to all of them. If any of the streams don't currently exist, the consumer will auto-subscribe to them once the streams are created.
 
 **No ordering guarantees:**
@@ -155,12 +155,12 @@ GDN Streams is a great choice for a message queue because:
 * it was built with persistent storage in mind
 * it offers automatic load balancing across consumers for messages on a stream
 
-!!! note
-    You can use the same GDN stream to act as a real-time message bus and as a message queue if you wish (or just one or the other)
-
-!!! note
-    You can set aside some streams for real-time purposes and other streams for message queue purposes (or use specific geofabrics for either purpose if you wish).
-
+:::note
+You can use the same GDN stream to act as a real-time message bus and as a message queue if you wish (or just one or the other)
+:::
+:::note
+You can set aside some streams for real-time purposes and other streams for message queue purposes (or use specific geofabrics for either purpose if you wish).
+:::
 **Client configuration changes:**
 
 To use a stream as a message queue, you should distribute the receiver load on that topic across several consumers (the optimal number of consumers will depend on the load). 
@@ -187,9 +187,9 @@ GDN streams has two features, however, that enable you to override this default 
 * Message **retention** enables you to store messages that have been acknowledged by a consumer
 * Message **expiry** enables you to set a time to live (TTL) for messages that have not yet been acknowledged
 
-!!! note
-    All message retention and expiry is managed at the `geofabric` level.
-
+:::note
+All message retention and expiry is managed at the `geofabric` level.
+:::
 The diagram below illustrates both concepts:
 
 ![stream-retention-expiry](/img/stream-retention-expiry.png)

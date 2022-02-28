@@ -2,8 +2,9 @@
 
 Macrometa GDN can be used as the data store for apps written for AWS DynamoDB. Switch to using GDN by just changing the `connection URL`, `accessKey` and `secretKey`. You can continue using aws dynamodb sdk and cli you are familiar with.
 
-!!! note
-    Macrometa GDN provides aws dynamo db ***global tables*** as the `default` option. 
+:::note
+Macrometa GDN provides aws dynamo db ***global tables*** as the `default` option. 
+:::
 
 This enables you to deliver low-latency data access to your users no matter where they are located. GDN performs all of the necessary tasks to create identical tables in all the regions around the globe and propagate ongoing data changes to all of them.
 
@@ -15,21 +16,21 @@ Similarly GDN provides better data consistency guarantees i.e., `strong consiste
     * Login to your tenant account on https://gdn.paas.macrometa.io
     * Create an API key via GUI/REST API. Make a copy of the key.
 
-    !!! Example
+    :::tip
         Following api key is created under `demo@macrometa.io/_system` on https://gdn.paas.macrometa.io with `rw` permissions.
         ```
             demo.demok1.1a1aad0f4b000ca4d2d3bdb505298cbb9467b65526b0f79364e61e5f00000000
         ```
-
+    :::
 2. Download & Install AWS Console CLI
     * URL: https://aws.amazon.com/cli/
     * Mac OS: https://awscli.amazonaws.com/AWSCLIV2.pkg
 
-    !!! note
+    :::note
         $ aws --version
 
         aws-cli/2.0.34 Python/3.7.4 Darwin/19.5.0 botocore/2.0.0dev38
-
+    :::
 3. Configure cli using `aws configure` command.
 
     ```bash
@@ -40,10 +41,10 @@ Similarly GDN provides better data consistency guarantees i.e., `strong consiste
         Default output format [None]: 
     ```
 
-    !!! note
+    :::note
         1. For API Keys, put `apikey` as prefix. See above example.
         2. For JWT Tokens, put `bearer` as prefix.
-
+    :::
 
 ## Create Global Table
 
@@ -86,8 +87,9 @@ In this step, you create a Music ***local table*** in GDN. The table has the fol
         --tags Key=Local,Value=True
 ```
 
-!!! note
-    Local tables are allowed only if flag `dynamo_local_tables=true` for the `tenant`. 
+:::note
+Local tables are allowed only if flag `dynamo_local_tables=true` for the `tenant`. 
+:::
 
 ## List Global Tables
 
@@ -105,8 +107,9 @@ The following AWS CLI example lists available `local tables` in your GDN.
     aws dynamodb list-tables --endpoint-url https://api-gdn.macrometa.io/_api/dynamo
 ```
 
-!!! note
-    `list-tables` will return local tables when `dynamo_local_tables` flag is `true` for the tenant.
+:::note
+`list-tables` will return local tables when `dynamo_local_tables` flag is `true` for the tenant.
+:::
 
 ## Put Items
 

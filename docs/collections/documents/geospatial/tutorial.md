@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Geo Spatial Tutorial
 
 The GeoJSON functionalities in GDN are based on Google’s S2 geospatial index. We support indexing on a subset of the GeoJSON standard, as well as simple latitude-longitude pairs (Non-GeoJSON mode).
@@ -17,9 +20,8 @@ Let's assume your
 
 ## Driver download
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     pyC8 requires Python 3.5+. Python 3.6 or higher is recommended
 
@@ -37,11 +39,8 @@ Let's assume your
 
     Once the installation process is finished, you can begin developing applications in Python.
 
-    ```
-
-=== "Javascript"
-
-    ``` js
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
     With Yarn or NPM
 
@@ -60,13 +59,13 @@ Let's assume your
         npm install
         npm run dist
 
-    ```
+  </TabItem>
+</Tabs>  
 
 ## Code Sample
 
-=== "Python"
-
-    ``` py
+<Tabs groupId="operating-systems">
+  <TabItem value="py" label="Python">
 
     from c8 import C8Client
     import pprint
@@ -192,11 +191,10 @@ Let's assume your
       shopCol.truncate()
       transitCol.truncate()
       # # fabric.delete_collection(collection_name)
-    ```
 
-=== "Javascript"
+  </TabItem>
+  <TabItem value="js" label="Javascript">
 
-    ``` js
     'use strict'
 
     const jsc8 = require('jsc8');
@@ -327,4 +325,6 @@ Let's assume your
       await findData();
       await deleteData();
     })();
-    ```
+
+  </TabItem>
+</Tabs>  

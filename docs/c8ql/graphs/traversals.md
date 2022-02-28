@@ -192,13 +192,13 @@ This will search for all paths from the source `circles/A` to the vertex `circle
 
 With the second filter, we remove all paths that do not end in `G` namely all shorter ones that have not been cut out by prune. Hence the list of all paths from `A` to `G` are returned.
 
-!!! note
-    You can also prune as soon as you reach a certain collection with the following example:
-    ```js
-        FOR v, e, p IN 1..5 OUTBOUND 'circles/A' GRAPH 'traversalGraph'
-            PRUNE IS_SAME_COLLECTION('circles', v)
-            RETURN { vertices: p.vertices[*]._key, edges: p.edges[*].label }
-    ```
+:::note
+You can also prune as soon as you reach a certain collection with the following example:
+```js
+    FOR v, e, p IN 1..5 OUTBOUND 'circles/A' GRAPH 'traversalGraph'
+        PRUNE IS_SAME_COLLECTION('circles', v)
+        RETURN { vertices: p.vertices[*]._key, edges: p.edges[*].label }
+:::
 
 ### Filtering on paths
 
@@ -238,8 +238,9 @@ And of course you can combine these filters in any way you like:
 
 The query will filter all paths where the first edge has the attribute *theTruth* equal to *true*, the first vertex is "G" and the second edge has the attribute *theFalse* equal to *false*. The resulting paths will be up to 5 items long.
 
-!!! note
-    Although we have defined a *min* of 1, we will only get results of depth 2. This is because for all results in depth 1 the second edge does not exist and hence cannot fulfill the condition here.
+:::note
+Although we have defined a *min* of 1, we will only get results of depth 2. This is because for all results in depth 1 the second edge does not exist and hence cannot fulfill the condition here.
+:::
 
 #### Filter on the entire path
 
@@ -373,8 +374,9 @@ Results:
 
 As we can see all vertices behind **G** are skipped in both queries. The first filters on the vertex `_key`, the second on an edge label.
 
-!!! note
-    As soon as a filter is not fulfilled for any of the three elements `v`, `e` or `p`, the complete set of these will be excluded from the result.
+:::note
+As soon as a filter is not fulfilled for any of the three elements `v`, `e` or `p`, the complete set of these will be excluded from the result.
+:::
 
 We also may combine several filters, for instance to filter out the right branch (**G**), and the **E** branch:
 
@@ -451,8 +453,9 @@ The first traversal will only walk in the forward (`OUTBOUND`) direction. Theref
 
 Walking in forward and reverse direction (`ANY`) we can see a more diverse result. First of all, we see the simple paths to **F** and **A**. However, these vertices have edges in other directions and they will be traversed.
 
-!!! note
-    The traverser may use identical edges multiple times. For instance, if it walks from **E** to **F**, it will continue to walk from **F** to **E** using the same edge once again. Due to this we will see duplicate nodes in the result.
+:::note
+The traverser may use identical edges multiple times. For instance, if it walks from **E** to **F**, it will continue to walk from **F** to **E** using the same edge once again. Due to this we will see duplicate nodes in the result.
+:::
 
 Please note that the direction can't be passed in by a bind parameter.
 

@@ -35,8 +35,9 @@ FOR u IN users
 
 This will iterate over all elements from the array *users* (note: this array consists of all documents from the collection named "users" in this case) and make the current array element available in variable *u*. *u* is not modified in this example but simply pushed into the result using the `RETURN` keyword.
 
-!!! note
-    When iterating over collection-based arrays as shown here, the order of documents is undefined unless an explicit sort order is defined using a `SORT` statement.
+:::note
+When iterating over collection-based arrays as shown here, the order of documents is undefined unless an explicit sort order is defined using a `SORT` statement.
+:::
 
 The variable introduced by `FOR` is available until the scope the `FOR` is placed in is closed.
 
