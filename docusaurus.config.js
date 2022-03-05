@@ -35,7 +35,7 @@ const redocusaurus = [
 const config = {
   title: 'Macrometa',
   tagline: 'Macrometa GDN Documentation',
-  url: 'https://macrometa.com/docs',
+  url: 'https://macrometa.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
