@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # Multiple Path Search
 
 The shortest path algorithm can only determine one shortest path.

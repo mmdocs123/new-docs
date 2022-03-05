@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+title: Introduction
+---
+
 # Introduction
 
 The C8 query language (C8QL) can be used to create, retrieve and modify data that are stored in C8 Geo distributed fast data platform.

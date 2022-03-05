@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # String functions
 
 For string processing, C8QL offers the following functions:

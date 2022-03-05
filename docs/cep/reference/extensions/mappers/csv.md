@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # CSV
 
 This is an extension that converts messages with CSV format to/from stream processor events.

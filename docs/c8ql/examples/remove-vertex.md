@@ -1,3 +1,7 @@
+---
+sidebar_position: 11
+---
+
 # Remove Vertex
 
 Deleting vertices with associated edges is currently not handled via C8QL while the [graph management interface](../graphs-general-graphs-management#remove-a-vertex) and the REST API offer a vertex deletion functionality.

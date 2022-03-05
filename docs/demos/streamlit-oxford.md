@@ -1,3 +1,7 @@
+---
+sidebar_position: 11
+---
+
 # Global Cities Explorer
 
 This is application gives a snapshot of Oxford's Global Cities Forecasts Service, providing an insight into global cities GDP, population, employment and household income. The Global Cities Forecasts and other data services can be found on the [Global Data Workstation](https://www.oxfordeconomics.com/global-data-workstation-2.0).

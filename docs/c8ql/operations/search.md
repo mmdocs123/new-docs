@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # SEARCH
 
 The `SEARCH` keyword starts the language construct to filter Views of type Search. Conceptually, a View is just another document data source, similar to an array or a document/edge collection, over which you can iterate using a [FOR operation](for.md) in C8QL:

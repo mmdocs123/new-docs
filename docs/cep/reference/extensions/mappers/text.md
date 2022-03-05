@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Text
 
 This is an extension that converts text messages to/from stream processor events.

@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Queries without Collections
 
 Following is a query that returns a string value. The result string is contained in an array because the result of every valid query is an array:

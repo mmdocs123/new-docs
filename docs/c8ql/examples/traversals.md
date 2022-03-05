@@ -1,3 +1,7 @@
+---
+sidebar_position: 14
+---
+
 # Traversals
 
 ## Finding the start vertex via a geo query

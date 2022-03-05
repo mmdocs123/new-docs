@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+title: Maps, Sets, SortedSets
+---
+
 # Maps, Sets & SortedSets
 
 The other day I came across a question about how to model popuplar Redis datatypes using Macrometa GDN. Macrometa GDN is a geo-replicated multi-model realtime database. So modelling Redis basic datatypes in Macrometa can be done easily. 

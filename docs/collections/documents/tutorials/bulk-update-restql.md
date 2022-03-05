@@ -1,3 +1,8 @@
+---
+sidebar_position: 3
+title: Bulk Update with RestQL
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

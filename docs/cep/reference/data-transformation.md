@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Transforming Data
 
 ## Math & Logical Operations

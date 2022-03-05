@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Using mmDynamo Javascript SDK with Macrometa
 
 ## Browser(Javascript) NPM

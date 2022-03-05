@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Shortest Path 
 
 ## General idea

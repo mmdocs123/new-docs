@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # Search Functions
 
 Most Search C8QL functions take an expression or attribute path expression as argument.

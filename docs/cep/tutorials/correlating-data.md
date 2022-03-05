@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # Correlating Data
 
 The stream processor can correlate data in order to detect patterns and trends in streaming data. Correlating can be done via patterns and sequences.

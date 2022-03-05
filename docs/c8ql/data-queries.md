@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Data Queries
 
 ## Data Access Queries

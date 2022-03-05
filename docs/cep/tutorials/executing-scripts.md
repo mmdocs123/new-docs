@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Executing Scripts
 
 The script provides the ability to write custom functions in other programming languages and execute them within Stream applications. The custom functions using scripts can be defined via the function definitions and accessed in queries similar to any other inbuilt functions.

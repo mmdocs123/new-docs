@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Create Stream Application
 
 ## Introduction

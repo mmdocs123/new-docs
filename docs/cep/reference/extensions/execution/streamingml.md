@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Streaming ML
 
 This extension provides streaming machine learning (clustering, classification and regression) on event streams.

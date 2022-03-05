@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Reorder
 
 This extension orders out-of-order event arrivals using algorithms such as K-Slack and alpha K-Stack.

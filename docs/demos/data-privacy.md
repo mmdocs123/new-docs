@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Data Privacy User Management Portal
 
 Macrometa User Management Portal is a fullstack `admin` and `user` portal to showcase the data privacy capabilities of GDN.

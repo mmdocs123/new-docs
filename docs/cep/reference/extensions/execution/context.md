@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Context
 
 This extension provides useful environment properties such as current region where the Stream App is running.

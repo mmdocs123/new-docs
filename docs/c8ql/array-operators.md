@@ -1,3 +1,7 @@
+---
+sidebar_position: 12
+---
+
 # Array Operators
 
 ## Array expansion

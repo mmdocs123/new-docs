@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+title: Overview
+---
+
 # Indexing
 
 This is an introduction to GDN interface for indexes in general. There are special sections for:

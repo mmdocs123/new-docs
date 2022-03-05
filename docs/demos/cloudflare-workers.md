@@ -1,3 +1,7 @@
+---
+sidebar_position: 14
+---
+
 # Working with Macrometa GDN and Cloudflare Workers
 
 This brief tutorial will show you have to authenticate to the GDN using it's REST API and Cloudflare workers. It will then create a collection! 

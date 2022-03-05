@@ -1,3 +1,8 @@
+---
+sidebar_position: 3
+title: Working with Indexes
+---
+
 # Working with Indexes
 
 ## Indexing Attributes & Sub-Attributes

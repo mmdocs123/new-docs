@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # C8QL Fundamentals
 
 |   Section    |    Description    |

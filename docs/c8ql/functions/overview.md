@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Functions
 
 C8QL supports functions to allow more complex computations. Functions can be called at any query position where an expression is allowed. The general function call syntax is:

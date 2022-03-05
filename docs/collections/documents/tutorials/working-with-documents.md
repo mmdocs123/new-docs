@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+title: Working with Documents
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

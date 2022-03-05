@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+title: Using Rest API
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

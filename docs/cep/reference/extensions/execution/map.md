@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Map
 
 This extension provides capability to generate and manipulate map (key-value) data objects.

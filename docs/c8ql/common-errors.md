@@ -1,3 +1,7 @@
+---
+sidebar_position: 13
+---
+
 # Common Errors
 
 ## Trailing semicolons in query strings

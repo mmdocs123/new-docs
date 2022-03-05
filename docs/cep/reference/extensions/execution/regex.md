@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Regex
 
 This extension provides basic RegEx execution capabilities such as `find`, `match`, etc.

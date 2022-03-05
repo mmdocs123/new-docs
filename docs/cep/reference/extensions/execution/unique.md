@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # Unique
 
 This extension retains and processes unique events based on the given parameters.

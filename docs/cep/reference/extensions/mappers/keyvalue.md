@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # KeyValue
 
 This extension converts events having Key-Value maps to/from stream proceesor events.

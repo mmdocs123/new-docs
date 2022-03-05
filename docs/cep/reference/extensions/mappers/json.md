@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # JSON
 
 This extension converts JSON messages to/from stream processor events.

@@ -1,3 +1,8 @@
+---
+sidebar_position: 3
+title: Realtime Updates
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

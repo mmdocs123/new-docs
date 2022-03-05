@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Math
 
 This extension provides useful mathematical functions such as power, round, random, cos, log, etc.

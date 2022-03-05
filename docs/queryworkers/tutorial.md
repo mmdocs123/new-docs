@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+title: Tutorials
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

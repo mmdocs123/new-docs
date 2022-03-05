@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # Projections and filters
 
 ## Returning unaltered documents

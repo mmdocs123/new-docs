@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # JSON
 
 This extension provides capability to retrieve, insert, and modify JSON elements.

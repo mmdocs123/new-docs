@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # k Shortest Paths
 
 ## General idea

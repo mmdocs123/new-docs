@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Miscellaneous functions
 
 ## Control flow functions

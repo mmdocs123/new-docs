@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Pattern & Trend Mining
 
 ## Simple Pattern

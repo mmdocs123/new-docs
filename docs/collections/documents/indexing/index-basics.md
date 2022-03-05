@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+title: Index Basics
+---
+
 # Index basics
 
 Indexes allow users to quickly access documents by using indexed attributes with their queries. While GDN automatically indexes some system attributes, you can create extra indexes on non-system attributes of documents.
