@@ -2,6 +2,8 @@
 
 The **http extension** extension receives and publishes events via HTTP and HTTPS transports, calls external services, and serves incoming requests and provide synchronous responses.
 
+export const macrometa={home: ''}
+
 ## Features
 
 * **[http (Sink)](#http-sink)**

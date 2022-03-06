@@ -663,7 +663,7 @@ It is rather a list of letters without an apparent meaning. The idea here is tha
 
 ### Importing traits
 
-Below you find the traits data. Follow the pattern shown in [Create documents](CRUD.md#create-documents) to import it:
+Below you find the traits data. Follow the pattern shown in [Create documents](c8ql-tutorial.md) to import it:
 
 - Create a document collection *Traits*
 - Assign the data to a variable in C8QL, `LET data = [ ... ]`

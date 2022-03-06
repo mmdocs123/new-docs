@@ -8,27 +8,28 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
  * @type {import('redocusaurus').PresetEntry}
  */
 const redocusaurus = [
-  'redocusaurus',
-  {
-    debug: Boolean(process.env.DEBUG || process.env.CI),
-    specs: [
-      {
-        id: 'using-spec-swagger',
-        spec: 'swagger.json',
-      },
-    ],
-    theme: {
-      /**
-       * Highlight color for docs
-       */
-      primaryColor: '#1890ff',
-      /**
-       * Options to pass to redoc
-       * @see https://github.com/redocly/redoc#redoc-options-object
-       */
-      redocOptions: { hideDownloadButton: false, disableSearch: false },
+    'redocusaurus',
+    {
+        debug: Boolean(process.env.DEBUG || process.env.CI),
+        specs: [
+            {
+                id: 'using-spec-swagger',
+                spec: 'openapi.json',
+                routePath: 'docs/api',
+            },
+        ],
+        theme: {
+            /**
+             * Highlight color for docs
+             */
+            primaryColor: '#1890ff',
+            /**
+             * Options to pass to redoc
+             * @see https://github.com/redocly/redoc#redoc-options-object
+             */
+            redocOptions: { hideDownloadButton: false, disableSearch: false },
+        },
     },
-  },
 ];
 
 /** @type {import('@docusaurus/types').Config} */

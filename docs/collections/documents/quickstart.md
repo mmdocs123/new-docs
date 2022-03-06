@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 # Quick Start with Document Store
 
 :::note
-If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../essentials/overview.md)** of Macrometa GDN.
 :::
 
 Documents in GDN are JSON objects. These objects can be nested (to any depth) and may contain lists. Each document has a unique [primary key](#document-key) which identifies it within its collection. Furthermore, each document is uniquely identified by its [document handle](#document-handle) across all collections. Different revisions of the same document (identified by its handle) can be distinguished by their [document revision](#document-revision). Any transaction only ever sees a single revision of a document.

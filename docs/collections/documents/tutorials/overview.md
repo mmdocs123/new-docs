@@ -16,21 +16,21 @@ Following tutorials cover various user scenarios using Macrometa GDN.
 
 ## Geo Spatial
 
-* [GeoJSON and Geo Spatial Queries](geospatial.md)
+* [GeoJSON and Geo Spatial Queries](overview.md)
 
 ## Graphs
 
-* [Working with Graphs](working-with-graphs.md)
+* [Working with Graphs](overview.md)
 * [Graph Queries](../../graphs/tutorials/graph-queries.md)
 
 ## Queries as API
 
-* [Working with RESTQL](queries-as-api.md)
+* [Working with RESTQL](overview.md)
 
 ## Global Streams
 
 * [Pub-Sub with Streams](../../../streams/tutorials/pub-sub-streams.md)
-* [Streams as Message Queues](streams-message-queues.md)
+* [Streams as Message Queues](overview.md)
 
 ## Stream Processing
 
@@ -41,8 +41,5 @@ Following tutorials cover various user scenarios using Macrometa GDN.
 * [Enriching Data](../../../cep/tutorials/enriching-data.md)
 * [Correlating Data](../../../cep/tutorials/correlating-data.md)
 * [Summarizing Data](../../../cep/tutorials/summarizing-data.md)
-<!-- * [Triggering Flows](cep/triggering-flows.md) -->
 * [Publishing Data](../../../cep/tutorials/publishing-data.md)
 * [Executing Scripts](../../../cep/tutorials/executing-scripts.md)
-
-<!-- Please refer to [Cookbook](../cookbook/overview.md) for additional examples. -->

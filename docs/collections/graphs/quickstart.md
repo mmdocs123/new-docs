@@ -67,7 +67,7 @@ Edges have a direction, with their relations `_from` and `_to` pointing from one
 * ANY: `_from` ↔ `_to`.
 
 :::note
-If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../essentials/overview.md)** of Macrometa GDN.
+If you are new to Macrometa GDN, we strongly recommend reading **[Essentials](../../essentials/overview.md)** of Macrometa GDN.
 :::
 
 ## Pre-requisite

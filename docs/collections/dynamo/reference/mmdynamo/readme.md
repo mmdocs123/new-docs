@@ -98,5 +98,5 @@
 3. [Read an Item](readAnItem.md)
 4. [Update an Item](updateAnItem.md)
 5. [Delete an Item](deleteAnItem.md)
-6. [Update Table](updateTable.md)
+6. [Update Table](../updateTable.md)
 7. [Delete a Table](deleteTable.md)

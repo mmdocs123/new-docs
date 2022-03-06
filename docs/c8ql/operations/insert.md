@@ -9,7 +9,7 @@ The `INSERT` keyword can be used to insert new documents into a collection. On a
 
 For sharded collections, the entire query and/or insert operation may not be transactional, especially if it involves different shards and/or DB-Servers.
 
-Each `INSERT` operation is restricted to a single collection, and the [collection name](../../documents/appendix/glossary.md#collection-name) must not be dynamic. Only a single `INSERT` statement per collection is allowed per C8QL query, and it cannot be followed by read or write operations that access the same collection, by traversal operations, or C8QL functions that can read documents.
+Each `INSERT` operation is restricted to a single collection, and the [collection name](insert.md) must not be dynamic. Only a single `INSERT` statement per collection is allowed per C8QL query, and it cannot be followed by read or write operations that access the same collection, by traversal operations, or C8QL functions that can read documents.
 
 The syntax for an insert operation is:
 
@@ -34,7 +34,7 @@ An insert operation can also be performed without a `FOR` loop to insert a singl
 INSERT { value: 1 } INTO numbers
 ```
 
-When inserting into an [edge collection](../../documents/appendix/glossary.md#edge-collection), it is mandatory to specify the attributes *_from* and *_to* in document:
+When inserting into an [edge collection](insert.md), it is mandatory to specify the attributes *_from* and *_to* in document:
 
 ```js
 FOR u IN users

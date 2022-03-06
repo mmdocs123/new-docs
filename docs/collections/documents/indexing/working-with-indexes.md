@@ -81,7 +81,7 @@ curl -X POST "https://api-gdn.eng.macrometa.io/_fabric/_system/_api/document/c1"
 -d "{ \"tags\": [ { \"name\": \"foobar\" }, { \"name\": \"baz\" }, { \"name\": \"quux\" } ] }"
 ```
 
-The following query will then use the array index (this does require the [array expansion operator](../../../c8ql/array-operators#array-expansion.md)):
+The following query will then use the array index (this does require the [array expansion operator](working-with-indexes.md)):
 
 ```js
 FOR doc IN posts
@@ -423,7 +423,7 @@ Fulltext C8QL functions are detailed in [Fulltext functions](../../../c8ql/funct
 
 GDN features [Google S2](http://s2geometry.io/){:target="_blank"} based geospatial index. Indexing is supported for a subset of the [**GeoJSON**](#geojson) geometry types as well as simple latitude longitude pairs.
 
-C8QL's geospatial functions and GeoJSON constructors are described in [Geo functions](../../../c8ql/functions/geo.md).
+C8QL's geospatial functions and GeoJSON constructors are described in [Geo functions](working-with-indexes.md).
 
 The geospatial index supports containment and intersection queries for various geometric 2D shapes. You should be mainly using AQL queries to perform these types of operations. The index can operate in **two different modes**, depending on if you want to use the GeoJSON data-format or not. The modes are mainly toggled by using the `geoJson` field when creating the index.
 
@@ -469,9 +469,9 @@ In case that the index was successfully created, an object with the index detail
 
 ### Indexed GeoSpatial Queries
 
-The geospatial index supports a variety of C8QL queries, which can be built with the help of the [geo utility functions](../c8ql/functions/geo.md). There are three specific geo functions that can be optimized, provided that they are used correctly: `GEO_DISTANCE, GEO_CONTAINS, GEO_INTERSECTS`. Additionally, there is a built-in support to optimize the older geo functions `DISTANCE`, `NEAR` and `WITHIN` (the last two only if they are used in their 4 argument version, without *distanceName*).
+The geospatial index supports a variety of C8QL queries, which can be built with the help of the [geo utility functions](working-with-indexes.md). There are three specific geo functions that can be optimized, provided that they are used correctly: `GEO_DISTANCE, GEO_CONTAINS, GEO_INTERSECTS`. Additionally, there is a built-in support to optimize the older geo functions `DISTANCE`, `NEAR` and `WITHIN` (the last two only if they are used in their 4 argument version, without *distanceName*).
 
-When in doubt whether your query is being properly optimized, check the [C8QL explain](../c8ql/execution-and-performance-explaining-queries.md) output to check for index usage.
+When in doubt whether your query is being properly optimized, check the [C8QL explain](working-with-indexes.md) output to check for index usage.
 
 #### Query for Results near Origin (NEAR type query)
 

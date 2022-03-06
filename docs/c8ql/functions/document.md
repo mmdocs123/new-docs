@@ -279,9 +279,9 @@ MERGE_RECURSIVE(
 
 `PARSE_IDENTIFIER(documentHandle) → parts`
 
-Parse a [document handle](../../documents/appendix/glossary.md#document-handle) and return its individual parts as separate attributes.
+Parse a [document handle](document.md) and return its individual parts as separate attributes.
 
-This function can be used to easily determine the [collection name](../../documents/appendix/glossary.md#collection-name) and key of a given document.
+This function can be used to easily determine the [collection name](document.md) and key of a given document.
 
 - **documentHandle** (string\|object): a document identifier string (e.g. *_users/1234*) or a regular document from a collection. Passing either a non-string or a non-document or a document without an *_id* attribute will result in an error.
 - returns **parts** (object): an object with the attributes `collection` and *key*

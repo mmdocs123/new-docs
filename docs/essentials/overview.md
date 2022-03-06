@@ -183,7 +183,7 @@ There are two ways to handle monetary data:
 
 **Cursors** are used to iterate over the result of queries, so that you get easily processable batches instead of one big hunk.
 
-[**Indexes**](documents/indexing/overview.md) are used to speed up searches. There are various types of indexes, such as Persistent Indexes, TTL indexes, Search indexes and geo indexes.
+[**Indexes**](../collections/documents/indexing/overview.md) are used to speed up searches. There are various types of indexes, such as Persistent Indexes, TTL indexes, Search indexes and geo indexes.
 
 ### Graph model
 

@@ -640,4 +640,4 @@ Under some circumstances, executing a query may also produce run-time errors tha
 
 - `Invalid operands for logical operations`: Will be triggered when an attempt is made to use any non-boolean values as operand(s) in logical operations. This includes unary (logical not/negation), binary (logical and, logical or), and the ternary operators
 
-Please refer to the [C8 Errors](../documents/appendix/errorcodes.md) page for a list of error codes and meanings.
+Please refer to the [C8 Errors](fundamentals.md) page for a list of error codes and meanings.
