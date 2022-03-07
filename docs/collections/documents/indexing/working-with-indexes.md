@@ -830,7 +830,7 @@ The `index-description` must contain at least a `type` attribute. Other attribut
 
 **sparse** can be `true` or `false`.
 
-For `hash`, and *`skiplist` the sparsity can be controlled, `fulltext` and `geo` are [sparse](which-index-to-use-when) by definition.
+For `hash`, and *`skiplist` the sparsity can be controlled, `fulltext` and `geo` are [sparse](which-index.md) by definition.
 
 **unique** can be `true` or `false` and is supported by `hash` or `skiplist`
 

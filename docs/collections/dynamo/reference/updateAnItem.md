@@ -81,7 +81,7 @@ Save as .html and open the file in your browser.
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>

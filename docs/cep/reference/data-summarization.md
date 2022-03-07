@@ -8,7 +8,7 @@ sidebar_position: 6
 
 This example shows aggregating events over time in a sliding manner.
 
-To aggregate events in batches, based on events, or by session, refer other the examples in Data Summarization section. For more information on [windows](../query-guide/#window) refer to [stream query guide](query-guide.md).
+To aggregate events in batches, based on events, or by session, refer other the examples in Data Summarization section. For more information on [windows](query-guide#window) refer to [stream query guide](query-guide.md).
 
 
 ```
@@ -60,7 +60,7 @@ When events are sent to `TemperatureStream` stream, following events will get em
 
 This example shows aggregating events over time in a batch (tumbling) manner.
 
-To aggregate events in a sliding manner, based on events, or by session, refer other the examples in Data Summarization section. For more information information on [windows](../query-guide/#window) refer to [stream query guide](query-guide.md).
+To aggregate events in a sliding manner, based on events, or by session, refer other the examples in Data Summarization section. For more information information on [windows](query-guide#window) refer to [stream query guide](query-guide.md).
 
 
 ```
@@ -115,7 +115,7 @@ When events are sent to `TemperatureStream` stream, following events will get em
 
 This example shows aggregating events based on event count in a sliding manner.
 
-To aggregate events in batches, based on time, or by session, refer other the examples in Data Summarization section. For more information information on [windows](../query-guide/#window) refer to [stream query guide](query-guide.md).
+To aggregate events in batches, based on time, or by session, refer other the examples in Data Summarization section. For more information information on [windows](query-guide#window) refer to [stream query guide](query-guide.md).
 
 
 ```
@@ -162,7 +162,7 @@ When events are sent to `TemperatureStream` stream, following events will get em
 
 This example shows aggregating events based on event count in a batch (tumbling) manner.
 
-To aggregate events in a sliding manner, based on time, or by session, refer other the examples in Data Summarization section. For more information information on [windows](../query-guide/#window) refer to [stream query guide](query-guide.md).
+To aggregate events in a sliding manner, based on time, or by session, refer other the examples in Data Summarization section. For more information information on [windows](query-guide#window) refer to [stream query guide](query-guide.md).
 
 ### Example
 
@@ -210,7 +210,7 @@ When events are sent to `TemperatureStream` stream, following events will get em
 
 This example shows aggregating events over continuous activity sessions in a sliding manner.
 
-To aggregate events in batches, or based on events, refer other the examples in Data Summarization section. For more information information on [windows](../query-guide/#window) refer to [stream query guide](query-guide.md).
+To aggregate events in batches, or based on events, refer other the examples in Data Summarization section. For more information information on [windows](query-guide#window) refer to [stream query guide](query-guide.md).
 
 ```
 CREATE STREAM PurchaseStream(userId string, item string, price double);
@@ -256,7 +256,7 @@ When events are sent to `PurchaseStream` stream, following events will get emitt
 
 ## Named Window
 
-This example shows defining a named window and summarizing data based on the window. This example uses `time` window as the named window, but any window can be defined and used as a name window. For more information information on [named windows](../query-guide/#named-window) refer to [stream query guide](query-guide.md).
+This example shows defining a named window and summarizing data based on the window. This example uses `time` window as the named window, but any window can be defined and used as a name window. For more information information on [named windows](query-guide#named-window) refer to [stream query guide](query-guide.md).
 
 
 ```

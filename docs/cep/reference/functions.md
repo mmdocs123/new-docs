@@ -6361,8 +6361,8 @@ EXAMPLE 1
     define stream BarStream (symbol string, price float, volume long);
 
 Above configuration will perform a default CSV output mapping, which
-will generate output as follows: Â gdn,55.6,100<OS supported line separatorn />If header is true and delimiter is "-", then the output
-will be as follows: symbol-price-volume<OS supported line separator />gdn-55.6-100<OS supported line separator />
+will generate output as follows: Â gdn,55.6,100 < OS supported line separatorn />If header is true and delimiter is "-", then the output
+will be as follows: symbol-price-volume < OS supported line separator /> gdn-55.6-100 < OS supported line separator />
 
 EXAMPLE 2
 
@@ -6373,9 +6373,9 @@ add custom place order in the @payload. The place order indicates that
 where the attribute name's value will be appear in the output message,
 The output will be produced output as follows: gdn,100,55.6 If header
 is true and delimiter is "-", then the output will be as follows:
-symbol-price-volume gdn-55.6-100<OS supported line separator />If event
-grouping is enabled, then the output is as follows: gdn-55.6-100<OS supported line separator /> gdn-55.6-100<OS supported line separator />
-gdn-55.6-100<OS supported line separator/>
+symbol-price-volume gdn-55.6-100< OS supported line separator />If event
+grouping is enabled, then the output is as follows: gdn-55.6-100< OS supported line separator /> gdn-55.6-100< OS supported line separator />
+gdn-55.6-100< OS supported line separator/>
 
 ### json (Sink Mapper)
 
@@ -8715,7 +8715,7 @@ database if it does not already exist (with three attributes named
 and `long` respectively). Then the table is joined with a stream named
 `InputStream` based on a condition. The following operations are
 included in the condition: [ AND, OR, Comparisons( < <= > >= ==
-!=), IS NULL, NOT, str:contains(Table<Column />, Stream<Attribute /> or
+!=), IS NULL, NOT, str:contains(Table< Column />, Stream< Attribute /> or
 Search.String)]
 
 EXAMPLE 3
@@ -8735,7 +8735,7 @@ database if it does not already exist (with three attributes named
 and `long` respectively). Then the table is joined with a stream named
 `InputStream` based on a condition. The following operations are
 included in the condition: [ AND, OR, Comparisons( < <= > >= ==
-!=), IS NULL, NOT, str:contains(Table<Column />, Stream<Attribute /> or
+!=), IS NULL, NOT, str:contains(Table< Column />, Stream< Attribute /> or
 Search.String)]
 
 ### redis (Store)

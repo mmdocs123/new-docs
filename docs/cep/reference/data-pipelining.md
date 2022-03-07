@@ -8,7 +8,7 @@ sidebar_position: 8
 
 This example shows joining two stream based on a condition.
 
-For more information on other [join operations](../query-guide/#join-stream) refer the [stream query guide](query-guide.md).
+For more information on other [join operations](query-guide#join-stream) refer the [stream query guide](query-guide.md).
 
 
 ```
@@ -56,7 +56,7 @@ When events are sent to `TemperatureStream` stream and `HumidityStream` stream, 
 This example shows partitioning events by attribute values.
 
 For more information on partitioning events based on value ranges, refer other examples under data pipelining section.
-For more information on [partition](../query-guide/#partition) refer the [stream query guide](query-guide.md).
+For more information on [partition](query-guide#partition) refer the [stream query guide](query-guide.md).
 
 
 ```

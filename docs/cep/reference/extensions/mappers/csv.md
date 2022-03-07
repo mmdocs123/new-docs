@@ -51,11 +51,11 @@ EXAMPLE 1
 
 Above configuration will perform a default CSV output mapping, which
 will generate output as follows:
-GDN,55.6,100 <OS supported lineseparator />
+GDN,55.6,100 < OS supported lineseparator />
 
 If header is true and delimiter is "-", then the output
 will be as follows:
-symbol-price-volume<OS supported line separator /> GDN-55.6-100 <OS supported line separator />
+symbol-price-volume < OS supported line separator /> GDN-55.6-100 < OS supported line separator />
 
 EXAMPLE 2
 
@@ -67,10 +67,10 @@ where the attribute name's value will be appear in the output message,
 The output will be produced output as follows:`GDN,100,55.6`
 If header is true and delimiter is "-", then the output will be as
 follows:
-symbol-price-volume GDN-55.6-100<OS supported line separator />
+symbol-price-volume GDN-55.6-100 < OS supported line separator />
 
 If event grouping is enabled, then the output is as
-follows:GDN-55.6-100<OS supported line separator />GDN-55.6-100<OS supported line separator />GDN-55.6-100<OS supported line separator />
+follows:GDN-55.6-100 < OS supported line separator />GDN-55.6-100 < OS supported line separator />GDN-55.6-100 < OS supported line separator />
 
 ## csv (Source Mapper)
 

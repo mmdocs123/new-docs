@@ -117,18 +117,18 @@ Create following file - `MoviesCreateTable.html`.
     <body>
     <input id="createTableButton" type="button" value="Create Table" onclick="createMovies();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400 + "px" , height:800 + "px" }}></textarea>
 
     </body>
     </html>
 ```
 
-    :::note
-        * You set the endpoint to indicate that you are connecting to macrometa gdn.
-        * For `accessKeyId` and `secretKey`, you can specify either Macrometa `api key` or `jwt token` of your account.
-        * In the `createMovie`s function, you specify the table name, primary key attributes, and its data types.
-        * The ProvisionedThroughput parameter is ignored.
-    :::
+:::note
+* You set the endpoint to indicate that you are connecting to macrometa gdn.
+* For `accessKeyId` and `secretKey`, you can specify either Macrometa `api key` or `jwt token` of your account.
+* In the `createMovie`s function, you specify the table name, primary key attributes, and its data types.
+* The ProvisionedThroughput parameter is ignored.
+:::
 
 Open the `MoviesCreateTable.html` file in your browser and choose `Create Table`.
 
@@ -276,7 +276,7 @@ The following is an example of movie data:
     <body>
     <input type="file" id="fileinput" accept='application/json'/>
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     <script>
         document.getElementById('fileinput').addEventListener('change', processFile, false);
@@ -358,7 +358,7 @@ Copy the following program and paste it into a file named `MoviesItemOps01.html`
     <body>
     <input id="createItem" type="button" value="Create Item" onclick="createItem();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -423,7 +423,7 @@ Copy the following program and paste it into a file named `MoviesItemOps02.html`
     <body>
     <input id="readItem" type="button" value="Read Item" onclick="readItem();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -541,7 +541,7 @@ Copy the following program and paste it into a file named `MoviesItemOps03.html`
     <body>
     <input id="updateItem" type="button" value="Update Item" onclick="updateItem();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -632,7 +632,7 @@ Copy the following program and paste it into a file named `MoviesItemOps04.html`
     <body>
     <input id="increaseRating" type="button" value="Increase Rating" onclick="increaseRating();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -721,7 +721,7 @@ Copy the following program and paste it into a file named `MoviesItemOps05.html`
         <body>
         <input id="conditionalUpdate" type="button" value="Conditional Update" onclick="conditionalUpdate();" />
         <br><br>
-        <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+        <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
     
         </body>
         </html> 
@@ -824,7 +824,7 @@ Copy the following program and paste it into a file named `MoviesItemOps06.html`
             <body>
             <input id="conditionalDelete" type="button" value="Conditional Delete" onclick="conditionalDelete();" />
             <br><br>
-            <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+            <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
         
             </body>
             </html> 
@@ -939,7 +939,7 @@ Copy the following program and paste it into a file named `MoviesQuery01.html`.
     <body>
     <input id="queryData" type="button" value="Query" onclick="queryData();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -1015,7 +1015,7 @@ Copy the following program and paste it into a file named `MoviesQuery02.html`
     <body>
     <input id="queryData" type="button" value="Query" onclick="queryData();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -1110,7 +1110,7 @@ Copy the following program and paste it into a file named `MoviesScan.html`.
     <body>
     <input id="scanData" type="button" value="Scan" onclick="scanData();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 
@@ -1167,7 +1167,7 @@ To delete the Movies table, copy the following program and paste it into a file 
     <body>
     <input id="deleteTableButton" type="button" value="Delete Table" onclick="deleteMovies();" />
     <br><br>
-    <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+    <textarea readonly id= "textarea" style={{ width:400px; height:800px }}></textarea>
 
     </body>
     </html> 

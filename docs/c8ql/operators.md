@@ -259,11 +259,11 @@ will produce the following result:
 
 Using the range operator is equivalent to writing an array with the integer values in the range specified by the bounds of the range. If the bounds of the range operator are non-integers, they will be converted to integer values first.
 
-There is also a [RANGE() function](../functions/numeric/#range).
+There is also a [RANGE() function](./functions/numeric#range).
 
 ## Array operators
 
-C8QL provides array operators `[*]` for [array variable expansion](../advanced-features/array-operators/#array-expansion) and `[**]` for [array contraction](../advanced-features/array-operators/#array-contraction).
+C8QL provides array operators `[*]` for [array variable expansion](./array-operators#array-expansion) and `[**]` for [array contraction](./array-operators#array-contraction).
 
 ## Operator precedence
 

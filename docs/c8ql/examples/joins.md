@@ -382,7 +382,7 @@ written.save("authors/2938210813", "books/2980088317", { pages: "11-20" })
 }
 ```
 
-In order to get all books with their authors you can use a [graph traversal](../graphs-traversals#working-with-collection-sets)
+In order to get all books with their authors you can use a [graph traversal](../graphs/traversals#working-with-collection-sets)
 
 ```js
 FOR b IN books

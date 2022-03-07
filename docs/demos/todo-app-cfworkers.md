@@ -59,7 +59,7 @@ Macrometa does not run on CloudFLare PoPs - it runs in datacenters and PoPs with
         Macrometa Javascript Driver (jsC8) is already added to this demo. You can view `package.json` to list all other dependencies. If you want to install jsC8 manually then run `npm install --save jsc8`.
     :::
     
-5. [Configure]((https://developers.cloudflare.com/workers/tooling/wrangler/commands/#config)) your global Cloudflare user. This is an interactive command that will prompt you for your API token.
+5. [Configure](https://developers.cloudflare.com/workers/tooling/wrangler/commands#config) your global Cloudflare user. This is an interactive command that will prompt you for your API token.
 
     ```bash
     wrangler config [--api-key]

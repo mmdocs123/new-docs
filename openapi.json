@@ -24,7 +24,7 @@
         "operationId": "ValidateApiKey",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/apikey_validate"
               }
@@ -89,7 +89,7 @@
         "operationId": "CreateApiKey",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/apikey_create"
               }
@@ -154,6 +154,10 @@
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
             "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
+            "content": {}
           }
         }
       },
@@ -191,6 +195,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         }
@@ -240,6 +248,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         }
@@ -292,6 +304,10 @@
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
             "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
+            "content": {}
           }
         }
       },
@@ -327,7 +343,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_database"
               }
@@ -350,6 +366,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         },
@@ -392,6 +412,10 @@
           },
           "400": {
             "description": "Returned if the JSON representation is malformed or mandatory data is missing\nfrom the request.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         }
@@ -452,6 +476,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         }
@@ -514,6 +542,10 @@
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
             "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
+            "content": {}
           }
         }
       },
@@ -560,7 +592,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_collection"
               }
@@ -583,6 +615,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         },
@@ -635,6 +671,10 @@
           },
           "400": {
             "description": "Returned if there is an error.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         }
@@ -695,6 +735,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         }
@@ -803,7 +847,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_database"
               }
@@ -826,6 +870,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         },
@@ -879,6 +927,10 @@
           "400": {
             "description": "Returned if the JSON representation is malformed or mandatory data is missing\nfrom the request.\n\n",
             "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
+            "content": {}
           }
         }
       }
@@ -919,6 +971,10 @@
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
             "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
+            "content": {}
           }
         }
       },
@@ -943,7 +999,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_database"
               }
@@ -966,6 +1022,10 @@
           },
           "403": {
             "description": "Returned if you have *No access* server access level.\n\n",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
             "content": {}
           }
         },
@@ -998,6 +1058,10 @@
           "400": {
             "description": "Returned if the JSON representation is malformed or mandatory data is missing\nfrom the request.\n\n",
             "content": {}
+          },
+          "404": {
+            "description": "Returned if invalid api key provided.\n\n",
+            "content": {}
           }
         }
       }
@@ -1011,7 +1075,7 @@
         "description": "\n\nObtain a JWT Authentication for a user. After obtaining the token, REST API\ncalls may be invoked by passing the obtained token in the REST header.\nEither email or both tenant and username must be specified.\nAdd the following to your header when you make REST calls:\n*\"Authorization: bearer TOKEN\"*\n\n\nA JSON object with these properties is required:\n\n  - **username**: The name of the user for whom we want the auth token.\n  - **password**: The user password as a string. \n  - **email**: The email of the user for whom we want the auth token.\n  - **tenant**: The name of the tenant for whose user we want the auth token.\n\n",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/auth_token"
               }
@@ -1022,6 +1086,14 @@
         "responses": {
           "200": {
             "description": "Returned if the call succeeded.\n\n\n",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if a user is not authorized to execute the request.\n\n",
+            "content": {}
+          },
+          "429": {
+            "description": "Returned if the request count from this IP exceeds the rate limit.\n\n",
             "content": {}
           }
         },
@@ -1131,7 +1203,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/keys_array"
                 }
@@ -1168,6 +1240,10 @@
         "responses": {
           "200": {
             "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "NOT FOUND",
             "content": {}
           }
         }
@@ -1213,18 +1289,56 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/key_value"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/key_value_response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/key_value_response_error"
+                }
+              }
+            }
           },
           "409": {
             "description": "Duplicate name.\n\n",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/key_value_response_error"
+                }
+              }
+            }
           },
           "429": {
             "description": "Too many collections.\n\n",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/key_value_response_error"
+                }
+              }
+            }
           }
         }
       },
@@ -1423,7 +1537,7 @@
         "requestBody": {
           "description": "An optional JSON array of strings (keys).\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/keys_array"
               }
@@ -1434,11 +1548,37 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "boolean",
+                      "description": "Flag if there is an error in response. Returns true in case of success. False in case of failure.",
+                      "default": "false"
+                    },
+                    "code": {
+                      "type": "integer",
+                      "description": "The response code for the error."
+                    },
+                    "result": {
+                      "type": "Array of strings",
+                      "description": "An array of collection values. If there are no results, the array is returned as empty."
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "NOT_FOUND",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/key_value_response_error"
+                }
+              }
+            }
           }
         },
         "x-codegen-request-body-name": "Json Body"
@@ -1475,7 +1615,7 @@
         "requestBody": {
           "description": "A JSON array of strings (keys).\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/keys_array"
               }
@@ -1529,7 +1669,7 @@
         "requestBody": {
           "description": "A JSON representation of a single document or of an array of documents.\n\nFields:\n* \"_key\" - if it is not set, it will be generated by the system\n* \"value\" - string or json object. Mandatory\n* \"expireAt\" - unix timestamp, indicating when the value will expire (-1 means no expiration)\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/key_value_array"
               }
@@ -1603,7 +1743,7 @@
         "requestBody": {
           "description": "The body depends on the action.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object",
                 "additionalProperties": {
@@ -1686,7 +1826,7 @@
         "requestBody": {
           "description": "A JSON representation of an array of documents.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -1791,7 +1931,7 @@
         "requestBody": {
           "description": "A JSON representation of a single document or of an array of documents.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -1874,7 +2014,7 @@
         "requestBody": {
           "description": "An array of keys or documents.\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1979,7 +2119,7 @@
         "requestBody": {
           "description": "A JSON representation of an array of document updates as objects.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -2171,7 +2311,7 @@
         "requestBody": {
           "description": "A JSON representation of a single document.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -2468,7 +2608,7 @@
         "requestBody": {
           "description": "A JSON representation of a document update as an object.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -2560,7 +2700,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_collection"
               }
@@ -2790,7 +2930,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_cursor"
               }
@@ -2944,7 +3084,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_query_properties"
               }
@@ -2988,7 +3128,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_explain"
               }
@@ -3036,7 +3176,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_queries_create_user_queries"
               }
@@ -3091,7 +3231,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_queries_execute_saved_queries"
               }
@@ -3227,7 +3367,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_queries_update_user_queries"
               }
@@ -3361,7 +3501,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_index_fulltext"
               }
@@ -3418,7 +3558,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -3479,7 +3619,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_index_geo"
               }
@@ -3536,7 +3676,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_index_hash"
               }
@@ -3597,7 +3737,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_index_persistent"
               }
@@ -3658,7 +3798,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_index_skiplist"
               }
@@ -3719,7 +3859,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_index_ttl"
               }
@@ -3879,7 +4019,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_transaction"
               }
@@ -3933,7 +4073,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_transaction_begin"
               }
@@ -4160,7 +4300,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/graph_create_http_examples"
               }
@@ -4445,7 +4585,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/graph_edge_definition_add_http_examples"
               }
@@ -4565,7 +4705,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/graph_edge_definition_modify_http_examples"
               }
@@ -4682,7 +4822,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/graph_edge_create_http_examples"
               }
@@ -5066,7 +5206,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/graph_edge_replace_http_examples"
               }
@@ -5345,7 +5485,7 @@
         "requestBody": {
           "description": "The body has to contain a JSON object containing exactly the attributes that should be overwritten, all other attributes remain unchanged.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -5611,7 +5751,7 @@
         "requestBody": {
           "description": "The body has to be the JSON object to be stored.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -5997,7 +6137,7 @@
         "requestBody": {
           "description": "The body has to be the JSON object to be stored.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -6278,7 +6418,7 @@
         "requestBody": {
           "description": "The body has to contain a JSON object containing exactly the attributes that should be overwritten, all other attributes remain unchanged.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -6434,7 +6574,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/graph_traversal"
               }
@@ -6678,7 +6818,7 @@
         "requestBody": {
           "description": "Name of the message.\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "string"
               }
@@ -7829,7 +7969,7 @@
         "requestBody": {
           "description": "Collection in which to search.\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "required": [
                   "collection",
@@ -8049,7 +8189,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/post_api_view_props"
               }
@@ -8091,7 +8231,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/post_api_view_props"
               }
@@ -8135,7 +8275,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/rename_view"
               }
@@ -8182,7 +8322,7 @@
         "operationId": "createView",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/post_api_view_iresearch"
               }
@@ -8229,7 +8369,7 @@
         "operationId": "RestAnalyzerHandler:Create",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/post_api_analyzer"
               }
@@ -8374,7 +8514,7 @@
         "operationId": "CreateGeo-fabric",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/create_database"
               }
@@ -8547,7 +8687,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_create"
               }
@@ -8699,7 +8839,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_replace"
               }
@@ -8812,7 +8952,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_modify"
               }
@@ -9008,7 +9148,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_database"
               }
@@ -9285,7 +9425,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_collection"
               }
@@ -9572,7 +9712,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_database"
               }
@@ -9745,7 +9885,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/user_grant_database"
               }
@@ -9840,7 +9980,7 @@
         "operationId": "CreatePlan(requiresSuperuserPrivileges)",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/plan_create"
               }
@@ -9852,7 +9992,7 @@
           "201": {
             "description": "Returned if the plan can be added by the server.\n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/plan_create"
                 }
@@ -9903,7 +10043,7 @@
           "200": {
             "description": "The details for the given plan. \n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/plan_create"
                 }
@@ -9979,7 +10119,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/plan_create"
               }
@@ -9991,7 +10131,7 @@
           "200": {
             "description": "Returned if the plan data can be replaced by the server.\n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/plan_create"
                 }
@@ -10028,7 +10168,7 @@
         "operationId": "UpgradeTenantPlan",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/update_tenant_plan"
               }
@@ -10040,7 +10180,7 @@
           "200": {
             "description": "Returned if the plan is upgraded successfully.\n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/tenant_upgrade_plan_example_rc_200"
                 }
@@ -10073,7 +10213,7 @@
         "operationId": "DowngradeTenantPlan",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/update_tenant_plan"
               }
@@ -10085,7 +10225,7 @@
           "200": {
             "description": "Returned if the plan is downgraded successfully.\n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/tenant_upgrade_plan_example_rc_200"
                 }
@@ -10132,7 +10272,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10142,7 +10282,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10152,7 +10292,7 @@
           "502": {
             "description": "Returned if an error related to retreiving customer was encountered.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10184,7 +10324,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Contact_Update"
               }
@@ -10196,7 +10336,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10206,7 +10346,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format or validation errors.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10216,7 +10356,7 @@
           "500": {
             "description": "Returned if the request failed due to internal server error.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10251,7 +10391,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10261,7 +10401,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10271,7 +10411,7 @@
           "500": {
             "description": "Returned if any internal server error.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10281,7 +10421,7 @@
           "502": {
             "description": "Returned if an error related to retreiving customer was encountered.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10311,7 +10451,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Payment_Update"
               }
@@ -10323,7 +10463,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10333,7 +10473,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format or validation errors.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10343,7 +10483,7 @@
           "500": {
             "description": "Returned if the request failed due to internal server error.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10387,7 +10527,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10397,7 +10537,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10407,7 +10547,7 @@
           "502": {
             "description": "Returned if an error related to retreiving invoice was encountered.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10450,7 +10590,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10460,7 +10600,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10470,7 +10610,7 @@
           "502": {
             "description": "Returned if an error related to retreiving invoice was encountered. ",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10504,7 +10644,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10514,7 +10654,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10524,7 +10664,7 @@
           "502": {
             "description": "Returned if an error related to retreiving invoice was encountered.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10578,7 +10718,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10588,7 +10728,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10598,7 +10738,7 @@
           "502": {
             "description": "Returned if an error related to retreiving invoice was encountered.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10632,7 +10772,7 @@
           "200": {
             "description": "Success.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10642,7 +10782,7 @@
           "400": {
             "description": "Returned if the request doesn't have the expected format.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10652,7 +10792,7 @@
           "502": {
             "description": "Returned if an error related to retreiving invoice was encountered.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Response"
                 }
@@ -10695,7 +10835,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_export"
               }
@@ -10757,7 +10897,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/api_import"
               }
@@ -10950,7 +11090,7 @@
         "operationId": "CreateTenant(requiresSuperuserPrivileges)",
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/tenant_create"
               }
@@ -11007,7 +11147,7 @@
           "200": {
             "description": "The details for the given tenant. \n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/get_tenant_example_rc_200"
                 }
@@ -11084,7 +11224,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/tenant_modify"
               }
@@ -11096,7 +11236,7 @@
           "200": {
             "description": "Returned, if the tenant data is successfully updated by the server.\n\n",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/tenant_modify_example_rc_200"
                 }
@@ -11135,7 +11275,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11158,7 +11298,7 @@
         "requestBody": {
           "description": "The new default values.",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/set_default_limits_value"
               }
@@ -11170,7 +11310,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11199,7 +11339,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11222,7 +11362,7 @@
         "requestBody": {
           "description": "The new default values.",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/set_default_limits_value"
               }
@@ -11234,7 +11374,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11265,7 +11405,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11301,7 +11441,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11343,7 +11483,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11378,7 +11518,7 @@
         "requestBody": {
           "description": "The new default values.",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/tenant_limits_value"
               }
@@ -11390,7 +11530,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11431,7 +11571,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11466,7 +11606,7 @@
         "requestBody": {
           "description": "The new default values.",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/tenant_limits_value"
               }
@@ -11478,7 +11618,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "type": "object"
                 }
@@ -11521,7 +11661,7 @@
           "200": {
             "description": "List of features with avaialbility flag.",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/features_list_with_availability_flag_example"
                 }
@@ -11557,7 +11697,7 @@
         "requestBody": {
           "description": "The features to update (each value must be either true or false).\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/features_list_with_availability_flag_example"
               }
@@ -11599,7 +11739,7 @@
         "requestBody": {
           "description": "The features to update (each value must be either true or false).\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/features_list_with_availability_flag_example"
               }
@@ -11992,7 +12132,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/event_create"
               }
@@ -12035,7 +12175,7 @@
         "requestBody": {
           "description": "A JSON array of strings (event _ids).\n\n",
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "type": "object"
               }
@@ -12108,7 +12248,7 @@
         ],
         "requestBody": {
           "content": {
-            "*/*": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/post_metrics_query"
               }
@@ -12627,6 +12767,57 @@
           "expireAt": {
             "type": "integer",
             "description": "Expiry time in UTC timestamp format."
+          }
+        }
+      },
+      "key_value_response": {
+        "required": [
+          "error",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "boolean",
+            "description": "Flag if there is an error in response. Returns true in case of success. False in case of failure.",
+            "default": false
+          },
+          "code": {
+            "type": "integer",
+            "description": "The response code for the error."
+          },
+          "name": {
+            "type": "string",
+            "description": "It shows name of the collection."
+          }
+        }
+      },
+      "key_value_response_error": {
+        "required": [
+          "error",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "boolean",
+            "description": "Flag if there is an error in response. Returns true in case of success. False in case of failure."
+          },
+          "code": {
+            "type": "integer",
+            "description": "The response code for the error."
+          },
+          "name": {
+            "type": "string",
+            "description": "It shows name of the collection."
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "A message created for this error."
+          },
+          "errorNum": {
+            "type": "integer",
+            "description": "Error number returned from the database."
           }
         }
       },

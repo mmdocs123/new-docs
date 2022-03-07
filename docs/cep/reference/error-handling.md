@@ -11,7 +11,7 @@ Errors in stream apps can be handled at the Streams and in the Sinks. This examp
 There can be cases where external systems becoming unavailable or coursing errors when the events are published to them.
 By default sinks log and drop the events causing event losses, and this can be handled gracefully by adding `OnError.action="<action>",` to the `WITH()` property for creating a sink.
 
-Refer to the [stream query guide](../query-guide/#error-handling) for more information.
+Refer to the [stream query guide](query-guide#error-handling) for more information.
 
 In the following example, we attempt to publish abnormal Glucose reading events to an unavailable HTTP endpoint, and the error is recorded to the logs.
 

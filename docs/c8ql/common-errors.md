@@ -13,7 +13,7 @@ of an C8QL query string.
 
 ## String concatenation
 
-In C8QL, strings must be concatenated using the [CONCAT()](../functions/string#concat) function. Joining them together with the `+` operator is not supported. Especially as JavaScript programmer it is easy to walk into this trap:
+In C8QL, strings must be concatenated using the [CONCAT()](./functions/string#concat) function. Joining them together with the `+` operator is not supported. Especially as JavaScript programmer it is easy to walk into this trap:
 
 ```js
 RETURN "foo" + "bar" // [ 0 ]

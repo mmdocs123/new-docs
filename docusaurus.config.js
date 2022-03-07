@@ -15,7 +15,7 @@ const redocusaurus = [
             {
                 id: 'using-spec-swagger',
                 spec: 'openapi.json',
-                routePath: 'docs/api',
+                routePath: '/api',
             },
         ],
         theme: {
@@ -38,7 +38,7 @@ const config = {
   tagline: 'Macrometa GDN Documentation',
   url: 'https://macrometa.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'Macrometacorp', // Usually your GitHub org/user name.
@@ -83,6 +83,11 @@ const config = {
             href: 'https://github.com/macrometacorp/documentation',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            position: 'left',
+            label: 'API',
+            href: '/api'
           },
         ],
       },

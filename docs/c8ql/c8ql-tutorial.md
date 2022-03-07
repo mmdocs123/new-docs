@@ -60,7 +60,7 @@ INSERT {
 } INTO Characters
 ```
 
-The syntax is `INSERT document INTO collectionName`. The document is an object like you may know it from JavaScript or JSON, which is comprised of attribute key and value pairs. The quotes around the attribute keys are optional in C8QL. Keys are always character sequences (strings), whereas attribute values can have [different types](../../references/fundamentals#data-types):
+The syntax is `INSERT document INTO collectionName`. The document is an object like you may know it from JavaScript or JSON, which is comprised of attribute key and value pairs. The quotes around the attribute keys are optional in C8QL. Keys are always character sequences (strings), whereas attribute values can have [different types](fundamentals#data-types):
 
 - null
 - boolean (true, false)
@@ -242,7 +242,7 @@ RETURN DOCUMENT(["Characters/2861650", "Characters/2861653"])
 ]
 ```
 
-See the [`DOCUMENT()`](../../functions/miscellaneous#document) documentation for more details.
+See the [`DOCUMENT()`](./functions/miscellaneous#document) documentation for more details.
 
 ### Update documents
 
@@ -396,7 +396,7 @@ FOR c IN Characters
 ]
 ```
 
-You may notice that it returns name and age of 30 characters, most with an age of `null`. The reason for this is, that `null` is the fallback value if an attribute is requested by the query, but no such attribute exists in the document, and the `null` is compares to numbers as lower (see [Type and value order](../../fundamentals#type-value-order)). Hence, it accidentally fulfills the age criterion `c.age < 13` (`null < 13`).
+You may notice that it returns name and age of 30 characters, most with an age of `null`. The reason for this is, that `null` is the fallback value if an attribute is requested by the query, but no such attribute exists in the document, and the `null` is compares to numbers as lower (see [Type and value order](fundamentals#type-value-order)). Hence, it accidentally fulfills the age criterion `c.age < 13` (`null < 13`).
 
 ### Multiple conditions
 
@@ -712,7 +712,7 @@ FOR c IN Characters
 ]
 ```
 
-Also see the [Fundamentals of Objects / Documents](../../fundamentals#objects-documents) about attribute access.
+Also see the [Fundamentals of Objects / Documents](fundamentals#objects-documents) about attribute access.
 
 We can use the *traits* array together with the `DOCUMENT()` function to use the elements as document keys and look up them up in the *Traits* collection:
 
@@ -1103,7 +1103,7 @@ If we had deeper family trees, it would only be a matter of changing the depth v
 
 ## Geospatial queries
 
-Geospatial coordinates consisting of a latitude and longitude value can be stored either as two separate attributes, or as a single attribute in the form of an array with both numeric values. C8 can [index such coordinates](../../Manual/Indexing/Geo.html) for fast geospatial queries.
+Geospatial coordinates consisting of a latitude and longitude value can be stored either as two separate attributes, or as a single attribute in the form of an array with both numeric values. C8 can [index such coordinates](./functions/geo.md) for fast geospatial queries.
 
 ### Locations data
 

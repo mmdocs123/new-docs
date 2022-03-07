@@ -10,7 +10,7 @@ Provides introduction to basic Stream app attribute types which are `int`, `long
 
 In Stream apps, other types such as list, map, etc, should be passed as `object` into streams. For more information on other types refer other examples under Values and Types section.
 
-For information on [values](../query-guide/#value), and other useful [functions](../query-guide#function), refer the [stream query guide](query-guide.md).
+For information on [values](query-guide#value), and other useful [functions](query-guide#function), refer the [stream query guide](query-guide.md).
 
 ### Example
 

@@ -178,7 +178,7 @@ sidebar_position: 5
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -256,7 +256,7 @@ sidebar_position: 5
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -339,7 +339,7 @@ sidebar_position: 5
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -436,7 +436,7 @@ const client = new DynamoDB({
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -532,7 +532,7 @@ function queryData() {
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -640,7 +640,7 @@ function scanData() {
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -720,7 +720,7 @@ function scanData() {
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
@@ -795,7 +795,7 @@ function scanData() {
     <textarea
       readonly
       id="textarea"
-      style="width:400px; height:800px"
+      style={{ width:400px; height:800px }}
     ></textarea>
   </body>
 </html>
