@@ -416,11 +416,9 @@ Copy the following program and paste it into a file named `MoviesItemOps03.js`.
             "year": year,
             "title": title
         },
-        UpdateExpression: "set info.rating = :r, info.plot=:p, info.actors=:a",
+        UpdateExpression: "set info = :rpa",
         ExpressionAttributeValues:{
-            ":r":5.5,
-            ":p":"Everything happens all at once.",
-            ":a":["Larry", "Moe", "Curly"]
+            ":rpa": {actors: ["Larry", "Moe", "Curly"], rating: 5.5, plot: "Everything happens all at once."}
         },
         ReturnValues:"UPDATED_NEW"
     };

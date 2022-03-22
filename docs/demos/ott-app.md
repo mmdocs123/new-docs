@@ -1,4 +1,8 @@
-# Macrometa MetaFlix
+---
+sidebar_position: 3
+---
+
+# Macrometa OTT App
 
 A geo-distributed Netflix clone running at the edge with low latency providing superior experience to users.
 
