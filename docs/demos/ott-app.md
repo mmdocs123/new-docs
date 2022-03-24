@@ -25,7 +25,7 @@ A geo-distributed Netflix clone running at the edge with low latency providing s
 
 * Create the following collections in your GDN account:
 
-```
+```js
 assets (global)
 genres (global)
 credits (global)
